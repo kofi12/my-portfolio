@@ -16,7 +16,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "AKHAIZEL",
+  title: "akhaizel",
   description: "Site by Aaron Haizel",
 };
 
