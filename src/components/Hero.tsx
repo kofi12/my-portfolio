@@ -5,8 +5,8 @@ import Headshot from '../../public/Headshot.jpeg';
 
 function Hero() {
   return (
-    <section className="flex justify-center space-x-4 h-[299px] m-10">
-        <Image className="rounded-full w-[133px] h-[200px]" src={Headshot} alt="Aaron's Headshot"/>
+    <section className="flex justify-center space-x-4 h-[400px] m-10">
+        <Image className="rounded-full w-[266px] h-[400px]" src={Headshot} alt="Aaron's Headshot"/>
         <div className="flex-col items-center my-auto">
             <h1 className="my-4">Big Hero Title Here</h1>
             <p className="my-4">Big Hero Paragraph here as well</p>
