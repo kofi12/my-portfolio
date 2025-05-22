@@ -21,7 +21,7 @@ function Hero() {
       </div>
       <div className="relative w-1/2 shadow-md rounded-md p-10">
         <Image
-          src="/hero.png"
+          src="/hero_2.png"
           alt="Modern Website Screenshot"
           width={800}
           height={700}
