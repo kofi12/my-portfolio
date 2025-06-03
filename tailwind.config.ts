@@ -15,4 +15,8 @@ export default {
     },
   },
   plugins: [],
+  fontFamily: {
+    sans: ['Inter', 'sans-serif'],
+    heading: ['Poppins', 'sans-serif']
+  },
 } satisfies Config;

@@ -5,28 +5,30 @@ import React from "react";
 
 function Hero() {
   return (
-    <section className="flex gap-4 relative mb-4">
-      <div className="flex flex-col gap-10 relative w-1/2 shadow-md rounded-md p-10">
-        <h1 className="text-slate-500 font-extrabold text-5xl uppercase">
+    <section className="flex relative mb-4 gap-4">
+      <div className="flex flex-col items-center justify-evenly relative w-1/2 rounded-md gap-5 p-3">
+        <h1 className="text-slate-500 font-extrabold text-5xl uppercase text-center">
           Turn Visitors Into Customers.
         </h1>
-        <p>
+        <p className="text-2xl text-center">
           Websites aren't just digital brochures — they're powerful tools for
           building trust, increasing sales, and unlocking new growth
           opportunities.
         </p>
         <Link href="">
-          <button>Let's Work Together</button>
+          <button className="text-lg text-slate-500 font-bold shadow-sm rounded-md hover:border-2 hover:border-slate-500 py-3 px-2">
+            Let's Work Together
+          </button>
         </Link>
       </div>
-      <div className="relative w-1/2 shadow-md rounded-md p-10">
+      <div className="relative w-1/2">
         <Image
-          src="/hero_2.png"
+          src="/hero.png"
           alt="Modern Website Screenshot"
           width={800}
           height={700}
           priority
-          className="mask-gradient object-cover rounded-md z-10"
+          className="rounded-md shadow-md"
         />
       </div>
     </section>
