@@ -15,8 +15,8 @@ function Hero() {
           building trust, increasing sales, and unlocking new growth
           opportunities.
         </p>
-        <Link href="">
-          <button className="text-lg text-slate-500 font-bold shadow-sm rounded-md hover:border-2 hover:border-slate-500 py-3 px-2">
+        <Link className="shadow-xl rounded-lg" href="">
+          <button className="text-lg text-slate-500 inset-shadow-sm font-bold rounded-lg hover:border-2 hover:border-slate-500 py-3 px-2">
             Let's Work Together
           </button>
         </Link>

@@ -1,17 +1,10 @@
 /* eslint-disable react/no-unescaped-entities */
 import React from "react";
-import Image from "next/image";
-import layer from "../../public/layer.png";
 
 function About() {
   return (
-    <section className="flex bg-slate-600 w-[100%] h-[431px]">
-      <Image
-        className="rounded-full w-[453px] h-[534px] mx-5 mt-5 z-20"
-        src={layer}
-        alt="Aaron's Headshot"
-      />
-      <p className="text-[#dee7e7] text-[32px] text-right mx-5 mt-5">
+    <section className="flex w-[100%]">
+      <p className="text-slate-500 text-2xl text-center font-bold mx-5 my-5">
         I'm a passionate freelance web developer with an eye for creating custom
         websites tailored to my clients needs. I specialize in building
         responsive, user-friendly, and visually appealing web solutions that not
