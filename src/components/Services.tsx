@@ -7,17 +7,17 @@ function Services() {
       Services
       <ServiceCard
         heading="Title"
-        icon={}
+        icon={<svg></svg>}
         description="Descriptive Paragraph"
       />
       <ServiceCard
         heading="Title"
-        icon={}
+        icon={<svg></svg>}
         description="Descriptive Paragraph"
       />
       <ServiceCard
         heading="Title"
-        icon={}
+        icon={<svg></svg>}
         description="Descriptive Paragraph"
       />
     </section>
