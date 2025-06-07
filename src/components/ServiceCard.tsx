@@ -8,7 +8,7 @@ function ServiceCard({ icon, heading, description }: ServiceCardProps) {
   return (
     <div className="rounded-md border-gray-200">
       <h2>{heading}</h2>
-      <svg>{icon}</svg>
+      <div>{icon}</div>
       <p>{description}</p>
     </div>
   );
