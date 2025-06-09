@@ -30,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`mx-20 my-5 p-5 ${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`flex flex-col gap-10 mx-20 my-5 p-5 ${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Navbar />
         <Hero />
