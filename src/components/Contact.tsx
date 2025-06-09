@@ -5,11 +5,11 @@ export default function Contact() {
     <section className="bg-gray-50 py-20 px-6 md:px-12">
       <div className="max-w-3xl mx-auto bg-white shadow-lg rounded-xl p-10">
         <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">
-          Let’s Build Something Great
+          {`Let's Build Something Great`}
         </h2>
         <p className="text-gray-600 mb-10 text-center">
-          Tell me a little about your business and what you’re looking for —
-          I’ll follow up shortly.
+          {`Tell me a little about your business and what you're looking for —
+          I'll follow up shortly.`}
         </p>
         <form className="space-y-6">
           <div className="flex flex-col md:flex-row gap-4">

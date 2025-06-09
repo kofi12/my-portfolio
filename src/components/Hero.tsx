@@ -28,7 +28,7 @@ function Hero() {
           width={800}
           height={700}
           priority
-          className="rounded-md shadow-md"
+          className="rounded-md shadow-md transition-transform duration-500 hover:scale-105"
         />
       </div>
     </section>
