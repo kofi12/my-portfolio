@@ -20,7 +20,7 @@ function Navbar() {
   return (
     <header className="flex justify-center sticky top-0 z-10">
       <nav
-        className={`mx-2 my-2 mb-5 p-2 rounded-lg flex justify-center gap-4 w-1/2 transition-all duration-200 ${
+        className={`mx-2 my-2 mb-5 p-2 rounded-lg flex gap-4 w-1/2 transition-all duration-200  justify-between px-5 ${
           scrolled
             ? "bg-gray-200 text-slate-500 bg-opacity-45 backdrop-blur-md z-10"
             : "bg-slate-500 text-white"
@@ -44,27 +44,7 @@ function Navbar() {
           }`}
           href="#"
         >
-          About
-        </Link>
-        <Link
-          className={`rounded-md px-2 py-1 transition duration-200 ease-in-out border border-transparent ${
-            scrolled
-              ? "hover:border-slate-500 hover:ring-1 hover:ring-slate-500"
-              : "hover:border-white hover:ring-1 hover:ring-white"
-          }`}
-          href="#"
-        >
-          Skills
-        </Link>
-        <Link
-          className={`rounded-md px-2 py-1 transition duration-200 ease-in-out border border-transparent ${
-            scrolled
-              ? "hover:border-slate-500 hover:ring-1 hover:ring-slate-500"
-              : "hover:border-white hover:ring-1 hover:ring-white"
-          }`}
-          href="#"
-        >
-          Contact
+          {`Let's Work Together`}
         </Link>
       </nav>
     </header>
