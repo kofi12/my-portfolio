@@ -6,7 +6,7 @@ type ServiceCardProps = {
 
 function ServiceCard({ icon, heading, description }: ServiceCardProps) {
   return (
-    <div className="rounded-md border flex flex-col items-center relative w-1/4 p-4 gap-4 transition-all duration-300 ease-in-out transform hover:translate-y-2 hover:shadow-xl">
+    <div className="rounded-md border flex flex-col items-center relative w-1/4 p-4 gap-4 transition-all duration-300 ease-in-out transform hover:translate-y-2 hover:shadow-xl hover:border-blue-400 hover:shadow-blue-200">
       <div>{icon}</div>
       <h2 className="font-heading `text-5xl text-slate-500 font-bold text-center">
         {heading}

@@ -2,12 +2,12 @@ import React from "react";
 
 export default function Contact() {
   return (
-    <section className="bg-gray-50 py-20 px-6 md:px-12">
+    <section className="py-20 px-6 md:px-12">
       <div className="max-w-3xl mx-auto bg-white shadow-lg rounded-xl p-10">
-        <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">
+        <h2 className="text-3xl font-bold text-slate-500 mb-6 text-center font-heading">
           {`Let's Build Something Great`}
         </h2>
-        <p className="text-gray-600 mb-10 text-center">
+        <p className="text-gray-600 mb-10 text-center font-para">
           {`Tell me a little about your business and what you're looking for —
           I'll follow up shortly.`}
         </p>
@@ -39,7 +39,7 @@ export default function Contact() {
 
           <button
             type="submit"
-            className="w-full bg-blue-600 text-white font-semibold py-3 rounded-md hover:bg-blue-700 transition-colors"
+            className="bg-transparent text-slate-500 border border-blue-400 shadow-xl shadow-blue-200 font-semibold py-3 px-5 rounded-md font-para"
           >
             Send Message
           </button>

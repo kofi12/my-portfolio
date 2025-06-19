@@ -8,7 +8,7 @@ function Hero() {
   return (
     <section className="flex flex-col items-center justify-evenly relative my-30 gap-20">
       <div className="flex flex-col items-center justify-evenly relative w-1/2 rounded-md gap-15 p-3">
-        <h1 className="text-slate-500 font-extrabold text-5xl uppercase text-center font-heading">
+        <h1 className="text-slate-500 font-extrabold text-5xl uppercase text-center font-heading text-shadow-sm">
           Turn Visitors Into Customers.
         </h1>
         <p className="text-2xl text-center font-para">
@@ -17,7 +17,7 @@ function Hero() {
           opportunities.
         </p>
         <Link className="shadow-xl rounded-lg" href="">
-          <button className="font-para text-lg text-slate-500 inset-shadow-sm font-bold rounded-lg hover:border-2 hover:border-slate-500 py-3 px-2">
+          <button className="font-para text-lg bg-gray-100/20 border shadow-xl shadow-blue-200 border-blue-400 text-slate-500 inset-shadow-sm font-bold rounded-lg py-3 px-2 font-para">
             Let's Work Together
           </button>
         </Link>
