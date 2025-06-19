@@ -4,25 +4,11 @@ import React from "react";
 function About() {
   return (
     <section className="bg-white py-20 px-6 md:px-12 text-center">
-      <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6">
-        If You’re Not Online, You’re Invisible
+      <h2 className="font-heading text-4xl md:text-5xl font-extrabold text-slate-500 mb-6">
+        Your website is your first impression.
       </h2>
-      <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-        Today’s customers don’t flip through phone books — they Google. They’re
-        searching online for services, reviews, and businesses that feel
-        legitimate and trustworthy. If your business doesn’t show up — or if
-        your website looks outdated — you’re already losing them to competitors
-        who made the effort.
-      </p>
-      <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mt-6 leading-relaxed">
-        Your website is your digital storefront. It’s open 24/7, it sets the
-        tone for your brand, and it often makes the first — and last —
-        impression. A modern, professional site builds credibility, captures
-        attention, and turns curious visitors into paying customers.
-      </p>
-      <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mt-6 leading-relaxed">
-        Whether you’re a local bakery or a growing service provider, having a
-        great website isn’t just nice — it’s non-negotiable.
+      <p className="font-para text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+      Today’s customers search online — not in phone books. If your business isn’t visible or looks outdated, you’re losing trust and sales to competitors. A modern website builds credibility, showcases your brand 24/7, and turns visitors into customers. In today’s market, it’s not optional — it’s essential.
       </p>
     </section>
   );

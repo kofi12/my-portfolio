@@ -4,7 +4,7 @@ import ServiceCard from "./ServiceCard";
 function Services() {
   return (
     <section className="flex flex-col gap-10">
-      <span className="text-slate-500 text-7xl text-center">Services</span>
+      <span className="text-slate-500 text-7xl text-center font-heading">Services</span>
       <div className="flex flex-wrap justify-center gap-4">
         <ServiceCard
           heading="SEO"

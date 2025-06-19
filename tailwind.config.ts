@@ -12,11 +12,13 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily: {
+        sans: ['Inter', 'sans-serif'],
+        heading: ['Poppins', 'sans-serif'],
+        jetbrains: ['var(--font-jetbrains-mono)'],
+        roboto: ['var(--font-roboto-mono)']
+      },
     },
   },
   plugins: [],
-  fontFamily: {
-    sans: ['Inter', 'sans-serif'],
-    heading: ['Poppins', 'sans-serif']
-  },
 } satisfies Config;
