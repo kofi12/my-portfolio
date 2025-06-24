@@ -17,12 +17,12 @@ function Hero() {
           opportunities.
         </p>
         <Link className="shadow-xl rounded-lg" href="">
-          <button className="font-para text-lg bg-gray-100/20 border shadow-xl shadow-blue-200 border-blue-400 text-slate-500 inset-shadow-sm font-bold rounded-lg py-3 px-2 font-para">
-            Let's Work Together
+          <button className="font-para text-lg bg-gray-100/20 border shadow-xl shadow-blue-200 border-blue-400 text-slate-500 inset-shadow-sm font-bold rounded-lg py-3 px-2">
+            Book a Free Consult
           </button>
         </Link>
       </div>
-      <div className="relative">
+      <div className="flex flex-col items-center justify-center gap-10 relative font-para font-bold italic">
         <Image
           src="/hero.png"
           alt="Modern Website Screenshot"
@@ -31,6 +31,7 @@ function Hero() {
           priority
           className="rounded-md shadow-md transition-transform duration-500 hover:scale-105"
         />
+        <h2 className="">Get a website that builds trust, drives traffic, and makes your business look as good as it is.</h2>
       </div>
     </section>
   );

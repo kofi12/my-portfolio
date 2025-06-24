@@ -8,8 +8,7 @@ export default function Contact() {
           {`Let's Build Something Great`}
         </h2>
         <p className="text-gray-600 mb-10 text-center font-para">
-          {`Tell me a little about your business and what you're looking for —
-          I'll follow up shortly.`}
+          {`Let’s bring your business online — tell me what you need and I’ll make it happen.`}
         </p>
         <form className="space-y-6">
           <div className="flex flex-col md:flex-row gap-4">
