@@ -1,38 +1,38 @@
-import type { Metadata } from "next";
-import localFont from "next/font/local";
-import { JetBrains_Mono, Roboto_Mono } from "next/font/google";
-import "./globals.css";
-import Navbar from "../components/Navbar";
-import Hero from "../components/Hero";
-import About from "../components/About";
-import Services from "../components/Services";
-import Contact from "../components/Contact";
-import Footer from "../components/Footer";
+import type { Metadata } from 'next';
+import localFont from 'next/font/local';
+import { JetBrains_Mono, Roboto_Mono } from 'next/font/google';
+import './globals.css';
+import Navbar from '../components/Navbar';
+import Hero from '../components/Hero';
+import About from '../components/About';
+import { Services } from '../components/Services';
+import Contact from '../components/Contact';
+import Footer from '../components/Footer';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 
 const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
+  src: './fonts/GeistVF.woff',
+  variable: '--font-geist-sans',
+  weight: '100 900',
 });
 const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+  src: './fonts/GeistMonoVF.woff',
+  variable: '--font-geist-mono',
+  weight: '100 900',
 });
 const jetbrains = JetBrains_Mono({
-  subsets: ["latin"],
-  variable: "--font-jetbrains-mono",
+  subsets: ['latin'],
+  variable: '--font-jetbrains-mono',
 });
 const roboto = Roboto_Mono({
-  subsets: ["latin"],
-  variable: "--font-roboto-mono",
+  subsets: ['latin'],
+  variable: '--font-roboto-mono',
 });
 
 export const metadata: Metadata = {
-  title: "akhaizel",
-  description: "Site by Aaron Haizel",
+  title: 'akhaizel',
+  description: 'Site by Aaron Haizel',
 };
 
 export default function RootLayout({
