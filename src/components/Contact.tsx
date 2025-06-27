@@ -2,16 +2,16 @@ import React from "react";
 
 export default function Contact() {
   return (
-    <section className="py-10 px-4 sm:py-16 sm:px-6 md:py-20 md:px-12">
-      <div className="max-w-lg sm:max-w-xl md:max-w-3xl mx-auto bg-white shadow-lg rounded-xl p-4 sm:p-8 md:p-10">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-500 mb-4 sm:mb-6 text-center font-heading">
+    <section className="py-10 px-4">
+      <div className="max-w-lg mx-auto bg-white shadow-lg rounded-xl p-4">
+        <h2 className="text-2xl font-bold text-slate-500 mb-4 text-center font-heading">
           {`Let's Build Something Great`}
         </h2>
-        <p className="text-gray-600 mb-6 sm:mb-10 text-center font-para text-base sm:text-lg">
+        <p className="text-gray-600 mb-6 text-center font-para text-base">
           {`Let's bring your business online — tell me what you need and I'll make it happen.`}
         </p>
-        <form className="space-y-4 sm:space-y-6">
-          <div className="flex flex-col md:flex-row gap-4">
+        <form className="space-y-4">
+          <div className="flex flex-col gap-4">
             <input
               type="text"
               placeholder="Full Name"

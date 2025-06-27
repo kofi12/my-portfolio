@@ -3,9 +3,9 @@ import ServiceCard from "./ServiceCard";
 
 function Services() {
   return (
-    <section className="flex flex-col gap-6 sm:gap-8 md:gap-10">
-      <span className="text-slate-500 text-3xl sm:text-5xl md:text-6xl lg:text-7xl text-center font-heading text-shadow-sm">Services</span>
-      <div className="flex flex-wrap justify-center gap-4 sm:gap-6 md:gap-8">
+    <section className="flex flex-col gap-6">
+      <span className="text-slate-500 text-3xl text-center font-heading text-shadow-sm">Services</span>
+      <div className="flex flex-wrap justify-center gap-4">
         <ServiceCard
           heading="SEO"
           icon={
@@ -24,9 +24,7 @@ function Services() {
               />
             </svg>
           }
-          description="Ever wondered why certain websites appear first in a google search?
-          This is what good SEO can do for you. Nowadays, attention spans are short.
-          The higher you are in a search the more likely someone is to visit your site"
+          description="Enhance your visibility on search engines and attract more visitors."
         />
         <ServiceCard
           heading="Custom Website Design"
@@ -46,9 +44,7 @@ function Services() {
               />
             </svg>
           }
-          description="Stand out from the crowd with a design that reflects your unique business.
-                      I build clean, modern websites tailored to your brand and goals — no cookie-cutter templates,
-                      just strategic design that builds trust and keeps visitors engaged."
+          description="Unique, brand-focused designs that engage visitors and build trust."
         />
         <ServiceCard
           heading="Responsive Web Development"
@@ -68,9 +64,7 @@ function Services() {
               />
             </svg>
           }
-          description="Your website should work beautifully everywhere.
-          I ensure your site looks and performs flawlessly across desktops, tablets,
-          and smartphones — so your customers get a seamless experience, no matter how they find you."
+          description="Ensure seamless functionality across desktops, tablets, and phones."
         />
         <ServiceCard
           heading="Performance and Speed Optimization"
@@ -90,9 +84,7 @@ function Services() {
               />
             </svg>
           }
-          description="Slow websites lose customers. I make yours fast.
-          With optimized code, smart image loading, and modern best practices,
-          I make sure your site loads fast, keeps users happy, and ranks higher on search engines."
+          description="Fast, optimized sites keep users happy and boost search engine rankings."
         />
         <ServiceCard
           heading="Website Maintenance and Support"
@@ -112,9 +104,7 @@ function Services() {
               />
             </svg>
           }
-          description="Never worry about website issues again.
-          I provide ongoing support, updates,
-          and fixes so you can focus on running your business — not troubleshooting your site."
+          description="Ongoing support and updates — focus on your business, not technical issues."
         />
         <ServiceCard
           heading="Conversion-Focused Design"
@@ -134,9 +124,7 @@ function Services() {
               />
             </svg>
           }
-          description="A website should do more than look good — it should grow your business.
-          I design with purpose: clear calls to action, persuasive layouts,
-          and user journeys that turn visitors into loyal customers."
+          description="Use targeted design strategies to convert visitors into customers."
         />
         <ServiceCard
           heading="Managed Website Hosting"
@@ -156,10 +144,7 @@ function Services() {
               />
             </svg>
           }
-          description="Fast. Secure. Hassle-free.
-          I take care of everything behind the scenes — your website is hosted on fast,
-          reliable servers with built-in security, daily backups, and uptime monitoring.
-          That means no technical headaches, no downtime worries — just peace of mind knowing your site is always online and performing at its best."
+          description="Fast, secure hosting with daily backups and uptime monitoring for peace of mind."
         />
       </div>
     </section>

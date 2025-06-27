@@ -43,7 +43,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`flex flex-col bg-custom-gradient gap-10 mx-20 my-5 p-5 ${geistSans.variable} ${geistMono.variable} ${jetbrains.variable} ${roboto.variable} antialiased`}
+        className={`flex flex-col bg-custom-gradient gap-10 px-20 my-5 ${geistSans.variable} ${geistMono.variable} ${jetbrains.variable} ${roboto.variable} antialiased`}
       >
         <Navbar />
         <Hero />

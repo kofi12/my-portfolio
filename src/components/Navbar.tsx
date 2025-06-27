@@ -18,9 +18,9 @@ function Navbar() {
   }, []);
 
   return (
-    <header className="flex justify-center sticky top-0 z-10 w-full">
+    <header className="flex justify-center sticky top-0 z-10">
       <nav
-        className={`font-para mx-2 my-2 mb-4 sm:mb-5 p-2 rounded-lg flex gap-2 sm:gap-4 w-full max-w-2xl md:max-w-3xl lg:max-w-4xl transition-all duration-200 justify-between px-2 sm:px-5 text-sm sm:text-base md:text-lg ${
+        className={`font-para my-2 mb-5 p-2 rounded-lg flex gap-4 w-full transition-all duration-200  justify-between px-5 ${
           scrolled
             ? "bg-gray-200 text-slate-500 bg-opacity-45 backdrop-blur-md z-10"
             : "bg-slate-500 text-white"
