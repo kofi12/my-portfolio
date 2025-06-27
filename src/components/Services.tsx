@@ -3,9 +3,9 @@ import ServiceCard from "./ServiceCard";
 
 function Services() {
   return (
-    <section className="flex flex-col gap-6 sm:gap-8 md:gap-10">
-      <span className="text-slate-500 text-3xl sm:text-5xl md:text-6xl lg:text-7xl text-center font-heading text-shadow-sm">Services</span>
-      <div className="flex flex-wrap justify-center gap-4 sm:gap-6 md:gap-8">
+    <section className="flex flex-col gap-10">
+      <span className="text-slate-500 text-7xl text-center font-heading text-shadow-sm">Services</span>
+      <div className="flex flex-wrap justify-center gap-4">
         <ServiceCard
           heading="SEO"
           icon={
