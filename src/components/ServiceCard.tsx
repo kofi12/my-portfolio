@@ -1,5 +1,5 @@
 'use client';
-import { motion, useReducedMotion } from 'framer-motion';
+import { easeIn, motion, useReducedMotion } from 'framer-motion';
 
 type ServiceCardProps = {
   icon: React.ReactNode;
@@ -15,7 +15,7 @@ export function ServiceCard({ icon, heading, description }: ServiceCardProps) {
       initial={shouldReduceMotion ? {} : { opacity: 0, y: 30 }}
       whileInView={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
       whileHover={shouldReduceMotion ? {} : { y: -2, scale: 1.03 }}
-      transition={{ duration: 0.9, ease: [0.25, 1, 0.5, 1] }}
+      transition={{ duration: 0.6, ease: easeIn }}
       viewport={{ once: true, amount: 0.3 }}
       className="relative rounded-2xl border border-white/40 bg-white/40 shadow-[0_4px_24px_rgba(0,0,0,0.10),0_1.5px_4px_rgba(59,130,246,0.10)] p-6 flex flex-col items-center w-1/4 max-w-1/6 md:w-1/4 sm:w-full gap-4 transition-all duration-300 overflow-hidden"
       style={{ WebkitBackdropFilter: 'blur(18px)', backdropFilter: 'blur(18px)' }}

@@ -8,7 +8,7 @@ import { LuUnplug } from "react-icons/lu";
 export function Services() {
   return (
     <section className="flex flex-col gap-6">
-      <span className="text-slate-500 text-3xl text-center font-heading text-shadow-sm">
+      <span className="text-slate-500 text-7xl text-center font-extrabold font-heading text-shadow-sm">
         Services
       </span>
       <div className="flex flex-wrap justify-center gap-4">
