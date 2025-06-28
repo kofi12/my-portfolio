@@ -29,14 +29,14 @@ function Hero() {
         <motion.div
           initial={shouldReduceMotion ? {} : { opacity: 0, y: 30 }}
           whileInView={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, ease: [0.25, 1, 0.5, 1] }}
+          transition={{ duration: 0.9, delay: 0.6, ease: [0.25, 1, 0.5, 1] }}
           viewport={{ once: true, amount: 0.3 }}
         >
           <Image
             src="/Building Websites Illustration.svg"
             alt="Building Websites Illustration"
-            width={600}
-            height={400}
+            width={700}
+            height={500}
             priority
             className="rounded-md shadow-md transition-transform duration-500 hover:scale-105"
           />

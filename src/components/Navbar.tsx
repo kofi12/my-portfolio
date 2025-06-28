@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 
 function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -18,7 +19,12 @@ function Navbar() {
   }, []);
 
   return (
-    <header className="flex justify-center sticky top-0 z-10">
+    <motion.header
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.9, ease: 'easeInOut' }}
+      className="flex justify-center sticky top-0 z-10"
+    >
       <nav
         className={`font-para my-2 mb-5 p-2 rounded-lg flex gap-4 w-full transition-all duration-200 justify-between px-5
           ${scrolled
@@ -48,7 +54,7 @@ function Navbar() {
           {`Let's Work Together`}
         </Link>
       </nav>
-    </header>
+    </motion.header>
   );
 }
 
