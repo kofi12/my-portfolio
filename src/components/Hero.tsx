@@ -36,7 +36,7 @@ function Hero() {
             src="/Building Websites Illustration.svg"
             alt="Building Websites Illustration"
             width={700}
-            height={500}
+            height={700}
             priority
             className="rounded-md shadow-md transition-transform duration-500 hover:scale-105"
           />
