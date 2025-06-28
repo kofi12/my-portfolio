@@ -2,7 +2,6 @@
 
 import Link from 'next/link';
 import React, { useState, useEffect } from 'react';
-import { motion } from 'motion/react';
 
 function Navbar() {
   const [scrolled, setScrolled] = useState(false);
