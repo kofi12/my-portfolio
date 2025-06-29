@@ -8,10 +8,11 @@ import { LuUnplug } from "react-icons/lu";
 export function Services() {
   return (
     <section className="flex flex-col gap-6">
-      <span className="text-slate-500 text-7xl text-center font-extrabold font-heading text-shadow-sm">
+      <span className="text-slate-500 text-4xl
+      lg:text-6xl xl:text-7xl text-center font-extrabold font-heading text-shadow-sm">
         Services
       </span>
-      <div className="flex flex-wrap justify-center gap-4">
+      <div className="flex flex-col lg:flex-row w-full justify-center gap-4">
         <ServiceCard
           heading="SEO"
           icon={

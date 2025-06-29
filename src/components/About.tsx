@@ -4,10 +4,10 @@ import React from 'react';
 function About() {
   return (
     <section className="py-20 text-center flex flex-col items-center justify-center gap-10">
-      <h2 className="font-heading text-7xl font-extrabold text-slate-500 text-shadow-sm">
+      <h2 className="font-heading text-4xl md:text:6xl lg:text-7xl font-extrabold text-slate-500 text-shadow-sm">
         Your website is your first impression.
       </h2>
-      <p className="font-para text-3xl max-w-3xl mx-auto text-gray-900">
+      <p className="font-para text-2xl md:text-4xl max-w-3xl mx-auto text-gray-900">
         Today’s customers search online — not in phone books. If your business
         isn’t visible or looks outdated, you’re losing trust and sales to
         competitors. A modern website builds credibility, showcases your brand

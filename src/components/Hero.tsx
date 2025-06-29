@@ -10,10 +10,10 @@ function Hero() {
   return (
     <section className="flex flex-col items-center justify-evenly relative my-10 gap-20">
       <div className="flex flex-col items-center justify-evenly relative w-full rounded-md gap-15 p-3">
-        <h1 className="text-slate-500 font-extrabold text-7xl uppercase text-center font-heading text-shadow-sm">
+        <h1 className="text-slate-500 font-extrabold text-4xl md:text-6xl lg:text-7xl uppercase text-center font-heading text-shadow-sm">
           Turn Visitors Into Customers.
         </h1>
-        <p className="text-3xl text-center text-gray-900 font-para max-w-1/2">
+        <p className="text-2xl md:text-4xl text-center text-gray-900 font-para max-w-full">
           Websites aren't just digital brochures — they're powerful tools for
           building trust, increasing sales, and unlocking new growth
           opportunities.
