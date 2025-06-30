@@ -24,7 +24,7 @@ export default function Contact() {
             zIndex: 1,
           }}
         />
-        <h2 className="text-2xl md:text-3xl font-bold text-slate-700 mb-4 text-center font-heading relative z-10">
+        <h2 className="text-lg md:text-3xl font-bold text-slate-700 mb-4 text-center font-heading relative z-10">
           {`Let's Build Something Great`}
         </h2>
         <p className="text-slate-600 mb-6 md:text-2xl text-center font-para text-base relative z-10">
