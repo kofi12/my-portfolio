@@ -8,7 +8,7 @@ import { motion, useReducedMotion } from 'framer-motion';
 function Hero() {
   const shouldReduceMotion = useReducedMotion();
   return (
-    <section className="flex flex-col items-center justify-evenly relative my-10 gap-20">
+    <section className="flex flex-col items-center justify-evenly relative my-3 sm:my-5 md:my-7 lg:my-10  gap-3 sm:gap-5 md:gap-10 lg:gap-20">
       <div className="flex flex-col items-center justify-evenly relative w-full rounded-md gap-15 p-3">
         <h1 className="text-slate-500 font-extrabold text-4xl md:text-6xl lg:text-7xl uppercase text-center font-heading text-shadow-sm">
           Turn Visitors Into Customers.
@@ -25,7 +25,7 @@ function Hero() {
           </button>
         </Link>
       </div>
-      <div className="flex flex-col items-center justify-center gap-10 relative font-para font-bold">
+      <div className="flex flex-col items-center justify-center gap-3 md:gap-6 lg:gap-10 relative font-para font-bold">
         <motion.div
           initial={shouldReduceMotion ? {} : { opacity: 0, y: 30 }}
           whileInView={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}

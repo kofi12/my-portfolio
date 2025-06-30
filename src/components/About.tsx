@@ -3,7 +3,7 @@ import React from 'react';
 
 function About() {
   return (
-    <section className="py-20 text-center flex flex-col items-center justify-center gap-10">
+    <section className=" py-5 md:py-10 lg:py-20 text-center flex flex-col items-center justify-center  gap-3 md:gap-7 lg:gap-10">
       <h2 className="font-heading text-4xl md:text:6xl lg:text-7xl font-extrabold text-slate-500 text-shadow-sm">
         Your website is your first impression.
       </h2>

@@ -26,7 +26,7 @@ function Navbar() {
       className="flex justify-center sticky top-0 z-10"
     >
       <nav
-        className={`font-para my-2 mb-5 p-2 rounded-lg flex gap-4 w-full transition-all duration-200 justify-between px-5
+        className={`font-para my-2 mb-5 p-2 rounded-lg flex gap-4 w-full transition-all duration-200 justify-between px-3 md:px-5
           ${scrolled
             ? 'bg-white/40 text-slate-500 border border-white/40 shadow-[0_4px_24px_rgba(0,0,0,0.10),0_1.5px_4px_rgba(59,130,246,0.10)] backdrop-blur-xl'
             : 'bg-slate-500 text-white'}

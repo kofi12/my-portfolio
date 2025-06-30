@@ -12,7 +12,7 @@ export function Services() {
       lg:text-6xl xl:text-7xl text-center font-extrabold font-heading text-shadow-sm">
         Services
       </span>
-      <div className="flex flex-col lg:flex-row w-full justify-center gap-4">
+      <div className="flex flex-col lg:flex-row w-full justify-center gap-4 md:gap-6">
         <ServiceCard
           heading="SEO"
           icon={
