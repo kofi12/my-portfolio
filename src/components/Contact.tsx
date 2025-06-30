@@ -11,7 +11,7 @@ export default function Contact() {
         whileInView={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
         transition={{ duration: 0.9, ease: [0.25, 1, 0.5, 1] }}
         viewport={{ once: true, amount: 0.3 }}
-        className="relative max-w-lg mx-auto rounded-2xl border border-white/40 bg-white/40 shadow-[0_4px_24px_rgba(0,0,0,0.10),0_1.5px_4px_rgba(59,130,246,0.10)] p-6 md:p-8 flex flex-col items-center overflow-hidden backdrop-blur-xl"
+        className="relative max-w-lg mx-auto rounded-2xl border border-white/40 bg-white/40 shadow-[0_4px_24px_rgba(0,0,0,0.10),0_1.5px_4px_rgba(59,130,246,0.10)] w-full p-6 md:p-8 flex flex-col items-center overflow-hidden backdrop-blur-xl"
         style={{ WebkitBackdropFilter: 'blur(18px)', backdropFilter: 'blur(18px)' }}
       >
         {/* Frosted glass overlay for extra realism */}
