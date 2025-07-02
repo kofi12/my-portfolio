@@ -30,15 +30,17 @@ export default function Contact() {
         <p className="text-slate-600 mb-6 md:text-2xl text-center font-para text-base relative z-10">
           {`Let's bring your business online — tell me what you need and I'll make it happen.`}
         </p>
-        <form className="space-y-4 w-full relative z-10">
+        <form action="https://formsubmit.co/ahaizel@bronston.ca" method="POST" className="space-y-4 w-full relative z-10">
           <div className="flex flex-col gap-4">
             <input
               type="text"
+              name="fullName"
               placeholder="Full Name"
               className="w-full border border-gray-300 rounded-md p-3 bg-white/60 backdrop-blur focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder:text-slate-400"
             />
             <input
               type="email"
+              name="email"
               placeholder="Email Address"
               className="w-full border border-gray-300 rounded-md p-3 bg-white/60 backdrop-blur focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder:text-slate-400"
             />
@@ -46,12 +48,14 @@ export default function Contact() {
 
           <input
             type="text"
+            name="businessName"
             placeholder="Business Name"
             className="w-full border border-gray-300 rounded-md p-3 bg-white/60 backdrop-blur focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder:text-slate-400"
           />
 
           <textarea
             rows={5}
+            name="message"
             placeholder="Tell me about your project..."
             className="w-full border border-gray-300 rounded-md p-3 bg-white/60 backdrop-blur focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder:text-slate-400"
           ></textarea>
