@@ -5,7 +5,7 @@ import { motion, useReducedMotion } from 'framer-motion';
 export default function Contact() {
   const shouldReduceMotion = useReducedMotion();
   return (
-    <section className="py-5 md:py-10 px-2">
+    <section id="contact" className="py-5 md:py-10 px-2">
       <motion.div
         initial={shouldReduceMotion ? {} : { opacity: 0, y: 30 }}
         whileInView={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}

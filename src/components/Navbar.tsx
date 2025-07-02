@@ -49,7 +49,7 @@ function Navbar() {
               ? 'hover:border-slate-500 hover:ring-1 hover:ring-slate-500'
               : 'hover:border-white hover:ring-1 hover:ring-white'
           } relative z-10`}
-          href="#"
+          href="#contact"
         >
           {`Let's Work Together`}
         </Link>

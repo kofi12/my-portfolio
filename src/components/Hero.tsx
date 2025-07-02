@@ -18,7 +18,7 @@ function Hero() {
           building trust, increasing sales, and unlocking new growth
           opportunities.
         </p>
-        <Link className="shadow-xl rounded-lg" href="">
+        <Link className="shadow-xl rounded-lg" href="#contact">
           <button className="font-para text-lg bg-gray-100/20 border shadow-xl
            shadow-blue-200 border-blue-400 text-slate-500 inset-shadow-sm font-bold rounded-lg py-3 px-2">
             Book a Free Consult
