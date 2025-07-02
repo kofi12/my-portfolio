@@ -19,10 +19,14 @@ function Hero() {
           opportunities.
         </p>
         <Link className="shadow-xl rounded-lg" href="#contact">
-          <button className="font-para text-lg bg-gray-100/20 border shadow-xl
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ duration: 0.2 }}
+            className="font-para text-lg bg-gray-100/20 border shadow-xl
            shadow-blue-200 border-blue-400 text-slate-500 inset-shadow-sm font-bold rounded-lg py-3 px-2">
             Book a Free Consult
-          </button>
+          </motion.button>
         </Link>
       </div>
       <div className="flex flex-col items-center justify-center gap-3 md:gap-6 lg:gap-10 relative font-para font-bold">

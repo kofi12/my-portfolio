@@ -60,12 +60,14 @@ export default function Contact() {
             className="w-full border border-gray-300 rounded-md p-3 bg-white/60 backdrop-blur focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder:text-slate-400"
           ></textarea>
 
-          <button
+          <motion.button
             type="submit"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
             className="w-full sm:w-auto bg-transparent text-slate-500 border border-blue-400 shadow-xl shadow-blue-200 font-semibold py-3 px-5 rounded-md font-para"
           >
             Send Message
-          </button>
+          </motion.button>
         </form>
     </motion.div>
   </section>
