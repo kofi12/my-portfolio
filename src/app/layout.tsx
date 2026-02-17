@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import { JetBrains_Mono, Roboto_Mono } from 'next/font/google';
-import './globals.css';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import About from '../components/About';
@@ -41,7 +40,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth">
       <body
         className={`flex flex-col bg-custom-gradient gap-3 md:gap-5 lg:gap-10 px-5 sm:px-7 md:px-10 lg:px-15 my-5 ${geistSans.variable} ${geistMono.variable} ${jetbrains.variable} ${roboto.variable} antialiased`}
       >
