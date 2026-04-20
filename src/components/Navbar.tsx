@@ -1,61 +1,68 @@
 'use client';
-
-import Link from 'next/link';
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import Link from 'next/link';
 
-function Navbar() {
+const NAV_LINKS = ['Services', 'About', 'Work', 'Contact'];
+
+export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => {
-      setScrolled(window.scrollY > 5);
-    };
-
-    window.addEventListener('scroll', onScroll);
-    onScroll();
-
-    return () => window.removeEventListener('scroll', onScroll);
+    const fn = () => setScrolled(window.scrollY > 40);
+    window.addEventListener('scroll', fn);
+    return () => window.removeEventListener('scroll', fn);
   }, []);
 
   return (
-    <motion.header
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.9, ease: 'easeInOut' }}
-      className="flex justify-center sticky top-0 z-10"
-    >
-      <nav
-        className={`font-para my-2 mb-5 p-2 rounded-lg flex gap-4 w-full transition-all duration-200 justify-between px-3 md:px-5
-          ${scrolled
-            ? 'bg-white/40 text-slate-500 border border-white/40 shadow-[0_4px_24px_rgba(0,0,0,0.10),0_1.5px_4px_rgba(59,130,246,0.10)] backdrop-blur-xl'
-            : 'bg-slate-500 text-white'}
-        `}
-        style={scrolled ? { WebkitBackdropFilter: 'blur(18px)', backdropFilter: 'blur(18px)' } : {}}
-      >
-        <Link
-          className={`rounded-md px-2 py-1 transition duration-200 ease-in-out border border-transparent ${
-            scrolled
-              ? 'hover:border-slate-500 hover:ring-1 hover:ring-slate-500'
-              : 'hover:border-white hover:ring-1 hover:ring-white'
-          } relative z-10`}
-          href="#"
-        >
-          AKHAIZEL
+    <nav style={{
+      position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100,
+      display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+      padding: '0 40px', height: 64,
+      transition: 'background 0.4s, border-color 0.4s, backdropFilter 0.4s',
+      background: scrolled ? 'rgba(12,12,10,0.85)' : 'transparent',
+      borderBottom: scrolled ? '1px solid rgba(255,255,255,0.07)' : '1px solid transparent',
+      backdropFilter: scrolled ? 'blur(20px)' : 'none',
+      WebkitBackdropFilter: scrolled ? 'blur(20px)' : 'none',
+    }}>
+      <Link href="#" style={{
+        fontFamily: 'var(--serif)', fontSize: 22, color: 'var(--text)',
+        textDecoration: 'none', letterSpacing: '-0.01em',
+      }}>
+        akhaizel
+      </Link>
+
+      <div style={{ display: 'flex', alignItems: 'center', gap: 32 }}>
+        {NAV_LINKS.map(item => (
+          <Link key={item} href={`#${item.toLowerCase()}`} style={{
+            color: 'var(--muted)', fontSize: 14, textDecoration: 'none',
+            letterSpacing: '0.02em', transition: 'color 0.2s',
+          }}
+          onMouseEnter={e => (e.currentTarget.style.color = 'var(--text)')}
+          onMouseLeave={e => (e.currentTarget.style.color = 'var(--muted)')}
+          >
+            {item}
+          </Link>
+        ))}
+        <Link href="#contact">
+          <button style={{
+            background: 'var(--accent)', color: '#0c0c0a', border: 'none',
+            padding: '9px 20px', borderRadius: 6, fontSize: 14, fontWeight: 600,
+            cursor: 'pointer', fontFamily: 'var(--sans)', letterSpacing: '0.01em',
+            transition: 'opacity 0.2s, transform 0.15s',
+          }}
+          onMouseEnter={e => {
+            e.currentTarget.style.opacity = '0.88';
+            e.currentTarget.style.transform = 'translateY(-1px)';
+          }}
+          onMouseLeave={e => {
+            e.currentTarget.style.opacity = '1';
+            e.currentTarget.style.transform = 'translateY(0)';
+          }}
+          >
+            Book a Free Consultation
+          </button>
         </Link>
-        <Link
-          className={`rounded-md px-2 py-1 transition duration-200 ease-in-out border border-transparent ${
-            scrolled
-              ? 'hover:border-slate-500 hover:ring-1 hover:ring-slate-500'
-              : 'hover:border-white hover:ring-1 hover:ring-white'
-          } relative z-10`}
-          href="#contact"
-        >
-          {`Let's Work Together`}
-        </Link>
-      </nav>
-    </motion.header>
+      </div>
+    </nav>
   );
 }
-
-export default Navbar;

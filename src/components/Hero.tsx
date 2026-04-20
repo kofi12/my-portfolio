@@ -1,57 +1,144 @@
-/* eslint-disable react/no-unescaped-entities */
 'use client';
+'use client';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
-import React from 'react';
-import { motion, useReducedMotion } from 'framer-motion';
 
-function Hero() {
-  const shouldReduceMotion = useReducedMotion();
+export default function Hero() {
+  const [visible, setVisible] = useState(false);
+  useEffect(() => { setTimeout(() => setVisible(true), 100); }, []);
+
+  const lineStyle = (delay: number): React.CSSProperties => ({
+    fontFamily: 'var(--serif)',
+    fontSize: 'clamp(52px, 8vw, 112px)',
+    lineHeight: 1.0,
+    letterSpacing: '-0.03em',
+    color: 'var(--text)',
+    display: 'block',
+    opacity: visible ? 1 : 0,
+    transform: visible ? 'translateY(0)' : 'translateY(40px)',
+    transition: `opacity 0.9s cubic-bezier(0.25,1,0.5,1) ${delay}s, transform 0.9s cubic-bezier(0.25,1,0.5,1) ${delay}s`,
+  });
+
+  const fadeIn = (delay: number): React.CSSProperties => ({
+    opacity: visible ? 1 : 0,
+    transform: visible ? 'translateY(0)' : 'translateY(20px)',
+    transition: `opacity 0.9s cubic-bezier(0.25,1,0.5,1) ${delay}s, transform 0.9s cubic-bezier(0.25,1,0.5,1) ${delay}s`,
+  });
+
   return (
-    <section className="flex flex-col items-center justify-evenly relative my-3 sm:my-5 md:my-7 lg:my-10 gap-5 md:gap-10 lg:gap-20">
-      <div className="flex flex-col items-center justify-evenly relative w-full rounded-md gap-5 md:gap-15 p-3">
-        <h1 className="text-slate-500 font-extrabold text-4xl md:text-6xl lg:text-7xl uppercase text-center font-heading text-shadow-sm">
-          Turn Visitors Into Customers.
+    <section style={{
+      minHeight: '100vh', background: 'var(--bg)', display: 'flex',
+      flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+      position: 'relative', padding: '100px 40px 80px', textAlign: 'center',
+      overflow: 'hidden',
+    }}>
+      {/* Subtle grid */}
+      <div style={{
+        position: 'absolute', inset: 0, zIndex: 0,
+        backgroundImage: 'linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px)',
+        backgroundSize: '80px 80px',
+        maskImage: 'radial-gradient(ellipse 80% 60% at 50% 40%, black 30%, transparent 100%)',
+        WebkitMaskImage: 'radial-gradient(ellipse 80% 60% at 50% 40%, black 30%, transparent 100%)',
+      }} />
+
+      {/* Glow */}
+      <div style={{
+        position: 'absolute', top: '20%', left: '50%', transform: 'translateX(-50%)',
+        width: 600, height: 400, borderRadius: '50%',
+        background: 'radial-gradient(ellipse, oklch(72% 0.12 75 / 0.07) 0%, transparent 70%)',
+        pointerEvents: 'none', zIndex: 0,
+      }} />
+
+      <div style={{ position: 'relative', zIndex: 1, maxWidth: 900 }}>
+        <div style={{
+          display: 'inline-flex', alignItems: 'center', gap: 8, marginBottom: 32,
+          border: '1px solid rgba(255,255,255,0.1)', borderRadius: 100,
+          padding: '6px 16px',
+          opacity: visible ? 1 : 0,
+          transition: 'opacity 0.6s 0.1s',
+        }}>
+          <div style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--accent)' }} />
+          <span style={{ fontSize: 13, color: 'var(--muted)', letterSpacing: '0.04em' }}>
+            Available for new projects
+          </span>
+        </div>
+
+        <h1 style={{ marginBottom: 0 }}>
+          <span style={lineStyle(0.2)}>Websites that</span>
+          <span style={{ ...lineStyle(0.35), fontStyle: 'italic', color: 'var(--accent)' }}>
+            win clients.
+          </span>
         </h1>
-        <p className="text-lg md:text-4xl text-center text-gray-900 font-para max-w-full">
-          Websites aren't just digital brochures — they're powerful tools for
-          building trust, increasing sales, and unlocking new growth
-          opportunities.
+
+        <p style={{
+          marginTop: 32, fontSize: 'clamp(16px, 2vw, 20px)', color: 'var(--muted)',
+          maxWidth: 560, margin: '32px auto 0', lineHeight: 1.7,
+          ...fadeIn(0.55),
+        }}>
+          I build fast, polished websites for trades, small businesses, and law firms —
+          every line of code, personally by me.
         </p>
-        <Link className="shadow-xl rounded-lg" href="#contact">
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            transition={{ duration: 0.2 }}
-            className="font-para text-lg bg-gray-100/20 border shadow-xl
-           shadow-blue-200 border-blue-400 text-slate-500 inset-shadow-sm font-bold rounded-lg py-3 px-2">
-            Book a Free Consult
-          </motion.button>
-        </Link>
-      </div>
-      <div className="flex flex-col items-center justify-center gap-3 md:gap-6 lg:gap-10 relative font-para font-bold">
-        <motion.div
-          initial={shouldReduceMotion ? {} : { opacity: 0, y: 30 }}
-          whileInView={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.6, ease: [0.25, 1, 0.5, 1] }}
-          viewport={{ once: true, amount: 0.3 }}
-        >
-          <Image
-            src="/Building Websites Illustration.svg"
-            alt="Building Websites Illustration"
-            width={700}
-            height={700}
-            priority
-            className="rounded-md shadow-md transition-transform duration-500 hover:scale-105"
-          />
-        </motion.div>
-        <h2 className="italic text-gray-900">
-          Get a website that builds trust, drives traffic, and makes your
-          business look as good as it is.
-        </h2>
+
+        <div style={{
+          display: 'flex', gap: 16, justifyContent: 'center',
+          flexWrap: 'wrap', marginTop: 44, ...fadeIn(0.7),
+        }}>
+          <Link href="#contact">
+            <button style={{
+              background: 'var(--accent)', color: '#0c0c0a', border: 'none',
+              padding: '14px 32px', borderRadius: 8, fontSize: 15, fontWeight: 600,
+              cursor: 'pointer', fontFamily: 'var(--sans)', letterSpacing: '0.01em',
+              transition: 'opacity 0.2s, transform 0.2s',
+            }}
+            onMouseEnter={e => {
+              e.currentTarget.style.opacity = '0.88';
+              e.currentTarget.style.transform = 'translateY(-2px)';
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.style.opacity = '1';
+              e.currentTarget.style.transform = 'translateY(0)';
+            }}
+            >
+              Book a Free Consultation
+            </button>
+          </Link>
+          <Link href="#work">
+            <button style={{
+              background: 'transparent', color: 'var(--text)',
+              border: '1px solid rgba(255,255,255,0.15)',
+              padding: '14px 32px', borderRadius: 8, fontSize: 15, fontWeight: 400,
+              cursor: 'pointer', fontFamily: 'var(--sans)',
+              transition: 'border-color 0.2s, transform 0.2s',
+            }}
+            onMouseEnter={e => {
+              e.currentTarget.style.borderColor = 'rgba(255,255,255,0.4)';
+              e.currentTarget.style.transform = 'translateY(-2px)';
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.style.borderColor = 'rgba(255,255,255,0.15)';
+              e.currentTarget.style.transform = 'translateY(0)';
+            }}
+            >
+              See my work
+            </button>
+          </Link>
+        </div>
+
+        {/* Stat row */}
+        <div style={{
+          marginTop: 80, display: 'flex', gap: 48, justifyContent: 'center',
+          flexWrap: 'wrap',
+          opacity: visible ? 1 : 0,
+          transition: 'opacity 0.9s 0.9s',
+        }}>
+          {([['100%', 'Personally built'], ['2–3 wk', 'Avg. turnaround'], ['Free', 'Initial consult']] as [string, string][]).map(([val, lab]) => (
+            <div key={val} style={{ textAlign: 'center' }}>
+              <div style={{ fontFamily: 'var(--serif)', fontSize: 32, color: 'var(--accent)', lineHeight: 1 }}>{val}</div>
+              <div style={{ fontSize: 12, color: 'var(--muted)', marginTop: 6, letterSpacing: '0.05em', textTransform: 'uppercase' }}>{lab}</div>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
 }
-
-export default Hero;

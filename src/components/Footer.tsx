@@ -1,30 +1,28 @@
-import Link from 'next/link';
+'use client';
 import React from 'react';
+import Link from 'next/link';
+
+const NAV_LINKS = ['Services', 'About', 'Work', 'Contact'];
 
 export default function Footer() {
   return (
-    <footer className="bg-slate-500 text-gray-300 py-10 px-6">
-      <div className="max-w-6xl mx-auto flex flex-col justify-between items-center gap-4">
-        <p className="text-sm text-center">
-          &copy; {new Date().getFullYear()} Aaron Haizel. All rights reserved.
-        </p>
-
-        <div className="flex gap-4 text-sm">
-          <Link href="#services" className="hover:text-white transition-colors">
-            Services
-          </Link>
-          <Link href="#contact" className="hover:text-white transition-colors">
-            Contact
-          </Link>
-          <a
-            href="https://github.com/yourusername"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-white transition-colors"
-          >
-            GitHub
-          </a>
+    <footer style={{ background: 'var(--bg2)', borderTop: '1px solid var(--border)', padding: '48px 40px' }}>
+      <div style={{
+        maxWidth: 1100, margin: '0 auto', display: 'flex',
+        justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 20,
+      }}>
+        <span style={{ fontFamily: 'var(--serif)', fontSize: 20 }}>akhaizel</span>
+        <div style={{ display: 'flex', gap: 32 }}>
+          {NAV_LINKS.map(item => (
+            <Link key={item} href={`#${item.toLowerCase()}`} style={{
+              color: 'var(--muted)', fontSize: 14, textDecoration: 'none', transition: 'color 0.2s',
+            }}
+            onMouseEnter={e => (e.currentTarget.style.color = 'var(--text)')}
+            onMouseLeave={e => (e.currentTarget.style.color = 'var(--muted)')}
+            >{item}</Link>
+          ))}
         </div>
+        <p style={{ color: 'var(--muted)', fontSize: 13 }}>© {new Date().getFullYear()} Aaron Haizel</p>
       </div>
     </footer>
   );
