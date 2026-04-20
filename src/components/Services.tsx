@@ -11,7 +11,7 @@ const SERVICES = [
 
 export function Services() {
   return (
-    <section id="services" style={{ background: 'var(--bg)', padding: '120px 40px' }}>
+    <section id="services" className="section-pad" style={{ background: 'var(--bg)' }}>
       <div style={{ maxWidth: 1100, margin: '0 auto' }}>
         <Reveal>
           <p style={{ fontSize: 12, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--accent)', marginBottom: 16 }}>Services</p>

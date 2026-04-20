@@ -9,7 +9,7 @@ const PROJECTS = [
 
 export default function Work() {
   return (
-    <section id="work" style={{ background: 'var(--bg2)', padding: '120px 40px' }}>
+    <section id="work" className="section-pad" style={{ background: 'var(--bg2)' }}>
       <div style={{ maxWidth: 1100, margin: '0 auto' }}>
         <Reveal>
           <p style={{ fontSize: 12, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--accent)', marginBottom: 16 }}>Portfolio</p>

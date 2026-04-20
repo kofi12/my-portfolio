@@ -11,11 +11,8 @@ const inputStyle: React.CSSProperties = {
 
 export default function Contact() {
   return (
-    <section id="contact" style={{ background: 'var(--bg)', padding: '120px 40px' }}>
-      <div style={{
-        maxWidth: 1100, margin: '0 auto', display: 'grid',
-        gridTemplateColumns: '1fr 1fr', gap: 80, alignItems: 'start',
-      }}>
+    <section id="contact" className="section-pad" style={{ background: 'var(--bg)' }}>
+      <div className="two-col-grid-start" style={{ maxWidth: 1100, margin: '0 auto' }}>
         <Reveal>
           <p style={{ fontSize: 12, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--accent)', marginBottom: 16 }}>Contact</p>
           <h2 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(36px, 4vw, 54px)', lineHeight: 1.1, letterSpacing: '-0.02em', marginBottom: 24 }}>
@@ -52,7 +49,7 @@ export default function Contact() {
 
         <Reveal delay={0.15}>
           <form action="https://formsubmit.co/ahaizel@bronston.ca" method="POST" style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
+            <div className="form-name-row">
               <input name="fullName" placeholder="Full Name" style={inputStyle} />
               <input name="email" type="email" placeholder="Email" style={inputStyle} />
             </div>

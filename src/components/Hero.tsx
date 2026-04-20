@@ -29,7 +29,7 @@ export default function Hero() {
     <section style={{
       minHeight: '100vh', background: 'var(--bg)', display: 'flex',
       flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-      position: 'relative', padding: '100px 40px 80px', textAlign: 'center',
+      position: 'relative', padding: '100px clamp(20px, 5vw, 40px) 80px', textAlign: 'center',
       overflow: 'hidden',
     }}>
       {/* Subtle grid */}

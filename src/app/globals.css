@@ -9,8 +9,8 @@
   --muted:      #8a8478;
   --accent:     oklch(72% 0.12 75);
   --accent-hex: #d4a85a;
-  --serif:      var(--font-dm-serif), 'DM Serif Display', Georgia, serif;
-  --sans:       var(--font-inter), 'Inter', system-ui, sans-serif;
+  --serif:      var(--font-dm-serif, 'DM Serif Display'), Georgia, serif;
+  --sans:       var(--font-inter, 'Inter'), system-ui, sans-serif;
 }
 
 @theme inline {
@@ -67,4 +67,97 @@ body {
 
 .faq-body.open {
   max-height: 400px;
+}
+
+/* ── Responsive layout utilities ──────────────────── */
+.section-pad { padding: 120px 40px; }
+
+.two-col-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.two-col-grid-start {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.form-name-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+/* ── Navigation ────────────────────────────────────── */
+.nav-inner { padding: 0 40px; }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.hamburger { display: none; }
+
+.nav-mobile-menu {
+  display: none;
+  position: fixed;
+  top: 64px;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  background: rgba(12, 12, 10, 0.97);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 24px 24px 32px;
+  flex-direction: column;
+  gap: 20px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.nav-mobile-menu.open { display: flex; }
+
+/* ── About image ───────────────────────────────────── */
+.about-image {
+  width: 100%;
+  aspect-ratio: 4/5;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* ── Mobile breakpoint ─────────────────────────────── */
+@media (max-width: 768px) {
+  .section-pad { padding: 72px 20px; }
+
+  .two-col-grid,
+  .two-col-grid-start {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .form-name-row { grid-template-columns: 1fr; }
+
+  .about-image {
+    aspect-ratio: 3/2;
+    max-height: 340px;
+  }
+
+  .nav-inner { padding: 0 20px; }
+
+  .nav-links { display: none; }
+
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+  }
 }

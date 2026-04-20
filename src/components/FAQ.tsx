@@ -15,7 +15,7 @@ export default function FAQ() {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <section id="faq" style={{ background: 'var(--bg2)', padding: '120px 40px' }}>
+    <section id="faq" className="section-pad" style={{ background: 'var(--bg2)' }}>
       <div style={{ maxWidth: 760, margin: '0 auto' }}>
         <Reveal>
           <p style={{ fontSize: 12, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--accent)', marginBottom: 16 }}>FAQ</p>

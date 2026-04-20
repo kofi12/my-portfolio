@@ -10,13 +10,10 @@ const POINTS = [
 
 export default function About() {
   return (
-    <section id="about" style={{ background: 'var(--bg2)', padding: '120px 40px' }}>
-      <div style={{
-        maxWidth: 1100, margin: '0 auto', display: 'grid',
-        gridTemplateColumns: '1fr 1fr', gap: 80, alignItems: 'center',
-      }}>
+    <section id="about" className="section-pad" style={{ background: 'var(--bg2)' }}>
+      <div className="two-col-grid" style={{ maxWidth: 1100, margin: '0 auto' }}>
         <Reveal>
-          <div style={{ width: '100%', aspectRatio: '4/5', borderRadius: 12, overflow: 'hidden', position: 'relative' }}>
+          <div className="about-image">
             <Image
               src="/Headshot_nobg.png"
               alt="Aaron Haizel"

@@ -6,7 +6,7 @@ const NAV_LINKS = ['Services', 'About', 'Work', 'Contact'];
 
 export default function Footer() {
   return (
-    <footer style={{ background: 'var(--bg2)', borderTop: '1px solid var(--border)', padding: '48px 40px' }}>
+    <footer style={{ background: 'var(--bg2)', borderTop: '1px solid var(--border)', padding: 'clamp(32px, 5vw, 48px) clamp(20px, 5vw, 40px)' }}>
       <div style={{
         maxWidth: 1100, margin: '0 auto', display: 'flex',
         justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 20,
