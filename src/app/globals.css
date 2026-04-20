@@ -143,8 +143,8 @@ body {
   .form-name-row { grid-template-columns: 1fr; }
 
   .about-image {
-    aspect-ratio: 3/2;
-    max-height: 340px;
+    aspect-ratio: 4/5;
+    max-height: 420px;
   }
 
   .nav-inner { padding: 0 20px; }
