@@ -2,14 +2,6 @@ import type { Metadata } from 'next';
 import { DM_Serif_Display, Inter } from 'next/font/google';
 import './globals.css';
 import Navbar from '../components/Navbar';
-import Hero from '../components/Hero';
-import Marquee from '../components/Marquee';
-import About from '../components/About';
-import { Services } from '../components/Services';
-import Work from '../components/Work';
-import Testimonials from '../components/Testimonials';
-import FAQ from '../components/FAQ';
-import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 
 const dmSerif = DM_Serif_Display({
@@ -25,8 +17,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'akhaizel — Web Design for Small Business',
-  description: 'Fast, polished websites for trades, small businesses, and law firms. Every deliverable personally by Aaron Haizel.',
+  title: 'akhaizel | AI-built app audits and fixes',
+  description:
+    'Production readiness reviews and fixes for apps built with Lovable, Bolt, Cursor, v0, and Replit. Fixed prices, a clear verdict, and one person from audit to fix.',
 };
 
 export default function RootLayout({
@@ -35,22 +28,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body
-        className={`${dmSerif.variable} ${inter.variable}`}
-        style={{ fontFamily: 'var(--sans)' }}
-      >
+    <html lang="en">
+      <body className={`${dmSerif.variable} ${inter.variable}`}>
         <Navbar />
-        <Hero />
-        <Marquee />
-        <About />
-        <Services />
-        <Work />
-        <Testimonials />
-        <FAQ />
-        <Contact />
+        <main>{children}</main>
         <Footer />
-        {children}
       </body>
     </html>
   );

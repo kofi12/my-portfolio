@@ -1,58 +1,78 @@
-'use client';
-import React from 'react';
 import { Reveal } from './Reveal';
+import { SectionHeading } from './ui/SectionHeading';
 
-const SERVICES = [
-  { num: '01', title: 'Conversion-Focused Design', desc: 'Every layout decision is made to guide your visitor toward one action: contacting you. No clutter, no confusion.' },
-  { num: '02', title: 'SEO Foundations', desc: 'Built-in on-page SEO so your business shows up when local customers search for what you offer.' },
-  { num: '03', title: 'Responsive Development', desc: 'Your site looks and works flawlessly on every device — phone, tablet, and desktop.' },
-  { num: '04', title: 'Maintenance & Support', desc: 'I stay on after launch. Updates, fixes, and improvements — without hunting down a third party.' },
+const TIERS = [
+  {
+    num: '01',
+    title: 'Production Readiness Review',
+    meta: '$250 · 2–3 business days',
+    desc: 'A recorded walkthrough of your codebase and a written report with every finding ranked by severity. You get a clear verdict: fix, refactor, or rebuild.',
+    includes: [
+      'Recorded walkthrough of the code',
+      'Written report, findings ranked by severity',
+      'Verdict: fix, refactor, or rebuild',
+      'Fee credited toward the next tier',
+    ],
+  },
+  {
+    num: '02',
+    title: 'Hardening Sprint',
+    meta: 'From $3,000 · 1–2 weeks',
+    desc: 'The known problems, fixed. One price, agreed before work starts.',
+    includes: [
+      'Secrets moved server-side',
+      'Access control locked down',
+      'Payments verified end to end',
+      'Error handling and tests around auth, payments, and your core flow',
+    ],
+  },
+  {
+    num: '03',
+    title: 'Rescue & Refactor',
+    meta: 'From $5,000 · Scoped after the review',
+    desc: 'For apps that need restructuring before they can grow. Delivered in approved phases, so work can stop at any phase boundary.',
+    includes: [
+      'Restructuring and data model work',
+      'Documentation and handoff',
+      'Built so you or a future hire can continue',
+    ],
+  },
 ];
 
-export function Services() {
+export default function Services() {
   return (
-    <section id="services" className="section-pad" style={{ background: 'var(--bg)' }}>
-      <div style={{ maxWidth: 1100, margin: '0 auto' }}>
+    <section id="services" className="section-pad" style={{ background: 'var(--bg2)' }}>
+      <div className="container">
         <Reveal>
-          <p style={{ fontSize: 12, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--accent)', marginBottom: 16 }}>Services</p>
-          <h2 style={{
-            fontFamily: 'var(--serif)', fontSize: 'clamp(36px, 4vw, 54px)',
-            lineHeight: 1.1, letterSpacing: '-0.02em', marginBottom: 64,
-          }}>
-            What I do
-          </h2>
+          <SectionHeading label="Services" style={{ marginBottom: 64 }}>
+            Three fixed-price options.<br /><em>Start with the review.</em>
+          </SectionHeading>
         </Reveal>
 
-        <div style={{
-          display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
-          gap: 1, border: '1px solid var(--border)', borderRadius: 12, overflow: 'hidden',
-        }}>
-          {SERVICES.map((s, i) => (
-            <Reveal key={s.num} delay={i * 0.08}>
-              <ServiceCard {...s} />
+        <div className="tier-grid">
+          {TIERS.map((tier, i) => (
+            <Reveal key={tier.num} delay={i * 0.08}>
+              <div className="service-cell">
+                <div style={{ fontFamily: 'var(--serif)', fontSize: 48, color: 'var(--border)', marginBottom: 24, lineHeight: 1 }}>{tier.num}</div>
+                <h3 style={{ fontFamily: 'var(--serif)', fontSize: 22, marginBottom: 10, lineHeight: 1.2 }}>{tier.title}</h3>
+                <div className="meta-label" style={{ marginBottom: 18 }}>{tier.meta}</div>
+                <p style={{ color: 'var(--muted)', fontSize: 15, lineHeight: 1.7, marginBottom: 24 }}>{tier.desc}</p>
+                <ul className="dot-list">
+                  {tier.includes.map((item) => (
+                    <li key={item}><span className="dot dot-sm" />{item}</li>
+                  ))}
+                </ul>
+              </div>
             </Reveal>
           ))}
         </div>
+
+        <Reveal delay={0.2}>
+          <p style={{ marginTop: 32, color: 'var(--muted)', fontSize: 15, lineHeight: 1.7 }}>
+            Already launched? A monthly review retainer covers ongoing checks as your app changes. Ask about it on the call.
+          </p>
+        </Reveal>
       </div>
     </section>
-  );
-}
-
-function ServiceCard({ num, title, desc }: { num: string; title: string; desc: string }) {
-  const [hovered, setHovered] = React.useState(false);
-  return (
-    <div
-      style={{
-        background: hovered ? '#222220' : 'var(--surface)',
-        padding: '40px 36px', height: '100%',
-        transition: 'background 0.2s', cursor: 'default',
-      }}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-    >
-      <div style={{ fontFamily: 'var(--serif)', fontSize: 48, color: 'var(--border)', marginBottom: 24, lineHeight: 1 }}>{num}</div>
-      <h3 style={{ fontFamily: 'var(--serif)', fontSize: 22, marginBottom: 14, lineHeight: 1.2 }}>{title}</h3>
-      <p style={{ color: 'var(--muted)', fontSize: 15, lineHeight: 1.7 }}>{desc}</p>
-    </div>
   );
 }

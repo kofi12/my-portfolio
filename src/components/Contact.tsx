@@ -1,78 +1,67 @@
-'use client';
-import React from 'react';
+import { BOOKING_URL, EMAIL } from '../lib/site';
 import { Reveal } from './Reveal';
+import { ButtonLink } from './ui/ButtonLink';
+import { SectionHeading } from './ui/SectionHeading';
 
-const inputStyle: React.CSSProperties = {
-  background: 'var(--surface)', border: '1px solid var(--border)',
-  color: 'var(--text)', borderRadius: 8, padding: '12px 16px',
-  fontSize: 15, fontFamily: 'var(--sans)', width: '100%',
-  outline: 'none', transition: 'border-color 0.2s',
-};
+const INCLUDES = [
+  'Recorded walkthrough of your codebase',
+  'Written report, findings ranked by severity',
+  'A verdict on a call: fix, refactor, or rebuild',
+  'Fee credited toward the next tier',
+];
+
+function MailIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <rect x="3" y="5" width="18" height="14" rx="2" />
+      <path d="M3 7l9 6 9-6" />
+    </svg>
+  );
+}
+
+function PinIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z" />
+      <circle cx="12" cy="10" r="2.5" />
+    </svg>
+  );
+}
 
 export default function Contact() {
   return (
-    <section id="contact" className="section-pad" style={{ background: 'var(--bg)' }}>
-      <div className="two-col-grid-start" style={{ maxWidth: 1100, margin: '0 auto' }}>
+    <section id="contact" className="section-pad" style={{ background: 'var(--bg2)' }}>
+      <div className="two-col-grid-start container">
         <Reveal>
-          <p style={{ fontSize: 12, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--accent)', marginBottom: 16 }}>Contact</p>
-          <h2 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(36px, 4vw, 54px)', lineHeight: 1.1, letterSpacing: '-0.02em', marginBottom: 24 }}>
-            {"Let's build"}<br /><span style={{ fontStyle: 'italic' }}>{"something great."}</span>
-          </h2>
+          <SectionHeading label="Get started" style={{ marginBottom: 24 }}>
+            Find out before<br /><em>your users do.</em>
+          </SectionHeading>
           <p style={{ color: 'var(--muted)', fontSize: 17, lineHeight: 1.8, marginBottom: 48 }}>
-            Tell me about your business and what you need. I&apos;ll get back to you within 24 hours to set up a free, no-pressure consultation.
+            Book the Production Readiness Review. $250, 2–3 business days, and a clear verdict you can act on.
           </p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
-            <a href="mailto:ahaizel@bronston.ca" style={{
-              color: 'var(--text)', textDecoration: 'none', display: 'flex',
-              alignItems: 'center', gap: 12, fontSize: 15, transition: 'color 0.2s',
-            }}
-            onMouseEnter={e => (e.currentTarget.style.color = 'var(--accent)')}
-            onMouseLeave={e => (e.currentTarget.style.color = 'var(--text)')}
-            >
-              <div style={{
-                width: 38, height: 38, borderRadius: 8, background: 'var(--surface)',
-                border: '1px solid var(--border)', display: 'flex',
-                alignItems: 'center', justifyContent: 'center', fontSize: 16,
-              }}>✉</div>
-              ahaizel@bronston.ca
+            <a href={`mailto:${EMAIL}`} className="text-link" style={{ display: 'flex', alignItems: 'center', gap: 12, fontSize: 15 }}>
+              <span className="icon-box"><MailIcon /></span>
+              Questions first? Email {EMAIL}
             </a>
             <div style={{ color: 'var(--muted)', fontSize: 14, display: 'flex', alignItems: 'center', gap: 12 }}>
-              <div style={{
-                width: 38, height: 38, borderRadius: 8, background: 'var(--surface)',
-                border: '1px solid var(--border)', display: 'flex',
-                alignItems: 'center', justifyContent: 'center', fontSize: 16,
-              }}>📍</div>
-              Based in Canada · Available remotely
+              <span className="icon-box"><PinIcon /></span>
+              Based in Canada · Works remotely
             </div>
           </div>
         </Reveal>
 
         <Reveal delay={0.15}>
-          <form action="https://formsubmit.co/ahaizel@bronston.ca" method="POST" style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-            <div className="form-name-row">
-              <input name="fullName" placeholder="Full Name" style={inputStyle} />
-              <input name="email" type="email" placeholder="Email" style={inputStyle} />
-            </div>
-            <input name="businessName" placeholder="Business Name" style={inputStyle} />
-            <textarea name="message" rows={5} placeholder="Tell me about your project..." style={{ ...inputStyle, resize: 'vertical' }} />
-            <button type="submit" style={{
-              background: 'var(--accent)', color: '#0c0c0a', border: 'none',
-              padding: '14px 28px', borderRadius: 8, fontSize: 15, fontWeight: 600,
-              cursor: 'pointer', fontFamily: 'var(--sans)', alignSelf: 'flex-start',
-              transition: 'opacity 0.2s, transform 0.2s',
-            }}
-            onMouseEnter={e => {
-              e.currentTarget.style.opacity = '0.88';
-              e.currentTarget.style.transform = 'translateY(-2px)';
-            }}
-            onMouseLeave={e => {
-              e.currentTarget.style.opacity = '1';
-              e.currentTarget.style.transform = 'translateY(0)';
-            }}
-            >
-              Book a Free Consultation
-            </button>
-          </form>
+          <div className="card" style={{ padding: 36, display: 'flex', flexDirection: 'column' }}>
+            <h3 style={{ fontFamily: 'var(--serif)', fontSize: 26, lineHeight: 1.2, marginBottom: 8 }}>Production Readiness Review</h3>
+            <div className="meta-label" style={{ marginBottom: 24 }}>$250 · 2–3 business days</div>
+            <ul className="dot-list" style={{ fontSize: 15, gap: 12, marginBottom: 32 }}>
+              {INCLUDES.map((item) => (
+                <li key={item}><span className="dot dot-sm" />{item}</li>
+              ))}
+            </ul>
+            <ButtonLink href={BOOKING_URL} block>Book the $250 review</ButtonLink>
+          </div>
         </Reveal>
       </div>
     </section>

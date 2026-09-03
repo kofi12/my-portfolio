@@ -1,55 +1,37 @@
-import React from 'react';
-import Image from 'next/image';
 import { Reveal } from './Reveal';
+import VerdictCard from './VerdictCard';
+import { SectionHeading } from './ui/SectionHeading';
 
 const POINTS = [
-  ['Direct communication', 'No account managers. You have my direct line.'],
-  ['Full ownership', 'Every deliverable — design, code, and copy — done by me.'],
-  ['Built for results', 'Conversion-focused design that turns visitors into paying clients.'],
+  ['Judgement first', 'You’re paying to know what’s wrong and what it costs to fix. The typing is the easy part.'],
+  ['Direct line', 'You talk to me. Every reply, every fix.'],
+  ['Fixed prices', 'Quoted before work starts. No surprises on the invoice.'],
 ];
 
 export default function About() {
   return (
     <section id="about" className="section-pad" style={{ background: 'var(--bg2)' }}>
-      <div className="two-col-grid" style={{ maxWidth: 1100, margin: '0 auto' }}>
+      <div className="two-col-grid container">
         <Reveal>
-          <div className="about-image">
-            <Image
-              src="/Headshot_nobg.png"
-              alt="Aaron Haizel"
-              fill
-              style={{ objectFit: 'cover', objectPosition: 'top' }}
-              sizes="(max-width: 768px) 100vw, 50vw"
-            />
-          </div>
+          <VerdictCard />
         </Reveal>
 
         <div>
           <Reveal delay={0.1}>
-            <p style={{ fontSize: 12, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--accent)', marginBottom: 16 }}>About</p>
-            <h2 style={{
-              fontFamily: 'var(--serif)', fontSize: 'clamp(36px, 4vw, 54px)',
-              lineHeight: 1.1, letterSpacing: '-0.02em', marginBottom: 28,
-            }}>
-              You talk to me.<br /><span style={{ fontStyle: 'italic' }}>I build it.</span>
-            </h2>
+            <SectionHeading label="About" style={{ marginBottom: 28 }}>
+              The person auditing<br /><em>is the person fixing.</em>
+            </SectionHeading>
           </Reveal>
           <Reveal delay={0.2}>
-            <p style={{ color: 'var(--muted)', lineHeight: 1.8, fontSize: 17, marginBottom: 20 }}>
-              {`I'm Aaron — a web developer based in Canada. Unlike agencies that hand off your project to a team of strangers, I personally handle every aspect of your website from design to launch.`}
-            </p>
             <p style={{ color: 'var(--muted)', lineHeight: 1.8, fontSize: 17, marginBottom: 36 }}>
-              {`That means clear communication, faster turnaround, and a final product that reflects exactly what you need — not what's easiest for a production line.`}
+              I&apos;m Aaron. I have a computer science degree and a background in mobile and full-stack development. I work solo, so the person who reads your code, writes the report, and explains it on the call is the same person who fixes it.
             </p>
           </Reveal>
           <Reveal delay={0.3}>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
               {POINTS.map(([title, desc]) => (
                 <div key={title} style={{ display: 'flex', gap: 16, alignItems: 'flex-start' }}>
-                  <div style={{
-                    width: 6, height: 6, borderRadius: '50%',
-                    background: 'var(--accent)', marginTop: 8, flexShrink: 0,
-                  }} />
+                  <span className="dot" style={{ marginTop: 8 }} />
                   <div>
                     <div style={{ fontWeight: 600, fontSize: 15, marginBottom: 2 }}>{title}</div>
                     <div style={{ color: 'var(--muted)', fontSize: 14 }}>{desc}</div>

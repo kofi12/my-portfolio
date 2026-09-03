@@ -1,13 +1,13 @@
 'use client';
-import { motion } from 'framer-motion';
-import React from 'react';
+import { motion } from 'motion/react';
+import type { CSSProperties, ReactNode } from 'react';
 
-interface RevealProps {
-  children: React.ReactNode;
+type RevealProps = {
+  children: ReactNode;
   delay?: number;
   className?: string;
-  style?: React.CSSProperties;
-}
+  style?: CSSProperties;
+};
 
 export function Reveal({ children, delay = 0, className, style }: RevealProps) {
   return (
