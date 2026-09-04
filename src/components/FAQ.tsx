@@ -7,7 +7,7 @@ import { SectionHeading } from './ui/SectionHeading';
 const ITEMS = [
   {
     q: 'What access do you need?',
-    a: 'Read-only access to your repository. A review never needs write access, and it never needs your production database.',
+    a: 'Permission to read your code, nothing more. I don’t need the ability to change it, and I don’t need access to your live database.',
   },
   {
     // TODO(policy): confirm an NDA is ready to send.
@@ -20,8 +20,8 @@ const ITEMS = [
   },
   {
     // TODO(policy): confirm the live-data check approach.
-    q: 'Do you need my production database?',
-    a: 'No. I read code and configuration. If a finding needs checking against live data, I’ll ask you to run a specific check and tell me what you see.',
+    q: 'Do you need access to my live data?',
+    a: 'No. I read the code and the settings. If something needs checking against live data, I’ll ask you to run a specific check and tell me what you see.',
   },
   {
     // TODO(policy): confirm any stacks not taken, such as no-code builders.

@@ -2,10 +2,10 @@ import { Reveal } from './Reveal';
 import { SectionHeading } from './ui/SectionHeading';
 
 const TRIGGERS = [
-  'An investor’s technical advisor is about to open the repo.',
+  'An investor’s technical advisor is about to look at your code.',
   'The launch date is fixed and nobody else has read the code.',
   'An enterprise customer just sent a security questionnaire.',
-  'Your first developer hire starts soon and will inherit the codebase.',
+  'Your first developer hire starts soon and will take over the code.',
 ];
 
 export default function Triggers() {

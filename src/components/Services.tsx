@@ -6,11 +6,11 @@ const TIERS = [
     num: '01',
     title: 'Production Readiness Review',
     meta: '$250 · 2–3 business days',
-    desc: 'A recorded walkthrough of your codebase and a written report with every finding ranked by severity. You get a clear verdict: fix, refactor, or rebuild.',
+    desc: 'A recorded walkthrough of your app’s code and a written report with every problem ranked by how serious it is. You get a clear verdict: fix, restructure, or rebuild.',
     includes: [
       'Recorded walkthrough of the code',
-      'Written report, findings ranked by severity',
-      'Verdict: fix, refactor, or rebuild',
+      'Written report, every problem ranked by how serious it is',
+      'Verdict: fix, restructure, or rebuild',
       'Fee credited toward the next tier',
     ],
     note: 'If your app is in good shape, the report says so and the call is short. Spend the money on customers instead.',
@@ -21,10 +21,10 @@ const TIERS = [
     meta: 'From $3,000 · 1–2 weeks',
     desc: 'The known problems, fixed. One price, agreed before work starts.',
     includes: [
-      'Secrets moved server-side',
-      'Access control locked down',
-      'Payments verified end to end',
-      'Error handling and tests around auth, payments, and your core flow',
+      'Private keys taken out of the app and kept where users can’t reach them',
+      'Rules for who can see what, enforced and tested',
+      'Payments checked properly, so nobody gets in without paying',
+      'Error handling and automated tests around sign-in, payments, and the thing your app is for',
     ],
   },
   {
@@ -33,9 +33,9 @@ const TIERS = [
     meta: 'From $5,000 · Scoped after the review',
     desc: 'For apps that need restructuring before they can grow. Delivered in approved phases, so work can stop at any phase boundary.',
     includes: [
-      'Restructuring and data model work',
-      'Documentation and handoff',
-      'A project instructions file for your codebase, so your AI tools stay on the rails after the work is done',
+      'Reorganising the code and how your data is stored',
+      'Written documentation and a proper handover',
+      'A written rulebook for your AI tools, so they stay on the rails after the work is done',
       'Built so you or a future hire can continue',
     ],
   },
@@ -74,7 +74,7 @@ export default function Services() {
 
         <Reveal delay={0.2}>
           <p style={{ marginTop: 32, color: 'var(--muted)', fontSize: 15, lineHeight: 1.7 }}>
-            Already launched? A monthly review retainer covers ongoing checks as your app changes. The instructions file is kept current, and new AI-generated work is reviewed against it. Ask about it on the call.
+            Already launched? A monthly review retainer covers ongoing checks as your app changes. The rulebook is kept current, and new AI-generated work is reviewed against it. Ask about it on the call.
           </p>
         </Reveal>
       </div>

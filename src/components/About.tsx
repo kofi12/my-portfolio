@@ -24,7 +24,7 @@ export default function About() {
           </Reveal>
           <Reveal delay={0.2}>
             <p style={{ color: 'var(--muted)', lineHeight: 1.8, fontSize: 17, marginBottom: 36 }}>
-              I&apos;m Aaron. I have a computer science degree and a background in mobile and full-stack development. I work solo, so the person who reads your code, writes the report, and explains it on the call is the same person who fixes it.
+              I&apos;m Aaron. I have a computer science degree and a background in building mobile apps and web apps, front to back. I work solo, so the person who reads your code, writes the report, and explains it on the call is the same person who fixes it.
             </p>
           </Reveal>
           <Reveal delay={0.3}>

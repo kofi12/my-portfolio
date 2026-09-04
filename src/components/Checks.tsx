@@ -5,15 +5,15 @@ import { SectionHeading } from './ui/SectionHeading';
 
 // Slugs match src/content/what-goes-wrong.ts. Items link to their page once it is published.
 const CHECKS: [string, string, string][] = [
-  ['secrets-in-the-browser', 'Secrets in the browser', 'API keys shipped to the front end. Anyone who opens developer tools can read them, run up your bill, or read your data.'],
-  ['access-control', 'Access control that isn’t there', 'Missing or misconfigured row-level security. One user can read, edit, or delete another user’s records by changing an ID.'],
-  ['payment-webhooks', 'Payment webhooks nobody verifies', 'Your app trusts anything that looks like a Stripe event. People get paid features without paying.'],
-  ['input-validation', 'No input validation', 'The app accepts whatever it’s sent. That’s how data gets corrupted and how attackers get in.'],
-  ['silent-failures', 'Silent failures', 'Errors are swallowed instead of handled. Things break quietly and you find out from a customer.'],
-  ['queries-under-load', 'Queries that die under load', 'No indexes, no limits. Fine with ten users. Timeouts with a thousand.'],
-  ['dependencies', 'Dependencies that don’t exist or shouldn’t', 'AI tools invent packages and pick abandoned ones. Both are ways to ship someone else’s problem.'],
-  ['no-tests', 'No tests', 'Nothing tells you something broke until a customer clicks on it. The code changes every time a tool touches it.'],
-  ['ai-with-no-guardrails', 'AI with no guardrails', 'No instructions file, so every session re-guesses your conventions. That’s how a codebase ends up with seven ways of doing the same thing.'],
+  ['secrets-in-the-browser', 'Secrets in the browser', 'Your private keys are inside the app itself, where anyone who looks can copy them, run up your bill, or read your data.'],
+  ['access-control', 'Users who can see each other’s data', 'The rules about who can see what are missing or wrong. One user can read, change or delete another’s records by changing a number in the address bar.'],
+  ['payment-webhooks', 'Payments taken on trust', 'Your app believes anything that says it’s from Stripe. People get paid features without paying.'],
+  ['input-validation', 'Forms that accept anything', 'The app takes whatever it’s given. That’s how bad data gets in, and how attackers do.'],
+  ['silent-failures', 'Silent failures', 'Errors are hidden instead of handled. Things break quietly and you find out from a customer.'],
+  ['queries-under-load', 'Slows down as you grow', 'Fine with ten users. Timeouts with a thousand.'],
+  ['dependencies', 'Building blocks nobody checked', 'AI tools pull in code libraries that were made up, abandoned, or already known to be unsafe.'],
+  ['no-tests', 'No tests', 'Nothing tells you something broke until a customer clicks on it. And the code changes every time a tool touches it.'],
+  ['ai-with-no-guardrails', 'AI with no guardrails', 'No written rules, so every session guesses again. That’s how an app ends up with seven ways of doing the same thing.'],
 ];
 
 export default function Checks() {

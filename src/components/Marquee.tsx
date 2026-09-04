@@ -1,6 +1,6 @@
 const ITEMS = [
   'Lovable', 'Bolt', 'Cursor', 'v0', 'Replit',
-  'Security Review', 'Access Control', 'Payments', 'Fixed Prices',
+  'Safety Review', 'Who Can See What', 'Payments', 'Fixed Prices',
 ];
 
 export default function Marquee() {

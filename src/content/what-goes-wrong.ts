@@ -28,39 +28,39 @@ export const FAILURE_MODES: FailureMode[] = [
   {
     slug: 'secrets-in-the-browser',
     title: 'Secrets in the browser',
-    summary: 'Your API keys are in the page source, where anyone can read them.',
-    description: 'What it means when API keys ship in your app’s front end, what it costs, and a 30-second check you can do in your browser right now.',
+    summary: 'Your private keys are inside the app, where anyone can copy them.',
+    description: 'What it means when your private keys are inside the app itself, what it costs, and a 30-second check you can do in your browser right now.',
     body: {
       whatItIs: [
-        'Your app talks to other services: a database, a payment provider, an email service, an AI model. Each one gives you a key that proves it’s you. Some keys are designed to be public. Most are not.',
-        'A secret key in the browser means it’s inside the code your app sends to every visitor. Anyone can open the page, look at the source, and copy it. AI coding tools do this often, because it’s the shortest path to making a feature work.',
+        'Your app talks to other services: a database, a payment company, an email service, an AI model. Each one gives you a key, a long string of letters and numbers that proves it’s you. Some keys are designed to be public. Most are not.',
+        'A secret key in the browser means it’s inside the part of your app that gets sent to every visitor. Anyone can open the page, look behind it, and copy the key. AI coding tools do this often, because it’s the shortest path to making a feature work.',
       ],
       fromYourSide: [
         'Usually nothing. The app works. The first sign is often a bill: an AI or email provider charging for usage you didn’t generate. Or a message from a provider saying one of your keys was found in public. Or data that changed when nobody on your team changed it.',
       ],
       cost: [
         'Someone runs up your bill on your keys. Someone reads your database with your own credentials. Someone sends email as you.',
-        'Every key has to be rotated in a hurry, which means downtime while everything that used them is updated. If a key was pushed to a public repository, assume it was copied within minutes.',
+        'Every key has to be rotated in a hurry, which means downtime while everything that used them is updated. If a key was ever posted somewhere public, like a public GitHub project, assume it was copied within minutes.',
       ],
       check: [
         'Open your app in Chrome and sign in the way a customer would.',
-        'Press F12, or Cmd+Option+I on a Mac, to open developer tools. Click the Sources tab.',
-        'Press Ctrl+Shift+F, or Cmd+Option+F on a Mac. This searches everything the page loaded, not just what’s on screen.',
+        'Press F12, or Cmd+Option+I on a Mac. A panel opens showing what’s behind the page. Click the tab called Sources, which lists every file the page loaded.',
+        'Press Ctrl+Shift+F, or Cmd+Option+F on a Mac. This searches inside all of those files at once.',
         'Search for `sk_live`. Then `service_role`. Then `eyJ`.',
-        '`sk_live` is a Stripe secret key. `service_role` is a database key that bypasses your access rules. Either one in the browser is a finding. `eyJ` is the start of a token. One tied to your signed-in session is normal, but one sitting in the code itself is worth asking about. Keys starting with `pk_live` or labelled `anon` are designed to be public, so on their own they’re fine.',
+        '`sk_live` is the start of a Stripe secret key. `service_role` is a master key for your database that skips every rule about who can see what. Either one showing up is a finding. `eyJ` is the start of a token, a temporary pass. One tied to your own sign-in is normal, but one sitting in the code itself is worth asking about. Keys starting with `pk_live` or labelled `anon` are designed to be public, so on their own they’re fine.',
       ],
       checkNote: 'Not sure what you’re looking at? Screenshot it and send it with your booking. Reading it is part of the review.',
       fix: [
-        'The secrets move to the server, and the browser calls your server instead of the provider directly. The server holds the keys, checks who’s asking, and does the work.',
-        'Any key that was ever in the browser gets rotated, because you have to assume it was copied. The review tells you which keys are exposed, what each one can do, and what fixing it costs.',
+        'The keys move out of the app and onto your server, the part of your app that users never see. The app asks the server to do the work, and the server checks who’s asking before it does.',
+        'Any key that was ever in the app gets replaced, because you have to assume it was copied. The review tells you which keys are exposed, what each one can do, and what fixing it costs.',
       ],
     },
   },
   {
     slug: 'access-control',
-    title: 'Access control that isn’t there',
+    title: 'Users who can see each other’s data',
     summary: 'One user can see or change another user’s data.',
-    description: 'What missing or misconfigured access rules mean for your app, what a data leak between users costs, and a 30-second check.',
+    description: 'What it means when the rules about who can see what are missing, what a leak between users costs, and a 30-second check.',
     body: {
       whatItIs: [
         'Your app stores records that belong to different people: their orders, their messages, their documents. Access control is the set of rules that says who can see and change which records. It has to live on the server or in the database, because the browser belongs to the user, and anything the browser decides can be changed by the user.',
@@ -88,9 +88,9 @@ export const FAILURE_MODES: FailureMode[] = [
   },
   {
     slug: 'payment-webhooks',
-    title: 'Payment webhooks nobody verifies',
+    title: 'Payments taken on trust',
     summary: 'Your app believes anything that says it’s from Stripe.',
-    description: 'What an unverified payment webhook is, how people get paid features without paying, and how to check yours.',
+    description: 'What it means when your app believes any payment message, how people get paid features without paying, and how to check yours.',
     body: {
       whatItIs: [
         'When someone pays, Stripe doesn’t just show a success screen. It sends your server a message, called a webhook, that says the payment went through. Your app reads that message and turns on the paid feature. The message carries a signature that proves it really came from Stripe. Checking the signature is one line of code. Many AI-built apps skip it.',
@@ -117,9 +117,9 @@ export const FAILURE_MODES: FailureMode[] = [
   },
   {
     slug: 'input-validation',
-    title: 'No input validation',
+    title: 'Forms that accept anything',
     summary: 'Your app accepts whatever it’s sent, including things that break it.',
-    description: 'What input validation is, what corrupted data and injection cost, and a safe 30-second check.',
+    description: 'What it means when your app takes whatever it’s given, what bad data and break-ins cost, and a safe 30-second check.',
     body: {
       whatItIs: [
         'Every form field and every request your app receives is something a person typed, or something a program sent. Validation is the step where the app checks it before using it: is the email actually an email, is the quantity a whole number, is the text short enough, is this field even supposed to be set by the user.',
@@ -173,7 +173,7 @@ export const FAILURE_MODES: FailureMode[] = [
   },
   {
     slug: 'queries-under-load',
-    title: 'Queries that die under load',
+    title: 'Slows down as you grow',
     summary: 'Fine with ten users. Timeouts with a thousand.',
     description: 'Why an app that works today slows to a crawl at launch, what it costs, and a 30-second check.',
     body: {
@@ -201,9 +201,9 @@ export const FAILURE_MODES: FailureMode[] = [
   },
   {
     slug: 'dependencies',
-    title: 'Dependencies that don’t exist or shouldn’t',
-    summary: 'Packages the AI invented, or ones nobody maintains.',
-    description: 'What hallucinated and abandoned packages mean for your app, what they cost, and how to check for them.',
+    title: 'Building blocks nobody checked',
+    summary: 'Code libraries the AI made up, or ones nobody maintains.',
+    description: 'What made-up and abandoned code libraries mean for your app, what they cost, and how to check for them.',
     body: {
       whatItIs: [
         'Your app is built on packages: libraries other people wrote, pulled in by name. AI tools sometimes invent a package name that sounds right but doesn’t exist, and sometimes pick one that exists but was abandoned years ago, or one with a known security hole. Attackers know this. They register the invented names and fill them with malicious code, so the next person whose tool remembers the name installs it.',
@@ -256,7 +256,7 @@ export const FAILURE_MODES: FailureMode[] = [
   {
     slug: 'ai-with-no-guardrails',
     title: 'AI with no guardrails',
-    summary: 'Every session re-guesses your conventions, and the codebase drifts.',
+    summary: 'Every session guesses your rules again, and the code drifts apart.',
     description: 'Why an AI coding tool with no project instructions file produces seven ways of doing the same thing, and how to check for one.',
     body: {
       whatItIs: [

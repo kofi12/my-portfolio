@@ -9,7 +9,7 @@ export default function BookingCta() {
         Find out before <em>your users do.</em>
       </h2>
       <p style={{ color: 'var(--muted)', fontSize: 16, lineHeight: 1.7, maxWidth: 560 }}>
-        The Production Readiness Review is $250, takes 2–3 business days, and ends with a clear verdict: fix, refactor, or rebuild.
+        The Production Readiness Review is $250, takes 2–3 business days, and ends with a clear verdict: fix, restructure, or rebuild.
       </p>
       <ButtonLink href={BOOKING_URL} style={{ marginTop: 8 }}>Book the $250 review</ButtonLink>
     </div>

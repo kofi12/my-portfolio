@@ -4,9 +4,9 @@ import { ButtonLink } from './ui/ButtonLink';
 import { SectionHeading } from './ui/SectionHeading';
 
 const INCLUDES = [
-  'Recorded walkthrough of your codebase',
-  'Written report, findings ranked by severity',
-  'A verdict on a call: fix, refactor, or rebuild',
+  'Recorded walkthrough of your app’s code',
+  'Written report, every problem ranked by how serious it is',
+  'A verdict on a call: fix, restructure, or rebuild',
   'Fee credited toward the next tier',
 ];
 

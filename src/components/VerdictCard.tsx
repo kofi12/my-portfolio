@@ -1,11 +1,11 @@
 type Severity = 'critical' | 'high' | 'medium' | 'low';
 
 const FINDINGS: [Severity, string][] = [
-  ['critical', 'Service key shipped in the browser bundle'],
-  ['high', 'No row-level security on customer records'],
-  ['high', 'Stripe webhook accepted without a signature check'],
-  ['medium', 'Errors swallowed in the checkout flow'],
-  ['low', 'Unindexed query behind the dashboard'],
+  ['critical', 'Master database key inside the app'],
+  ['high', 'Any customer can read any other customer’s records'],
+  ['high', 'Payment confirmations accepted without checking they’re real'],
+  ['medium', 'Checkout errors hidden from the user'],
+  ['low', 'Dashboard will slow to a crawl as data grows'],
 ];
 
 /** An illustrative sample of the review's front page. Not a real client result. */
