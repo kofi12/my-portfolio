@@ -35,6 +35,7 @@ const TIERS = [
     includes: [
       'Restructuring and data model work',
       'Documentation and handoff',
+      'A project instructions file for your codebase, so your AI tools stay on the rails after the work is done',
       'Built so you or a future hire can continue',
     ],
   },
@@ -73,7 +74,7 @@ export default function Services() {
 
         <Reveal delay={0.2}>
           <p style={{ marginTop: 32, color: 'var(--muted)', fontSize: 15, lineHeight: 1.7 }}>
-            Already launched? A monthly review retainer covers ongoing checks as your app changes. Ask about it on the call.
+            Already launched? A monthly review retainer covers ongoing checks as your app changes. The instructions file is kept current, and new AI-generated work is reviewed against it. Ask about it on the call.
           </p>
         </Reveal>
       </div>
