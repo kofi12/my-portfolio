@@ -1,12 +1,14 @@
 export const SITE_NAME = 'akhaizel';
 export const OWNER_NAME = 'Aaron Haizel';
-export const EMAIL = 'ahaizel@bronston.ca';
+
+/** The only place an email address is written. Everything else imports it. */
+export const CONTACT_EMAIL = 'ahaizel@akhaizel.ca';
 
 /**
- * Every booking call to action points here.
- * Placeholder: swap for a scheduling link (Cal.com, Calendly, ...) when ready.
+ * TODO(booking): replace with the scheduling link (Cal.com, Calendly, ...).
+ * Placeholder so every booking button keeps working until then.
  */
-export const BOOKING_URL = `mailto:${EMAIL}?subject=${encodeURIComponent('Production Readiness Review')}`;
+export const BOOKING_URL = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Production Readiness Review')}`;
 
 export const NAV_LINKS = [
   { label: 'Services', href: '#services' },

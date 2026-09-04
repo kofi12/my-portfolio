@@ -1,4 +1,4 @@
-import { BOOKING_URL, EMAIL } from '../lib/site';
+import { BOOKING_URL, CONTACT_EMAIL } from '../lib/site';
 import { Reveal } from './Reveal';
 import { ButtonLink } from './ui/ButtonLink';
 import { SectionHeading } from './ui/SectionHeading';
@@ -40,9 +40,9 @@ export default function Contact() {
             Book the Production Readiness Review. $250, 2–3 business days, and a clear verdict you can act on.
           </p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
-            <a href={`mailto:${EMAIL}`} className="text-link" style={{ display: 'flex', alignItems: 'center', gap: 12, fontSize: 15 }}>
+            <a href={`mailto:${CONTACT_EMAIL}`} className="text-link" style={{ display: 'flex', alignItems: 'center', gap: 12, fontSize: 15 }}>
               <span className="icon-box"><MailIcon /></span>
-              Questions first? Email {EMAIL}
+              Questions first? Email {CONTACT_EMAIL}
             </a>
             <div style={{ color: 'var(--muted)', fontSize: 14, display: 'flex', alignItems: 'center', gap: 12 }}>
               <span className="icon-box"><PinIcon /></span>

@@ -60,6 +60,7 @@ img {
 /* ── Layout ────────────────────────────────────────── */
 .container { max-width: var(--container); margin: 0 auto; }
 .section-pad { padding: 120px 40px; }
+.band-pad { padding: 72px 40px; }
 
 .two-col-grid {
   display: grid;
@@ -95,6 +96,28 @@ img {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 40px 64px;
+}
+
+.four-col {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px 32px;
+}
+
+.proof-card { padding: 40px; }
+
+.proof-head {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+
+.proof-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px 48px;
 }
 
 /* ── Type ──────────────────────────────────────────── */
@@ -269,6 +292,22 @@ img {
   white-space: nowrap;
 }
 
+.tag-accent {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ── FAQ ───────────────────────────────────────────── */
+.faq-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.faq-body.open {
+  max-height: 400px;
+}
+
 /* ── Marquee ───────────────────────────────────────── */
 @keyframes marquee {
   from { transform: translateX(0); }
@@ -287,6 +326,8 @@ img {
 
 /* ── Services ──────────────────────────────────────── */
 .service-cell {
+  display: flex;
+  flex-direction: column;
   background: var(--surface);
   padding: 40px 36px;
   height: 100%;
@@ -334,16 +375,21 @@ img {
     gap: 40px;
   }
 
+  .band-pad { padding: 56px 20px; }
+
   .three-col,
   .tier-grid,
-  .checks-grid {
+  .checks-grid,
+  .proof-grid {
     grid-template-columns: 1fr;
   }
 
+  .four-col { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+  .proof-card { padding: 28px 24px; }
+
   .checks-grid { gap: 32px; }
 
-  .cases-head { flex-direction: column; align-items: flex-start; }
-  .cases-note { text-align: left; }
 
   .nav-inner { padding: 0 20px; }
 

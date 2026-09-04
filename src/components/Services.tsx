@@ -13,6 +13,7 @@ const TIERS = [
       'Verdict: fix, refactor, or rebuild',
       'Fee credited toward the next tier',
     ],
+    note: 'If your app is in good shape, the report says so and the call is short. Spend the money on customers instead.',
   },
   {
     num: '02',
@@ -62,6 +63,9 @@ export default function Services() {
                     <li key={item}><span className="dot dot-sm" />{item}</li>
                   ))}
                 </ul>
+                {'note' in tier && (
+                  <p style={{ marginTop: 'auto', paddingTop: 24, color: 'var(--muted)', fontSize: 14, lineHeight: 1.6 }}>{tier.note}</p>
+                )}
               </div>
             </Reveal>
           ))}
