@@ -41,7 +41,7 @@ export default function Navbar() {
           WebkitBackdropFilter: scrolled ? 'blur(20px)' : 'none',
         }}
       >
-        <Link href="#" style={{ fontFamily: 'var(--serif)', fontSize: 22, letterSpacing: '-0.01em' }}>
+        <Link href="/" style={{ fontFamily: 'var(--serif)', fontSize: 22, letterSpacing: '-0.01em' }}>
           {SITE_NAME}
         </Link>
 

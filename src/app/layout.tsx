@@ -3,6 +3,7 @@ import { DM_Serif_Display, Inter } from 'next/font/google';
 import './globals.css';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import { SITE_URL } from '../lib/site';
 
 const dmSerif = DM_Serif_Display({
   subsets: ['latin'],
@@ -17,6 +18,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: 'akhaizel | AI-built app audits and fixes',
   description:
     'Production readiness reviews and fixes for apps built with Lovable, Bolt, Cursor, v0, and Replit. Fixed prices, a clear verdict, and one person from audit to fix.',
