@@ -63,26 +63,26 @@ export const FAILURE_MODES: FailureMode[] = [
     description: 'What it means when the rules about who can see what are missing, what a leak between users costs, and a 30-second check.',
     body: {
       whatItIs: [
-        'Your app stores records that belong to different people: their orders, their messages, their documents. Access control is the set of rules that says who can see and change which records. It has to live on the server or in the database, because the browser belongs to the user, and anything the browser decides can be changed by the user.',
-        'AI tools often build the rule into the screen instead. The page only shows your records, so it looks right. But the request behind the page will hand over anyone’s records if you ask for them by ID. On Supabase and similar databases the rules are called row-level security, and it is common for them to be missing, or switched on with a policy that allows everything.',
+        'Your app stores records that belong to different people: their orders, their messages, their documents. Somewhere there needs to be a rule that says who is allowed to see and change which records. That rule has to live on your server or in your database, the parts users can’t touch. Anything decided on the user’s own device can be changed by the user.',
+        'AI tools often build the rule into the screen instead. The page only shows your records, so it looks right. But the request behind the page will hand over anyone’s records if you ask for them by number. If you use Supabase or something like it, the database has its own rules for this (it calls them row-level security), and it’s common for them to be missing, or switched on with a rule that lets everyone through.',
       ],
       fromYourSide: [
-        'Nothing, until a user tells you. A customer emails a screenshot of someone else’s order. Someone changes a URL from `/invoice/1042` to `/invoice/1041` and sees another company’s invoice. Or nobody tells you, and it shows up later in a security questionnaire, or in a complaint.',
+        'Nothing, until a user tells you. A customer emails a screenshot of someone else’s order. Someone changes the number at the end of a web address from 1042 to 1041 and sees another company’s invoice. Or nobody tells you, and it shows up later in a security questionnaire, or in a complaint.',
       ],
       cost: [
         'A privacy breach, even a small one, is a conversation with a lawyer. Depending on where your users are, you may be legally required to report it. It also ends deals: an enterprise buyer who finds this in a security review won’t sign.',
-        'And if the rule is missing for reading, it’s usually missing for writing too, so one user can edit or delete another’s data.',
+        'And if the rule is missing for reading, it’s usually missing for changing too, so one user can edit or delete another’s data.',
       ],
       check: [
         'Sign in to your app and open something that belongs only to you, like an order, a project, or a profile page.',
-        'Look at the address bar. If it ends in a number or an ID, change it by one and press Enter. If you have a second test account, try the same page’s address while signed in as that account instead.',
+        'Look at the address bar. If the address ends in a number or a code, change it by one and press Enter. If you have a second test account, sign in as that account and paste in the first account’s address instead.',
         'You should get an error or an empty page. If you see someone else’s record, that’s the finding.',
-        'If your app uses Supabase, open your Supabase dashboard, go to Table Editor, and look at the tables. Each one shows whether row-level security is enabled. A table holding user data with it off, or with a policy that says `true` for everyone, is worth asking about.',
+        'If your app uses Supabase, open your Supabase dashboard and click Table Editor. Each table shows whether row-level security is switched on. A table holding user data with it off, or with a rule that just says `true`, is worth asking about.',
       ],
       checkNote: 'Only do this with your own test accounts. Don’t go looking at real customers’ records to prove the point.',
       fix: [
-        'The rules move to where the user can’t change them: the database or the server. Every table that holds user data gets a policy that says who can read and write each row, and every request that fetches a record checks that the person asking is allowed.',
-        'Then I test it with two accounts trying to reach each other’s data, and those tests stay in your codebase so the rule can’t quietly disappear later.',
+        'The rules move to where users can’t change them: the database or the server. Every table that holds user data gets a rule saying who can read and change each record, and every request for a record checks that the person asking is allowed.',
+        'Then I test it with two accounts trying to reach each other’s data, and those tests stay with your code so the rule can’t quietly disappear later.',
       ],
     },
   },
@@ -93,25 +93,25 @@ export const FAILURE_MODES: FailureMode[] = [
     description: 'What it means when your app believes any payment message, how people get paid features without paying, and how to check yours.',
     body: {
       whatItIs: [
-        'When someone pays, Stripe doesn’t just show a success screen. It sends your server a message, called a webhook, that says the payment went through. Your app reads that message and turns on the paid feature. The message carries a signature that proves it really came from Stripe. Checking the signature is one line of code. Many AI-built apps skip it.',
-        'Without the check, your server believes any message shaped like a Stripe event. Anyone who knows your webhook address can send one.',
+        'When someone pays, Stripe doesn’t just show a success screen. It sends your app a message behind the scenes (Stripe calls it a webhook) saying the payment went through. Your app reads that message and switches on the paid feature. The message comes with a signature that proves it really came from Stripe. Checking that signature is one line of code. Many AI-built apps skip it.',
+        'Without the check, your app believes any message that looks like it’s from Stripe. Anyone who knows the address your app listens on can send one.',
       ],
       fromYourSide: [
         'Your dashboard shows paying customers that Stripe has no record of. Or the other way round: Stripe has the payment, but the customer never got access, because the message was handled wrong and nobody noticed. Either way the first sign is a support email.',
       ],
       cost: [
-        'People get paid features without paying, and you can’t tell which ones. Refund disputes get messy because your records and Stripe’s disagree. If the webhook also handles cancellations, a forged one can cut off a paying customer.',
+        'People get paid features without paying, and you can’t tell which ones. Refund disputes get messy because your records and Stripe’s disagree. If the same message also handles cancellations, a fake one can cut off a paying customer.',
       ],
       check: [
-        'Open your Stripe dashboard. Go to Developers, then Webhooks. You should see at least one endpoint pointing at your app’s address. If there are none, your app may be relying on the browser’s success screen alone, which anyone can fake.',
-        'Click the endpoint. Stripe shows a signing secret for it, starting with `whsec_`. Note whether it’s there.',
-        'Now check your app’s settings, wherever you keep environment variables: your hosting dashboard, or your AI tool’s settings page. If there’s no variable holding a `whsec_` value, your app has nothing to check the signature with.',
-        'Also look at the endpoint’s recent deliveries in Stripe. A long list of failed deliveries means messages are being sent and your app isn’t handling them.',
+        'Open your Stripe dashboard. Go to Developers, then Webhooks. You should see at least one entry pointing at your app’s address. If there are none, your app may be relying on the success screen alone, which anyone can fake.',
+        'Click the entry. Stripe shows a signing secret for it, starting with `whsec_`. Note whether it’s there.',
+        'Now open the settings for your app wherever it’s hosted, or in your AI tool’s settings page, and look at the list of saved secrets (often called environment variables). If none of them holds a `whsec_` value, your app has nothing to check the signature with.',
+        'While you’re in Stripe, look at the entry’s recent deliveries. A long list of failures means Stripe is sending messages and your app isn’t handling them.',
       ],
       checkNote: 'Reading these pages is safe. Don’t regenerate or delete anything while you look.',
       fix: [
-        'Every incoming webhook is checked against the signing secret before anything else happens, and anything that fails the check is rejected. The handler is made safe to receive the same message twice, because Stripe will resend. Access is granted from the verified message, never from the success screen.',
-        'I test it with a forged message and a replayed one.',
+        'Every message from Stripe is checked against the signing secret before anything else happens, and anything that fails is thrown away. The same message arriving twice does no harm, because Stripe will resend. Paid features switch on from the verified message, never from the success screen.',
+        'I test it by sending a fake message and a repeated one.',
       ],
     },
   },
@@ -122,24 +122,24 @@ export const FAILURE_MODES: FailureMode[] = [
     description: 'What it means when your app takes whatever it’s given, what bad data and break-ins cost, and a safe 30-second check.',
     body: {
       whatItIs: [
-        'Every form field and every request your app receives is something a person typed, or something a program sent. Validation is the step where the app checks it before using it: is the email actually an email, is the quantity a whole number, is the text short enough, is this field even supposed to be set by the user.',
-        'AI tools tend to write the happy path. The field expects a number, so the code assumes it got one. When it gets something else, the best case is a crash. The worse cases are data that’s wrong from then on, or input that gets treated as an instruction, which is how injection attacks work.',
+        'Every form field and every request your app receives is something a person typed, or something a program sent. Checking it before using it is called validation: is the email actually an email, is the quantity a whole number, is the text short enough, is this field even something the user is allowed to set.',
+        'AI tools tend to write the happy path. The field expects a number, so the code assumes it got one. When it gets something else, the best case is a crash. The worse cases are data that’s wrong from then on, or typed input that the app treats as a command. That’s how break-ins work.',
       ],
       fromYourSide: [
-        'Odd records: a customer with a blank name, an order for negative three items, a date in the year 20233. Pages that crash for one specific user. Or a field that was only meant for admins, like `role` or `price`, that turns out to be editable from the sign-up form.',
+        'Odd records: a customer with a blank name, an order for negative three items, a date in the year 20233. Pages that crash for one specific user. Or a field that was only meant for you, like a user’s role or a product’s price, that turns out to be changeable from the sign-up form.',
       ],
       cost: [
-        'Corrupted data is expensive because it spreads. A wrong price on one order feeds into reports, invoices and refunds. A missing check on a hidden field can let a user make themselves an admin or set their own price. And unvalidated input reaching your database is the classic way attackers read or destroy it.',
+        'Bad data is expensive because it spreads. A wrong price on one order feeds into reports, invoices and refunds. A missing check on a hidden field can let a user make themselves an admin or set their own price. And unchecked input reaching your database is the classic way attackers read or destroy it.',
       ],
       check: [
         'Open a form in your app, any one that saves something. Try a few wrong answers: letters in a number field, a negative quantity, a date that doesn’t exist, a very long piece of text pasted into a short field. Submit.',
         'You should see a clear error and nothing saved. If the app saves it, crashes, or shows a blank screen, that’s the finding.',
-        'Open your sign-up or profile page and press F12 to open developer tools, then click the Network tab. Save the form and click the request that appears. Look at the payload it sent. If you see fields you never typed, like `role`, `plan`, `credits` or `is_admin`, the server may be accepting whatever the browser sends for them.',
+        'Open your sign-up or profile page and press F12, or Cmd+Option+I on a Mac. Click the tab called Network, which lists what the page sends and receives. Save the form, then click the new line that appears and look for a section called Payload or Request. If you see fields you never typed, like `role`, `plan`, `credits` or `is_admin`, your app may be accepting whatever the form sends for them.',
       ],
       checkNote: 'Use a test account. Wrong data in a real customer’s record is exactly what you’re trying to avoid.',
       fix: [
-        'Every request gets a schema: a definition of what fields are allowed, what type each one is, and what range it can take. Anything outside the schema is rejected with a clear message before it touches the database. Fields the user shouldn’t control are removed from the request entirely.',
-        'Database queries use parameters instead of pasted-in text, which closes the injection path. The schema lives next to the code, so the next AI session sees it too.',
+        'Every request gets a written definition of what’s allowed: which fields, what kind of value, what range. Anything outside it is rejected with a clear message before it touches the database. Fields the user shouldn’t control are stripped out entirely.',
+        'Database instructions are built in a way that treats typed input as data, never as a command, which closes the break-in path. The definition lives next to the code, so the next AI session sees it too.',
       ],
     },
   },
@@ -150,8 +150,8 @@ export const FAILURE_MODES: FailureMode[] = [
     description: 'What silent failures are, why a failed save can look like a success, and how to check your app for them.',
     body: {
       whatItIs: [
-        'Things fail. A save times out, an email bounces, a payment provider is down for a minute. Error handling is what your app does next: tell the user, retry, log it so you can see it later. A silent failure is when the code catches the error and does nothing. The user sees a spinner that stops, or a success message for something that didn’t happen.',
-        'AI tools produce this constantly. An empty `catch` block makes the red error go away, which looks like fixing it.',
+        'Things fail. A save times out, an email bounces, a payment company is down for a minute. What your app does next matters: tell the user, try again, or write it down so you can see it later. A silent failure is when the code notices the problem and does nothing. The user sees a spinner that stops, or a success message for something that didn’t happen.',
+        'AI tools produce this constantly. Telling the code to ignore the error makes the red warning go away, which looks like fixing it.',
       ],
       fromYourSide: [
         'Customers say they did something and your records say they didn’t. Emails that never arrived. Uploads that show a tick and then aren’t there. You can’t reproduce it, because from the outside nothing went wrong. Your logs, if you have them, are empty.',
@@ -166,8 +166,8 @@ export const FAILURE_MODES: FailureMode[] = [
         'Then ask yourself: where would you look if a customer said a save failed yesterday? If the answer is nowhere, there’s no error reporting.',
       ],
       fix: [
-        'Every place the code swallows an error gets a real decision: show the user, retry, or fail loudly. Failures are sent to an error-reporting service so you see them before customers do, with enough detail to know which user and which action.',
-        'The core flows get tests that check what happens when a dependency fails, not just when it works.',
+        'Every place the code ignores an error gets a real decision: show the user, try again, or stop loudly. Failures are sent to an error-reporting service so you see them before customers do, with enough detail to know which user and which action.',
+        'The parts of the app that matter most get tests that check what happens when something they depend on fails, not just when it works.',
       ],
     },
   },
@@ -178,24 +178,24 @@ export const FAILURE_MODES: FailureMode[] = [
     description: 'Why an app that works today slows to a crawl at launch, what it costs, and a 30-second check.',
     body: {
       whatItIs: [
-        'When your app looks something up, the database has to find it. With ten records it can read everything and it’s instant. With a hundred thousand, reading everything for every request is what makes a page take eight seconds, then time out. An index is the database’s way of finding a record without reading everything. AI tools rarely add them, because the app is fast while it’s being built.',
-        'The same goes for queries that fetch far more than the page needs: loading every order to show the latest five, or asking the database once per row in a list.',
+        'When your app looks something up, the database has to find it. With ten records it can read everything and it’s instant. With a hundred thousand, reading everything for every request is what makes a page take eight seconds, then give up. A database index is like the index at the back of a book: a way to find a record without reading every page. AI tools rarely add them, because the app is fast while it’s being built.',
+        'The same goes for lookups that fetch far more than the page needs: loading every order to show the latest five, or going back to the database once for each row in a list.',
       ],
       fromYourSide: [
         'The app was fast and now it isn’t. Dashboards that take longer every month. A launch day where sign-ups spike and everything slows down at once. Timeouts that come and go. A hosting bill that climbs because the database is working far harder than it should.',
       ],
       cost: [
-        'A slow app during your launch is the launch. People who hit a timeout on sign-up don’t come back. And the fix people reach for under pressure, a bigger database plan, is expensive and doesn’t fix the cause. The real fix is usually a few indexes and a few rewritten queries, but you need to know which ones.',
+        'A slow app during your launch is the launch. People who hit a timeout on sign-up don’t come back. And the fix people reach for under pressure, a bigger database plan, is expensive and doesn’t fix the cause. The real fix is usually a few indexes and a few rewritten lookups, but you need to know which ones.',
       ],
       check: [
         'Open the page in your app that shows the longest list: orders, users, messages. Note how long it takes to load. Then open the same page for the account with the most data, if you have one.',
-        'If you use Supabase, open the dashboard and look for Query Performance under Advisors, or the Database section under Reports. It lists the slowest queries and suggests missing indexes. Anything described as a sequential scan on a large table is worth asking about.',
-        'If you don’t use Supabase, your hosting dashboard usually has a database metrics page. Look at how load and response time have changed over the last month.',
+        'If you use Supabase, open the dashboard and look for Query Performance under Advisors. It lists the slowest lookups and suggests missing indexes. Anything described as a sequential scan on a big table means the database is reading everything, and that’s worth asking about.',
+        'If you don’t use Supabase, your hosting dashboard usually has a database page with charts. Look at how load and response time have changed over the last month.',
       ],
       checkNote: 'This is read-only. Don’t run anything from these pages while you’re looking.',
       fix: [
-        'I find the queries that actually run on your busiest pages, add the indexes they need, and rewrite the ones that fetch too much or run in loops.',
-        'Then I load-test the core flow with realistic numbers so you know where the next limit is, and note it in the report.',
+        'I find the lookups that actually run on your busiest pages, add the indexes they need, and rewrite the ones that fetch too much or repeat themselves.',
+        'Then I put realistic numbers of users through the core flow so you know where the next limit is, and note it in the report.',
       ],
     },
   },
@@ -206,23 +206,23 @@ export const FAILURE_MODES: FailureMode[] = [
     description: 'What made-up and abandoned code libraries mean for your app, what they cost, and how to check for them.',
     body: {
       whatItIs: [
-        'Your app is built on packages: libraries other people wrote, pulled in by name. AI tools sometimes invent a package name that sounds right but doesn’t exist, and sometimes pick one that exists but was abandoned years ago, or one with a known security hole. Attackers know this. They register the invented names and fill them with malicious code, so the next person whose tool remembers the name installs it.',
-        'Even real, well-kept packages need updating. A dependency with a published vulnerability is an open door with a public map to it.',
+        'Your app is built on code libraries: pieces other people wrote, pulled in by name. AI tools sometimes make up a name that sounds right but doesn’t exist, and sometimes pick one that exists but was abandoned years ago, or one with a known security hole. Attackers know this. They register the made-up names and fill them with harmful code, so the next person whose tool remembers the name installs it.',
+        'Even real, well-kept libraries need updating. One with a published security hole is an open door with a public map to it.',
       ],
       fromYourSide: [
-        'Install steps that fail with “package not found”. Warnings during builds that everyone ignores. A security questionnaire asking how you track vulnerable dependencies, and no answer. Or nothing at all, until a provider or a customer’s scanner flags it.',
+        'Setup steps that fail with “package not found”. Warnings during builds that everyone ignores. A security questionnaire asking how you track vulnerable libraries, and no answer. Or nothing at all, until a provider or a customer’s scanner flags it.',
       ],
       cost: [
-        'A malicious package runs with all the access your app has: your database, your keys, your users’ data. An abandoned one means the next security fix never comes. A known vulnerability means you’re relying on nobody bothering to try it. Enterprise buyers ask about this directly, and “we don’t know” fails the questionnaire.',
+        'A harmful library runs with all the access your app has: your database, your keys, your users’ data. An abandoned one means the next security fix never comes. A known hole means you’re relying on nobody bothering to try it. Enterprise buyers ask about this directly, and “we don’t know” fails the questionnaire.',
       ],
       check: [
-        'If your code is on GitHub, open the repository and click the Security tab, then Dependabot alerts. If alerts are on, you’ll see a list of known vulnerabilities in your dependencies with a severity for each. If it says alerts are off, turn them on. It’s one click and it’s free.',
-        'Open the file called `package.json` in your repository, or `requirements.txt` for a Python app. Pick two or three package names you don’t recognise and search for each on npmjs.com or pypi.org. Check when it was last published and how many people use it. A package with no page, or one last updated years ago, is worth asking about.',
+        'If your code is on GitHub, open the project and click the Security tab, then Dependabot alerts. If alerts are on, you’ll see a list of known problems in your libraries, each with a severity. If it says alerts are off, turn them on. It’s one click and it’s free.',
+        'Open the file called `package.json` in your project, or `requirements.txt` for a Python app. It lists the libraries your app uses. Pick two or three names you don’t recognise and search for each on npmjs.com or pypi.org. Check when it was last updated and how many people use it. A library with no page, or one last updated years ago, is worth asking about.',
       ],
       checkNote: 'Looking is safe. Don’t click “update all” from any dashboard. A careless upgrade can break the app in ways that are hard to trace.',
       fix: [
-        'Every dependency gets checked against the vulnerability databases and against what it actually does in your app. Invented or abandoned packages are replaced. Known vulnerabilities are patched and the app is retested.',
-        'Then an automated check runs on every change so the list can’t drift again, and the report tells you which packages matter and which are noise.',
+        'Every library gets checked against the public lists of known security holes and against what it actually does in your app. Made-up or abandoned ones are replaced. Known holes are patched and the app is retested.',
+        'Then an automatic check runs on every change so the list can’t drift again, and the report tells you which libraries matter and which are noise.',
       ],
     },
   },
@@ -240,15 +240,15 @@ export const FAILURE_MODES: FailureMode[] = [
         'Every fix breaks something else. You’ve stopped touching the parts that work. Releases are scary, so they happen less often, and each one is bigger and scarier. You describe the same bug to your AI tool three times because it keeps bringing it back.',
       ],
       cost: [
-        'Slow, nervous shipping. Regressions that reach customers. A developer you hire later who can’t change anything safely, because nothing tells them what they broke. And it compounds: the longer an app goes without tests, the more expensive the first ones are to write.',
+        'Slow, nervous shipping. Old bugs coming back and reaching customers. A developer you hire later who can’t change anything safely, because nothing tells them what they broke. And it compounds: the longer an app goes without tests, the more expensive the first ones are to write.',
       ],
       check: [
-        'Open your repository on GitHub. Look for a folder called `tests`, `test`, `__tests__` or `spec`, or files whose names end in `.test.ts`, `.test.js` or `_test.py`. If there are none, the app has no smoke alarm.',
-        'Click the Actions tab. If it’s empty, nothing runs automatically when the code changes. If there are runs, open the most recent one and see whether it actually ran tests or only built the app.',
-        'If tests exist, open one and read it. A file with a single placeholder check, or tests that have been commented out, counts as none.',
+        'Open your project on GitHub. Look for a folder called `tests`, `test`, `__tests__` or `spec`, or files whose names end in `.test.ts`, `.test.js` or `_test.py`. If there are none, the app has no smoke alarm.',
+        'Click the Actions tab. This is where GitHub shows anything that runs automatically when the code changes. If it’s empty, nothing does. If there are runs, open the most recent one and see whether it actually ran tests or only built the app.',
+        'If tests exist, open one and read it. A file with a single placeholder check, or tests that have been switched off, counts as none.',
       ],
       fix: [
-        'I write tests around the flows that would hurt most if they broke: sign-in, access rules, payments, and whatever your app is actually for. They run automatically on every change, so a break shows up before it ships.',
+        'I write tests around the flows that would hurt most if they broke: sign-in, who can see what, payments, and whatever your app is actually for. They run automatically on every change, so a break shows up before it ships.',
         'The point isn’t to test everything. It’s to make sure the alarm goes off for the fires that matter.',
       ],
     },
@@ -260,22 +260,22 @@ export const FAILURE_MODES: FailureMode[] = [
     description: 'Why an AI coding tool with no project instructions file produces seven ways of doing the same thing, and how to check for one.',
     body: {
       whatItIs: [
-        'Your AI coding tool has no memory of your app. Every session starts from zero. It reads a few files, guesses how you do things, and adds a slightly different pattern: a new way to talk to the database, a second way to check who’s signed in, a third place where errors are handled differently. Do that for a few months and the codebase has seven ways of doing the same thing, and none of them agree.',
-        'A project instructions file fixes this. It’s a plain-text file in the root of your project, often called `CLAUDE.md`, `AGENTS.md` or `.cursorrules`, that the tool reads at the start of every session. It gives the tool the rules before it writes a line.',
+        'Your AI coding tool has no memory of your app. Every session starts from zero. It reads a few files, guesses how you do things, and adds a slightly different pattern: a new way to talk to the database, a second way to check who’s signed in, a third place where errors are handled differently. Do that for a few months and the app has seven ways of doing the same thing, and none of them agree.',
+        'A project instructions file, a written rulebook, fixes this. It’s a plain-text file at the top level of your project, often called `CLAUDE.md`, `AGENTS.md` or `.cursorrules`, that the tool reads at the start of every session. It gives the tool the rules before it writes a line.',
       ],
       fromYourSide: [
-        'Fixes that work in one screen and not another. The tool “refactoring” something you didn’t ask about. A feature that took an hour last month taking a day now, because the tool has to rediscover how everything fits. A developer who reads the code and says they can’t tell what the conventions are, because there aren’t any.',
+        'Fixes that work in one screen and not another. The tool “tidying up” something you didn’t ask about. A feature that took an hour last month taking a day now, because the tool has to rediscover how everything fits. A developer who reads the code and says they can’t tell what the conventions are, because there aren’t any.',
       ],
       cost: [
         'Every session is slower and riskier than the last, and the drift is what turns a messy app into an unfixable one. When the rules for sign-in and data access live in seven places, a security fix has to be made seven times, and the eighth place gets missed. That’s how the problems on the other pages here come back after they’ve been fixed.',
       ],
       check: [
-        'Open your repository and look at the files in the root folder, next to `package.json`. You’re looking for `CLAUDE.md`, `AGENTS.md`, `.cursorrules`, a `.cursor/rules` folder, `.windsurfrules`, or `.github/copilot-instructions.md`.',
+        'Open your project and look at the files at the top level, next to `package.json`. You’re looking for `CLAUDE.md`, `AGENTS.md`, `.cursorrules`, a `.cursor/rules` folder, `.windsurfrules`, or `.github/copilot-instructions.md`.',
         'If there isn’t one, the tool has been working blind. Every session so far has guessed.',
-        'If there is one, open it. A useful one covers the architecture and folder layout, naming and code conventions, how sign-in and data access must be handled, what must never change without review, and how to run the tests. A file that only says “you are a helpful assistant” doesn’t count.',
+        'If there is one, open it. A useful one covers how the app is organised and where things live, naming and code conventions, how sign-in and data access must be handled, what must never change without review, and how to run the tests. A file that only says “you are a helpful assistant” doesn’t count.',
       ],
       fix: [
-        'I write the instructions file for your codebase: how it’s laid out, the conventions it actually uses, how sign-in and data access must be handled, what must never change without review, and how to run the tests. Then I bring the code in line with it, so the rules describe reality.',
+        'I write the rulebook for your app: how it’s organised, the conventions it actually uses, how sign-in and data access must be handled, what must never change without review, and how to run the tests. Then I bring the code in line with it, so the rules describe reality.',
         'From then on every session starts with the rules instead of a guess. It’s part of every Rescue & Refactor, and keeping it current as the app changes is what the retainer is for.',
       ],
     },

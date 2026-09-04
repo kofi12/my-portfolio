@@ -60,19 +60,6 @@ export default function Hero() {
       }} />
 
       <div style={{ position: 'relative', zIndex: 1, maxWidth: 1000 }}>
-        <div style={{
-          display: 'inline-flex', alignItems: 'center', gap: 8, marginBottom: 32,
-          border: '1px solid rgba(255,255,255,0.1)', borderRadius: 100,
-          padding: '6px 16px',
-          opacity: visible ? 1 : 0,
-          transition: 'opacity 0.6s 0.1s',
-        }}>
-          <div style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--accent)' }} />
-          <span style={{ fontSize: 13, color: 'var(--muted)', letterSpacing: '0.04em' }}>
-            Now booking Production Readiness Reviews
-          </span>
-        </div>
-
         <h1>
           <span style={lineStyle(0.2)}>I make AI‑built apps</span>
           <span style={{ ...lineStyle(0.35), fontStyle: 'italic', color: 'var(--accent)' }}>

@@ -1,5 +1,4 @@
 import Hero from '../components/Hero';
-import Marquee from '../components/Marquee';
 import Symptoms from '../components/Symptoms';
 import Triggers from '../components/Triggers';
 import Checks from '../components/Checks';
@@ -14,7 +13,6 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <Marquee />
       <Symptoms />
       <Triggers />
       <Checks />

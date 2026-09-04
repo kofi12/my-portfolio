@@ -365,22 +365,6 @@ a.index-row:hover { color: var(--accent); }
   max-height: 400px;
 }
 
-/* ── Marquee ───────────────────────────────────────── */
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-
-.marquee-track {
-  display: flex;
-  white-space: nowrap;
-  animation: marquee 22s linear infinite;
-}
-
-.marquee-track:hover {
-  animation-play-state: paused;
-}
-
 /* ── Services ──────────────────────────────────────── */
 .service-cell {
   display: flex;
@@ -466,6 +450,5 @@ a.index-row:hover { color: var(--accent); }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .marquee-track { animation: none; }
   .btn:hover { transform: none; }
 }

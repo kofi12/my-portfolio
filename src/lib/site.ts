@@ -14,6 +14,7 @@ export const BOOKING_URL = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent
 export const NAV_LINKS = [
   { label: 'Services', href: '/#services' },
   { label: 'Process', href: '/#process' },
+  { label: 'What goes wrong', href: '/what-goes-wrong' },
   { label: 'About', href: '/#about' },
   { label: 'Contact', href: '/#contact' },
 ] as const;
