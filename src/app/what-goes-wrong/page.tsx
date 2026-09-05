@@ -1,11 +1,16 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import BookingCta from '../../components/BookingCta';
-import { FAILURE_MODES, failureModePath } from '../../content/what-goes-wrong';
+import { FAILURE_MODES, LIBRARY_PATH, failureModePath } from '../../content/what-goes-wrong';
+
+const TITLE = 'What goes wrong in AI-built apps | akhaizel';
+const DESCRIPTION = 'Nine things that go wrong in apps built with AI coding tools, what each one costs, and how to check for it yourself in 30 seconds.';
 
 export const metadata: Metadata = {
-  title: 'What goes wrong in AI-built apps | akhaizel',
-  description: 'Nine things that go wrong in apps built with AI coding tools, what each one costs, and how to check for it yourself in 30 seconds.',
+  title: TITLE,
+  description: DESCRIPTION,
+  openGraph: { type: 'website', siteName: 'akhaizel', locale: 'en_CA', url: LIBRARY_PATH, title: TITLE, description: DESCRIPTION },
+  twitter: { card: 'summary_large_image', title: TITLE, description: DESCRIPTION },
 };
 
 export default function WhatGoesWrongIndex() {

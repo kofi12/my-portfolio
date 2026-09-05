@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import BookingCta from '../../../components/BookingCta';
 import InlineCode from '../../../components/InlineCode';
-import { LIBRARY_PATH, PUBLISHED, getFailureMode } from '../../../content/what-goes-wrong';
+import { LIBRARY_PATH, PUBLISHED, failureModePath, getFailureMode } from '../../../content/what-goes-wrong';
 
 type Params = { slug: string };
 
@@ -15,9 +15,12 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   const { slug } = await params;
   const mode = getFailureMode(slug);
   if (!mode) return {};
+  const title = `${mode.title} | What goes wrong | akhaizel`;
   return {
-    title: `${mode.title} | What goes wrong | akhaizel`,
+    title,
     description: mode.description,
+    openGraph: { type: 'article', siteName: 'akhaizel', locale: 'en_CA', url: failureModePath(mode.slug), title, description: mode.description },
+    twitter: { card: 'summary_large_image', title, description: mode.description },
   };
 }
 

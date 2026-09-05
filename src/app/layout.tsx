@@ -17,11 +17,27 @@ const inter = Inter({
   variable: '--font-inter',
 });
 
+const TITLE = 'akhaizel | AI-built app audits and fixes';
+const DESCRIPTION =
+  'Production readiness reviews and fixes for apps built with Lovable, Bolt, Cursor, v0, and Replit. Fixed prices, a clear verdict, and one person from audit to fix.';
+
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: 'akhaizel | AI-built app audits and fixes',
-  description:
-    'Production readiness reviews and fixes for apps built with Lovable, Bolt, Cursor, v0, and Replit. Fixed prices, a clear verdict, and one person from audit to fix.',
+  title: TITLE,
+  description: DESCRIPTION,
+  openGraph: {
+    type: 'website',
+    siteName: 'akhaizel',
+    locale: 'en_CA',
+    url: '/',
+    title: TITLE,
+    description: DESCRIPTION,
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: TITLE,
+    description: DESCRIPTION,
+  },
 };
 
 export default function RootLayout({
