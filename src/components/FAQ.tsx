@@ -7,7 +7,7 @@ import { SectionHeading } from './ui/SectionHeading';
 const ITEMS = [
   {
     q: 'Which service is which?',
-    a: 'Automations are practical setups for a local service business. Never miss a lead is the flagship of that service. Transformation is the wider job: how the business runs, where AI fits, and a rollout. An app audit is for an app that was built with AI tools.',
+    a: 'Automations are practical setups for a local service business. Never miss a lead is the flagship of that service. Transformation puts AI on the team’s repetitive work so people get time back. An app audit is for an app that was built with AI tools.',
   },
   {
     q: 'Do you pick up the phone for me?',

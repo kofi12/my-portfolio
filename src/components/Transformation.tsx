@@ -4,11 +4,13 @@ import { ButtonLink } from './ui/ButtonLink';
 import { SectionHeading } from './ui/SectionHeading';
 
 const DELIVERS = [
-  'How the work moves today: enquiries, scheduling, follow-up, and the tools already in use.',
-  'Where AI fits, and where it should be left alone.',
-  'A rollout across processes, tools, and the team.',
-  'A scope you agree before any of that work starts.',
+  'A map of how work moves today, so you can see where the hours go.',
+  'Those workflows redesigned, with AI built in for the repetitive parts.',
+  'A rollout, and training, so the team can work with it.',
+  'The time saved, measured against a baseline. No number is promised up front.',
 ];
+
+const REPETITIVE = ['Admin', 'Follow-ups', 'Scheduling', 'Reporting', 'Documents', 'Internal questions'];
 
 export default function Transformation() {
   return (
@@ -18,10 +20,10 @@ export default function Transformation() {
           <div>
             <Reveal>
               <SectionHeading label="AI transformation" style={{ marginBottom: 24 }}>
-                The wider<br /><em>engagement.</em>
+                Get time back.<br /><em>With the team you have.</em>
               </SectionHeading>
               <p style={{ color: 'var(--muted)', fontSize: 17, lineHeight: 1.8, marginBottom: 28 }}>
-                This is not a single setup. I look at how the business runs, find where AI belongs, and roll it out across the operation.
+                AI joins the team. It does not replace it. It takes the repetitive work, so people spend their time on the work that needs them.
               </p>
             </Reveal>
             <ul className="dot-list" style={{ marginBottom: 32, fontSize: 15, lineHeight: 1.6 }}>
@@ -34,15 +36,14 @@ export default function Transformation() {
             </Reveal>
           </div>
           <Reveal delay={0.12}>
-            <div className="scene" aria-hidden="true" style={{ height: 'auto', minHeight: 220, marginBottom: 0 }}>
-              <p className="scene-kicker">The operation</p>
+            <div className="scene" aria-hidden="true" style={{ height: 'auto', minHeight: 0, marginBottom: 0 }}>
+              <p className="scene-kicker">Repetitive work</p>
               <ul className="audit-list">
-                <li><span>Enquiries</span><span>How they arrive</span></li>
-                <li><span>Scheduling</span><span>How work is booked</span></li>
-                <li><span>Follow-up</span><span>What happens after</span></li>
-                <li><span>The team</span><span>Tools already in use</span></li>
+                {REPETITIVE.map((item) => (
+                  <li key={item}><span>{item}</span><span>AI teammate</span></li>
+                ))}
               </ul>
-              <p className="scene-line" style={{ fontSize: 20 }}>Where AI fits, and where it doesn’t.</p>
+              <p className="scene-line" style={{ fontSize: 20 }}>People keep the higher-value work.</p>
             </div>
           </Reveal>
         </div>

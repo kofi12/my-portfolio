@@ -14,8 +14,8 @@ const OFFERS = [
     href: '/#transformation',
     icon: 'layers' as const,
     title: 'AI transformation',
-    who: 'The wider operation',
-    what: 'An audit of how you work, then a rollout.',
+    who: 'The team you have',
+    what: 'Time back. AI takes the repetitive work.',
   },
   {
     href: '/#app-audits',
