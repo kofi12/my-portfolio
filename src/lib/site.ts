@@ -5,14 +5,22 @@ export const OWNER_NAME = 'Aaron Haizel';
 /** The only place an email address is written. Everything else imports it. */
 export const CONTACT_EMAIL = 'aaronhaizel@gmail.com';
 
-/**
- * TODO(booking): replace with the scheduling link (Cal.com, Calendly, ...).
- * Placeholder so every booking button keeps working until then.
- */
-export const BOOKING_URL = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Free call')}`;
+const MAILTO_CALL = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Free call')}`;
 
-/** Mailto for the AI-built app audit, separate from the free call. */
-export const AUDIT_URL = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('App audit')}`;
+/**
+ * Public scheduling page (Google Calendar appointment schedule, Cal.com, …).
+ * When unset or not an http(s) URL, booking buttons fall back to email.
+ */
+function bookingUrl() {
+  const configured = process.env.NEXT_PUBLIC_BOOKING_URL?.trim();
+  if (configured && /^https?:\/\//i.test(configured)) return configured;
+  return MAILTO_CALL;
+}
+
+export const BOOKING_URL = bookingUrl();
+
+/** Fallback when the on-site audit form cannot send. */
+export const AUDIT_MAILTO = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('App audit')}`;
 
 export const NAV_LINKS = [
   { label: 'Automations', href: '/#automations' },

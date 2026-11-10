@@ -32,6 +32,14 @@ export function ButtonLink({
     .filter(Boolean)
     .join(' ');
 
+  if (/^https?:\/\//i.test(href)) {
+    return (
+      <a href={href} className={classes} style={style} onClick={onClick} target="_blank" rel="noopener noreferrer">
+        {children}
+      </a>
+    );
+  }
+
   return (
     <Link href={href} className={classes} style={style} onClick={onClick}>
       {children}
