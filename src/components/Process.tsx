@@ -2,9 +2,9 @@ import { Reveal } from './Reveal';
 import { SectionHeading } from './ui/SectionHeading';
 
 const STEPS = [
-  ['Book the review', 'Pay $250, give me access to the code, and get a written report within 2–3 business days.'],
-  ['Get the verdict on a call', 'We go through the findings together. You’ll know what’s wrong, what matters, and what doesn’t.'],
-  ['Decide with fixed prices in hand', 'If there’s work to do, you get a fixed quote. Take it, get a second opinion, or hand the report to someone else. No hourly billing.'],
+  ['Book a free call', 'Tell me how leads come in today: phone, website, Facebook.'],
+  ['Turn the setup on', 'Missed-call texts, enquiry replies, and review requests.'],
+  ['Go further if you want', 'A paid audit, then a transformation from what it finds. Nothing starts until you agree.'],
 ];
 
 export default function Process() {
@@ -13,7 +13,7 @@ export default function Process() {
       <div className="container">
         <Reveal>
           <SectionHeading label="How it works" style={{ marginBottom: 64 }}>
-            Three steps.<br /><em>No open-ended billing.</em>
+            Three steps.<br /><em>Start with a call.</em>
           </SectionHeading>
         </Reveal>
 

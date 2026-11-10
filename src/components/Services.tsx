@@ -4,39 +4,33 @@ import { SectionHeading } from './ui/SectionHeading';
 const TIERS = [
   {
     num: '01',
-    title: 'Production Readiness Review',
-    meta: '$250 · 2–3 business days',
-    desc: 'A recorded walkthrough of your app’s code and a written report with every problem ranked by how serious it is. You get a clear verdict: fix, restructure, or rebuild.',
+    title: 'Never miss a lead',
+    meta: 'Starter',
+    desc: 'For leads that arrive while you’re with a customer.',
     includes: [
-      'Recorded walkthrough of the code',
-      'Written report, every problem ranked by how serious it is',
-      'Verdict: fix, restructure, or rebuild',
-      'Fee credited toward the next tier',
+      'Text back on a missed call',
+      'Auto-reply on the web and Facebook, with a booking link',
+      'Google review request after the job',
     ],
-    note: 'If your app is in good shape, the report says so and the call is short. Spend the money on customers instead.',
   },
   {
     num: '02',
-    title: 'Hardening Sprint',
-    meta: 'From $3,000 · 1–2 weeks',
-    desc: 'The known problems, fixed. One price, agreed before work starts.',
+    title: 'AI audit',
+    meta: 'Paid',
+    desc: 'A look at how leads come in, and where a reply is slow or missing.',
     includes: [
-      'Private keys taken out of the app and kept where users can’t reach them',
-      'Rules for who can see what, enforced and tested',
-      'Payments checked properly, so nobody gets in without paying',
-      'Error handling and automated tests around sign-in, payments, and the thing your app is for',
+      'Phone, website, and Facebook',
+      'What is worth automating next',
     ],
   },
   {
     num: '03',
-    title: 'Rescue & Refactor',
-    meta: 'From $5,000 · Scoped after the review',
-    desc: 'For apps that need restructuring before they can grow. Delivered in approved phases, so work can stop at any phase boundary.',
+    title: 'AI transformation',
+    meta: 'After the audit',
+    desc: 'The work from the audit, once you’ve agreed the scope.',
     includes: [
-      'Reorganising the code and how your data is stored',
-      'Written documentation and a proper handover',
-      'A written rulebook for your AI tools, so they stay on the rails after the work is done',
-      'Built so you or a future hire can continue',
+      'Only what the audit turned up',
+      'You talk to the person doing the work',
     ],
   },
 ];
@@ -47,7 +41,7 @@ export default function Services() {
       <div className="container">
         <Reveal>
           <SectionHeading label="Services" style={{ marginBottom: 64 }}>
-            Three fixed-price options.<br /><em>Start with the review.</em>
+            Start with the setup.<br /><em>Go further after.</em>
           </SectionHeading>
         </Reveal>
 
@@ -64,9 +58,6 @@ export default function Services() {
                     <li key={item}><span className="dot dot-sm" />{item}</li>
                   ))}
                 </ul>
-                {'note' in tier && (
-                  <p style={{ marginTop: 'auto', paddingTop: 24, color: 'var(--muted)', fontSize: 14, lineHeight: 1.6 }}>{tier.note}</p>
-                )}
               </div>
             </Reveal>
           ))}
@@ -74,7 +65,7 @@ export default function Services() {
 
         <Reveal delay={0.2}>
           <p style={{ marginTop: 32, color: 'var(--muted)', fontSize: 15, lineHeight: 1.7 }}>
-            Already launched? A monthly review retainer covers ongoing checks as your app changes. The rulebook is kept current, and new AI-generated work is reviewed against it. Ask about it on the call.
+            Not sure where to start? Book a free call. The setup comes first.
           </p>
         </Reveal>
       </div>

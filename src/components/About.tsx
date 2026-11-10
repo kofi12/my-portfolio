@@ -3,9 +3,9 @@ import VerdictCard from './VerdictCard';
 import { SectionHeading } from './ui/SectionHeading';
 
 const POINTS = [
-  ['Judgement first', 'You’re paying to know what’s wrong and what it costs to fix. The typing is the easy part.'],
-  ['Direct line', 'You talk to me. Every reply, every fix.'],
-  ['Fixed prices', 'Quoted before work starts. No surprises on the invoice.'],
+  ['Direct line', 'You talk to me. No handoff.'],
+  ['Local businesses', 'Trades, auto shops, salons, cleaners, and clinics.'],
+  ['Setup, then audit', 'The starter setup comes first. A paid audit can follow.'],
 ];
 
 export default function About() {
@@ -19,12 +19,12 @@ export default function About() {
         <div>
           <Reveal delay={0.1}>
             <SectionHeading label="About" style={{ marginBottom: 28 }}>
-              The person auditing<br /><em>is the person fixing.</em>
+              You talk to me.<br /><em>I do the work.</em>
             </SectionHeading>
           </Reveal>
           <Reveal delay={0.2}>
             <p style={{ color: 'var(--muted)', lineHeight: 1.8, fontSize: 17, marginBottom: 36 }}>
-              I&apos;m Aaron. I have a computer science degree and a background in building mobile apps and web apps, front to back. I work solo, so the person who reads your code, writes the report, and explains it on the call is the same person who fixes it.
+              I&apos;m Aaron. I have a computer science degree and a background in building mobile apps and web apps, front to back. I work solo, so the person on the call is the person who sets it up.
             </p>
           </Reveal>
           <Reveal delay={0.3}>

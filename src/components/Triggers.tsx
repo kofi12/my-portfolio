@@ -2,10 +2,10 @@ import { Reveal } from './Reveal';
 import { SectionHeading } from './ui/SectionHeading';
 
 const TRIGGERS = [
-  'An investor’s technical advisor is about to look at your code.',
-  'The launch date is fixed and nobody else has read the code.',
-  'An enterprise customer just sent a security questionnaire.',
-  'Your first developer hire starts soon and will take over the code.',
+  'A call comes in while you’re with a customer.',
+  'An enquiry lands after you’ve closed.',
+  'You’re busy, and the next job still needs a reply.',
+  'You want Google reviews, and the ask keeps slipping.',
 ];
 
 export default function Triggers() {
@@ -13,8 +13,8 @@ export default function Triggers() {
     <section id="when" className="band-pad" style={{ background: 'var(--bg)', borderTop: '1px solid var(--border)' }}>
       <div className="container">
         <Reveal>
-          <SectionHeading label="When people book" style={{ marginBottom: 40, fontSize: 'clamp(28px, 3vw, 36px)' }}>
-            The moments this gets booked
+          <SectionHeading label="When people call" style={{ marginBottom: 40, fontSize: 'clamp(28px, 3vw, 36px)' }}>
+            Usually one of these
           </SectionHeading>
         </Reveal>
         <ul className="four-col" style={{ listStyle: 'none' }}>

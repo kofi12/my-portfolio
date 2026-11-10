@@ -5,9 +5,9 @@ import { BOOKING_URL } from '../lib/site';
 import { ButtonLink } from './ui/ButtonLink';
 
 const FACTS: [string, string][] = [
-  ['$250', 'Review to start'],
-  ['2–3 days', 'To a written verdict'],
-  ['Fixed', 'Prices. No hourly billing.'],
+  ['Text back', 'On a missed call'],
+  ['Auto-reply', 'Web, Facebook'],
+  ['Reviews', 'After the job'],
 ];
 
 const EASE = 'cubic-bezier(0.25,1,0.5,1)';
@@ -61,9 +61,9 @@ export default function Hero() {
 
       <div style={{ position: 'relative', zIndex: 1, maxWidth: 1000 }}>
         <h1>
-          <span style={lineStyle(0.2)}>I make AI‑built apps</span>
+          <span style={lineStyle(0.2)}>Never miss a lead.</span>
           <span style={{ ...lineStyle(0.35), fontStyle: 'italic', color: 'var(--accent)' }}>
-            safe to launch.
+            Hear back anyway.
           </span>
         </h1>
 
@@ -72,26 +72,28 @@ export default function Hero() {
           maxWidth: 560, margin: '32px auto 0', lineHeight: 1.7,
           ...enter(0.55, 20),
         }}>
-          For founders who built their app with Lovable, Bolt, Cursor, v0, or Replit
-          and need to know if it&apos;s ready for real users.
+          A starter setup for trades, auto shops, salons, cleaners, and clinics
+          in Welland, Niagara, and Hamilton. A missed call gets a text back.
+          Web and Facebook enquiries get a reply with a booking link.
         </p>
 
         <div style={{
           display: 'flex', justifyContent: 'center', marginTop: 44, ...enter(0.7, 20),
         }}>
-          <ButtonLink href={BOOKING_URL}>Book the $250 review</ButtonLink>
+          <ButtonLink href={BOOKING_URL}>Book a free call</ButtonLink>
         </div>
 
-        <div style={{
-          marginTop: 80, display: 'flex', gap: 'clamp(28px, 4vw, 48px)', justifyContent: 'center',
-          flexWrap: 'wrap',
-          opacity: visible ? 1 : 0,
-          transition: 'opacity 0.9s 0.9s',
-        }}>
+        <div
+          className="hero-facts"
+          style={{
+            opacity: visible ? 1 : 0,
+            transition: 'opacity 0.9s 0.9s',
+          }}
+        >
           {FACTS.map(([value, label]) => (
             <div key={label} style={{ textAlign: 'center' }}>
-              <div style={{ fontFamily: 'var(--serif)', fontSize: 32, color: 'var(--accent)', lineHeight: 1 }}>{value}</div>
-              <div style={{ fontSize: 12, color: 'var(--muted)', marginTop: 6, letterSpacing: '0.05em', textTransform: 'uppercase' }}>{label}</div>
+              <div className="hero-fact-value">{value}</div>
+              <div className="hero-fact-label">{label}</div>
             </div>
           ))}
         </div>

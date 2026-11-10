@@ -1,42 +1,29 @@
 'use client';
 import { useState } from 'react';
+import { CONTACT_EMAIL } from '../lib/site';
 import { Reveal } from './Reveal';
 import { SectionHeading } from './ui/SectionHeading';
 
-// Answers marked TODO(policy) are drafts pending Aaron's confirmation.
 const ITEMS = [
   {
-    q: 'What access do you need?',
-    a: 'Permission to read your code, nothing more. I don’t need the ability to change it, and I don’t need access to your live database.',
+    q: 'Who is this for?',
+    a: 'Local service businesses: trades, auto shops, salons, cleaners, and clinics in Welland, Niagara, and Hamilton.',
   },
   {
-    // TODO(policy): confirm an NDA is ready to send.
-    q: 'Will you sign an NDA?',
-    a: 'Yes. Send yours, or I’ll send a short mutual one.',
+    q: 'Do you pick up the phone for me?',
+    a: 'No. A missed call gets a text back, so the lead isn’t left hanging. You still talk to the customer. It isn’t a promise that every call is answered.',
   },
   {
-    q: 'What if I don’t like the verdict?',
-    a: 'The report is yours. Take it to another developer, get a second opinion, or do nothing. You paid for the review, not for me.',
+    q: 'What do you need from me?',
+    a: 'How enquiries come in today, and a booking link if you already have one. If you don’t, we can sort that out on the call.',
   },
   {
-    // TODO(policy): confirm the live-data check approach.
-    q: 'Do you need access to my live data?',
-    a: 'No. I read the code and the settings. If something needs checking against live data, I’ll ask you to run a specific check and tell me what you see.',
+    q: 'What comes after the setup?',
+    a: 'A paid AI audit looks at how leads move, then a transformation puts the useful changes in place. Nothing else is booked until we’ve talked.',
   },
   {
-    // TODO(policy): confirm any stacks not taken, such as no-code builders.
-    q: 'What if my app isn’t built with one of the tools you list?',
-    a: 'The tools change. The problems don’t. If it’s a web or mobile app with a database and users, I can review it. If I can’t, I’ll say so before you pay.',
-  },
-  {
-    // TODO(policy): confirm payment terms for sprints and rescues.
-    q: 'How do I pay, and when?',
-    a: 'The review is paid when you book. Sprints and rescues are fixed quotes, paid half up front and half on delivery, or per phase for a rescue.',
-  },
-  {
-    // TODO(policy): confirm the deletion window and what happens to the recording.
-    q: 'What happens to my code after the review?',
-    a: 'I delete my copy within 30 days of delivering the report, unless you’ve booked follow-up work. The recorded walkthrough is yours to keep.',
+    q: 'How do I start?',
+    a: `Book a free call, or email ${CONTACT_EMAIL}.`,
   },
 ];
 

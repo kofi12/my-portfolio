@@ -105,6 +105,29 @@ img {
   gap: 24px 32px;
 }
 
+.hero-facts {
+  margin: 80px auto 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px 12px;
+  max-width: 640px;
+}
+
+.hero-fact-value {
+  font-family: var(--serif);
+  font-size: clamp(22px, 4vw, 32px);
+  color: var(--accent);
+  line-height: 1;
+}
+
+.hero-fact-label {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 6px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
 .proof-card { padding: 40px; }
 
 .proof-head {
@@ -427,6 +450,9 @@ a.index-row:hover { color: var(--accent); }
   }
 
   .four-col { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+  .hero-facts { margin-top: 56px; }
+  .hero-fact-label { font-size: 10px; letter-spacing: 0.04em; }
 
   .proof-card { padding: 28px 24px; }
 

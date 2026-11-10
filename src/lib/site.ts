@@ -9,7 +9,7 @@ export const CONTACT_EMAIL = 'ahaizel@akhaizel.ca';
  * TODO(booking): replace with the scheduling link (Cal.com, Calendly, ...).
  * Placeholder so every booking button keeps working until then.
  */
-export const BOOKING_URL = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Production Readiness Review')}`;
+export const BOOKING_URL = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Free call')}`;
 
 export const NAV_LINKS = [
   { label: 'Services', href: '/#services' },

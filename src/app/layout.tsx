@@ -17,9 +17,9 @@ const inter = Inter({
   variable: '--font-inter',
 });
 
-const TITLE = 'akhaizel | AI-built app audits and fixes';
+const TITLE = 'akhaizel | AI automation for local businesses';
 const DESCRIPTION =
-  'Production readiness reviews and fixes for apps built with Lovable, Bolt, Cursor, v0, and Replit. Fixed prices, a clear verdict, and one person from audit to fix.';
+  'A never-miss-a-lead setup for trades, auto shops, salons, cleaners, and clinics in Welland, Niagara, and Hamilton. A paid AI audit and transformation can follow.';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

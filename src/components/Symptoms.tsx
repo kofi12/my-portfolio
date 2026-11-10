@@ -2,11 +2,10 @@ import { Reveal } from './Reveal';
 import { SectionHeading } from './ui/SectionHeading';
 
 const SYMPTOMS = [
-  'A user emailed me a screenshot. It was someone else’s data.',
-  'People are using the paid features. Stripe says they never paid.',
-  'Every fix breaks something else. I’ve stopped touching it.',
-  'I have no idea if it’s secure. I just know it works when I click around.',
-  'I tried to hire a developer. They looked at the code and said no.',
+  'The phone rang on a job. They booked someone else.',
+  'A Facebook message sat there until the next day.',
+  'The website form works. I see it when I’m back at the desk.',
+  'The job went well. I forgot to ask for a Google review.',
 ];
 
 export default function Symptoms() {
@@ -15,7 +14,7 @@ export default function Symptoms() {
       <div style={{ maxWidth: 760, margin: '0 auto' }}>
         <Reveal>
           <SectionHeading label="Sound familiar?" style={{ marginBottom: 48 }}>
-            You built it. Now you&apos;re not sure<br /><em>you trust it.</em>
+            The work is there.<br /><em>The reply is late.</em>
           </SectionHeading>
         </Reveal>
 
@@ -33,7 +32,7 @@ export default function Symptoms() {
 
         <Reveal delay={0.2}>
           <p style={{ marginTop: 40, color: 'var(--muted)', fontSize: 17, lineHeight: 1.8, maxWidth: 600 }}>
-            None of this means you built the wrong thing. It means nobody has checked the parts you can&apos;t see.
+            A late reply is how the next job goes to someone else.
           </p>
         </Reveal>
       </div>
