@@ -6,24 +6,16 @@ import { SectionHeading } from './ui/SectionHeading';
 
 const ITEMS = [
   {
-    q: 'Who is this for?',
-    a: 'Local service businesses: trades, auto shops, salons, cleaners, and clinics in Welland, Niagara, and Hamilton.',
+    q: 'Which service is which?',
+    a: 'Automations are practical setups for a local service business. Never miss a lead is the flagship of that service. Transformation is the wider job: how the business runs, where AI fits, and a rollout. An app audit is for an app that was built with AI tools.',
   },
   {
     q: 'Do you pick up the phone for me?',
-    a: 'No. A missed call gets a text back, so the lead isn’t left hanging. You still talk to the customer. It isn’t a promise that every call is answered.',
-  },
-  {
-    q: 'What do you need from me?',
-    a: 'How enquiries come in today, and a booking link if you already have one. If you don’t, we can sort that out on the call.',
-  },
-  {
-    q: 'What comes after the setup?',
-    a: 'A paid AI audit looks at how leads move, then a transformation puts the useful changes in place. Nothing else is booked until we’ve talked.',
+    a: 'No. That question belongs to automations. A missed call gets a text back. You still talk to the customer. It is not a promise that every call is answered.',
   },
   {
     q: 'How do I start?',
-    a: `Book a free call, or email ${CONTACT_EMAIL}.`,
+    a: `Book a free call, or email ${CONTACT_EMAIL}. If you want an app looked at, use Request an app audit.`,
   },
 ];
 
@@ -31,7 +23,7 @@ export default function FAQ() {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="section-pad" style={{ background: 'var(--bg2)' }}>
+    <section id="faq" className="section-pad" style={{ background: 'var(--bg)' }}>
       <div style={{ maxWidth: 760, margin: '0 auto' }}>
         <Reveal>
           <SectionHeading label="FAQ" style={{ marginBottom: 56 }}>

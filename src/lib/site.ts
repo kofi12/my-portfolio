@@ -11,10 +11,13 @@ export const CONTACT_EMAIL = 'aaronhaizel@gmail.com';
  */
 export const BOOKING_URL = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Free call')}`;
 
+/** Mailto for the AI-built app audit, separate from the free call. */
+export const AUDIT_URL = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('App audit')}`;
+
 export const NAV_LINKS = [
-  { label: 'Services', href: '/#services' },
-  { label: 'Process', href: '/#process' },
-  { label: 'What goes wrong', href: '/what-goes-wrong' },
+  { label: 'Automations', href: '/#automations' },
+  { label: 'Transformation', href: '/#transformation' },
+  { label: 'App audits', href: '/#app-audits' },
   { label: 'About', href: '/#about' },
   { label: 'Contact', href: '/#contact' },
 ] as const;

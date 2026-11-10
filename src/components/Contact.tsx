@@ -30,7 +30,7 @@ export default function Contact() {
             Book a free call.
           </SectionHeading>
           <p style={{ color: 'var(--muted)', fontSize: 17, lineHeight: 1.8, marginBottom: 48 }}>
-            Tell me how leads come in. We’ll see if the starter setup fits.
+            Tell me which of the three you need. The call is free.
           </p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
             <a href={`mailto:${CONTACT_EMAIL}`} className="text-link" style={{ display: 'flex', alignItems: 'center', gap: 12, fontSize: 15 }}>
@@ -46,10 +46,10 @@ export default function Contact() {
 
         <Reveal delay={0.15}>
           <div className="card" style={{ padding: 36, display: 'flex', flexDirection: 'column' }}>
-            <h3 style={{ fontFamily: 'var(--serif)', fontSize: 26, lineHeight: 1.2, marginBottom: 8 }}>Never miss a lead</h3>
-            <div className="meta-label" style={{ marginBottom: 24 }}>Starter setup</div>
+            <h3 style={{ fontFamily: 'var(--serif)', fontSize: 26, lineHeight: 1.2, marginBottom: 8 }}>Not sure which one?</h3>
+            <div className="meta-label" style={{ marginBottom: 24 }}>We’ll name it on the call</div>
             <p style={{ color: 'var(--muted)', fontSize: 15, lineHeight: 1.7, marginBottom: 32 }}>
-              A text back on missed calls, an auto-reply on web and Facebook with a booking link, and a Google review request after the job.
+              Automations, transformation, or an app audit. One service, agreed before any work starts.
             </p>
             <ButtonLink href={BOOKING_URL} block>Book a free call</ButtonLink>
           </div>

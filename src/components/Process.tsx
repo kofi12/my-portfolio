@@ -3,9 +3,9 @@ import { SectionHeading } from './ui/SectionHeading';
 import { Glyph } from './visuals/Glyph';
 
 const STEPS = [
-  { icon: 'call' as const, title: 'Book a free call', desc: 'Tell me how leads come in today: phone, website, Facebook.' },
-  { icon: 'setup' as const, title: 'Turn the setup on', desc: 'Missed-call texts, enquiry replies, and review requests.' },
-  { icon: 'next' as const, title: 'Go further if you want', desc: 'A paid audit, then a transformation from what it finds. Nothing starts until you agree.' },
+  { icon: 'call' as const, title: 'Book a call', desc: 'Tell me which of the three you need. The call is free.' },
+  { icon: 'setup' as const, title: 'We name the work', desc: 'An automation, a transformation, or an app audit. One of them.' },
+  { icon: 'next' as const, title: 'Then it starts', desc: 'Nothing is booked until we’ve agreed the scope.' },
 ];
 
 export default function Process() {

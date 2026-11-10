@@ -93,6 +93,15 @@ img {
   background: var(--border);
 }
 
+.tier-grid > .reveal {
+  display: flex;
+  height: 100%;
+}
+
+.tier-grid > .reveal > .service-cell {
+  flex: 1;
+}
+
 .checks-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -719,39 +728,17 @@ a.index-row:hover { color: var(--accent); }
   }
 }
 
+.service-jump {
+  margin-top: auto;
+  padding-top: 28px;
+  color: var(--accent);
+  font-size: 14px;
+  letter-spacing: 0.02em;
+}
+
 @media (min-width: 960px) {
-  .hero-layout {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) 280px;
-    column-gap: 64px;
-    align-items: center;
-    text-align: left;
-    grid-template-areas:
-      "title phone"
-      "lede phone"
-      "actions phone"
-      "facts phone";
-  }
-
-  .hero-title { grid-area: title; }
-  .hero-lede { grid-area: lede; }
-  .hero-actions { grid-area: actions; }
-  .hero-facts { grid-area: facts; }
-  .hero-phone { grid-area: phone; align-self: center; }
-
-  .hero-line { font-size: clamp(46px, 4.4vw, 72px); }
-
-  .hero-actions { justify-content: flex-start; }
-  .hero-layout .hero-lede { margin-left: 0; margin-right: 0; }
-
-  .hero-layout .hero-facts {
-    margin-left: 0;
-    margin-right: 0;
-    max-width: 520px;
-  }
-
-  .hero-layout .phone { margin-top: 0; }
-  .hero-layout .phone-caption { text-align: left; }
+  .automations-phone { margin-top: 0; }
+  .automations-phone .phone-caption { text-align: left; }
 }
 
 @media (prefers-reduced-motion: reduce) {

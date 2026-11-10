@@ -17,9 +17,9 @@ const inter = Inter({
   variable: '--font-inter',
 });
 
-const TITLE = 'akhaizel | AI automation for local businesses';
+const TITLE = 'akhaizel | AI that works for your business';
 const DESCRIPTION =
-  'A never-miss-a-lead setup for trades, auto shops, salons, cleaners, and clinics in Welland, Niagara, and Hamilton. A paid AI audit and transformation can follow.';
+  'Three services: AI automations for local businesses, AI transformation across the operation, and audits of apps built with AI tools.';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

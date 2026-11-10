@@ -1,5 +1,15 @@
+import Link from 'next/link';
+import { AUDIT_URL } from '../lib/site';
 import { Reveal } from './Reveal';
+import { ButtonLink } from './ui/ButtonLink';
 import { SectionHeading } from './ui/SectionHeading';
+
+const DELIVERS = [
+  'Security: who can see what, and which keys are exposed.',
+  'Data: whether one person’s records stay theirs.',
+  'Reliability, running cost, and whether the next change will hold.',
+  'A verdict you can act on. The What goes wrong pages walk through the same checks.',
+];
 
 const TEARDOWN = [
   ['What it was built with', 'One HTML file. Markup, styling, and all the logic in a single page, with an online database plugged in and deployed by dragging the file onto a free host.'],
@@ -8,25 +18,43 @@ const TEARDOWN = [
   ['What fixing it involved', 'The verdict was rebuild, not patch. The prototype became the reference for a new build: each farm’s data walled off and tested, every change checked on the server, a permanent record of every entry, and a tool to bring the old data across.'],
 ];
 
-export default function Proof() {
+export default function AppAudits() {
   return (
-    <section id="proof" className="section-pad" style={{ background: 'var(--bg)' }}>
+    <section id="app-audits" className="section-pad" style={{ background: 'var(--bg)' }}>
       <div className="container">
         <Reveal>
-          <SectionHeading label="Proof" style={{ marginBottom: 24 }}>
-            An app, taken apart.
+          <SectionHeading label="AI-built app audits" style={{ marginBottom: 24 }}>
+            What goes wrong<br /><em>in an AI-built app.</em>
           </SectionHeading>
-          <p style={{ color: 'var(--muted)', fontSize: 17, lineHeight: 1.8, maxWidth: 640, marginBottom: 64 }}>
-            An anonymised teardown of an AI-built farm app. The findings were in the source. No client is named.
+          <p style={{ color: 'var(--muted)', fontSize: 17, lineHeight: 1.8, maxWidth: 680, marginBottom: 28 }}>
+            For apps made with AI coding tools. I review the parts that are easy to miss: security, data, reliability, running cost, and whether the next change will hold.
           </p>
+        </Reveal>
+
+        <ul className="dot-list" style={{ maxWidth: 720, marginBottom: 28 }}>
+          {DELIVERS.map((item) => (
+            <li key={item}><span className="dot dot-sm" />{item}</li>
+          ))}
+        </ul>
+
+        <Reveal>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 20, alignItems: 'center', marginBottom: 56 }}>
+            <ButtonLink href={AUDIT_URL}>Request an app audit</ButtonLink>
+            <Link href="/what-goes-wrong" className="text-link" style={{ textDecoration: 'underline', textUnderlineOffset: 4 }}>
+              Read what goes wrong
+            </Link>
+          </div>
         </Reveal>
 
         <Reveal>
           <article className="card proof-card">
             <div className="proof-head">
               <span className="tag tag-accent">Teardown</span>
-              <h3 style={{ fontFamily: 'var(--serif)', fontSize: 26, lineHeight: 1.2 }}>An AI-built farm management app</h3>
+              <h3 style={{ fontFamily: 'var(--serif)', fontSize: 26, lineHeight: 1.2 }}>An AI-built farm app</h3>
             </div>
+            <p style={{ color: 'var(--muted)', fontSize: 15, lineHeight: 1.7, marginBottom: 28, maxWidth: 720 }}>
+              Anonymised. The findings were in the source. No client is named.
+            </p>
             <div className="proof-grid">
               {TEARDOWN.map(([title, text]) => (
                 <div key={title}>
