@@ -1,9 +1,11 @@
 import { Reveal } from './Reveal';
 import { SectionHeading } from './ui/SectionHeading';
+import { Glyph } from './visuals/Glyph';
 
 const TIERS = [
   {
     num: '01',
+    icon: 'message' as const,
     title: 'Never miss a lead',
     meta: 'Starter',
     desc: 'For leads that arrive while you’re with a customer.',
@@ -15,6 +17,7 @@ const TIERS = [
   },
   {
     num: '02',
+    icon: 'search' as const,
     title: 'AI audit',
     meta: 'Paid',
     desc: 'A look at how leads come in, and where a reply is slow or missing.',
@@ -25,6 +28,7 @@ const TIERS = [
   },
   {
     num: '03',
+    icon: 'layers' as const,
     title: 'AI transformation',
     meta: 'After the audit',
     desc: 'The work from the audit, once you’ve agreed the scope.',
@@ -49,7 +53,10 @@ export default function Services() {
           {TIERS.map((tier, i) => (
             <Reveal key={tier.num} delay={i * 0.08}>
               <div className="service-cell">
-                <div style={{ fontFamily: 'var(--serif)', fontSize: 48, color: 'var(--border)', marginBottom: 24, lineHeight: 1 }}>{tier.num}</div>
+                <div className="glyph-row">
+                  <div style={{ fontFamily: 'var(--serif)', fontSize: 48, color: 'var(--border)', lineHeight: 1 }}>{tier.num}</div>
+                  <Glyph name={tier.icon} />
+                </div>
                 <h3 style={{ fontFamily: 'var(--serif)', fontSize: 22, marginBottom: 10, lineHeight: 1.2 }}>{tier.title}</h3>
                 <div className="meta-label" style={{ marginBottom: 18 }}>{tier.meta}</div>
                 <p style={{ color: 'var(--muted)', fontSize: 15, lineHeight: 1.7, marginBottom: 24 }}>{tier.desc}</p>

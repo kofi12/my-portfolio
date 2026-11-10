@@ -1,10 +1,11 @@
 import { Reveal } from './Reveal';
 import { SectionHeading } from './ui/SectionHeading';
+import { Glyph } from './visuals/Glyph';
 
 const STEPS = [
-  ['Book a free call', 'Tell me how leads come in today: phone, website, Facebook.'],
-  ['Turn the setup on', 'Missed-call texts, enquiry replies, and review requests.'],
-  ['Go further if you want', 'A paid audit, then a transformation from what it finds. Nothing starts until you agree.'],
+  { icon: 'call' as const, title: 'Book a free call', desc: 'Tell me how leads come in today: phone, website, Facebook.' },
+  { icon: 'setup' as const, title: 'Turn the setup on', desc: 'Missed-call texts, enquiry replies, and review requests.' },
+  { icon: 'next' as const, title: 'Go further if you want', desc: 'A paid audit, then a transformation from what it finds. Nothing starts until you agree.' },
 ];
 
 export default function Process() {
@@ -18,10 +19,11 @@ export default function Process() {
         </Reveal>
 
         <ol className="three-col" style={{ listStyle: 'none' }}>
-          {STEPS.map(([title, desc], i) => (
-            <Reveal key={title} delay={i * 0.1}>
+          {STEPS.map(({ icon, title, desc }, i) => (
+            <Reveal key={title} delay={i * 0.16}>
               <li>
-                <div aria-hidden="true" style={{ fontFamily: 'var(--serif)', fontSize: 48, color: 'var(--accent)', marginBottom: 24, lineHeight: 1 }}>{i + 1}</div>
+                <Glyph name={icon} />
+                <div aria-hidden="true" style={{ fontFamily: 'var(--serif)', fontSize: 48, color: 'var(--accent)', margin: '14px 0 20px', lineHeight: 1 }}>{i + 1}</div>
                 <h3 style={{ fontFamily: 'var(--serif)', fontSize: 22, lineHeight: 1.2, marginBottom: 12 }}>{title}</h3>
                 <p style={{ color: 'var(--muted)', fontSize: 15, lineHeight: 1.7 }}>{desc}</p>
               </li>

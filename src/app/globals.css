@@ -106,7 +106,7 @@ img {
 }
 
 .hero-facts {
-  margin: 80px auto 0;
+  margin: 36px auto 0;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 16px 12px;
@@ -126,6 +126,211 @@ img {
   margin-top: 6px;
   letter-spacing: 0.05em;
   text-transform: uppercase;
+}
+
+.hero-layout {
+  position: relative;
+  z-index: 1;
+  width: min(1080px, 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-line {
+  font-family: var(--serif);
+  font-size: clamp(48px, 6vw, 88px);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  display: block;
+}
+
+.hero-line-accent {
+  font-style: italic;
+  color: var(--accent);
+}
+
+/* ── Phone and setup sketches ──────────────────────── */
+.phone {
+  margin: 32px auto 0;
+  width: min(280px, 100%);
+}
+
+.phone-shell {
+  background: var(--bg2);
+  border: 1px solid var(--border-strong);
+  border-radius: 28px;
+  padding: 16px 14px 18px;
+}
+
+.phone-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--accent);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.phone-live {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.phone-who {
+  margin-top: 8px;
+  font-family: var(--serif);
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+.bubble {
+  border-radius: 14px;
+  padding: 10px 12px;
+  font-size: 13px;
+  line-height: 1.45;
+  margin-top: 10px;
+  text-align: left;
+  animation: msg-in 0.55s cubic-bezier(0.25, 1, 0.5, 1) both;
+}
+
+.bubble-in {
+  background: var(--surface);
+  margin-right: 22px;
+}
+
+.bubble-out {
+  background: oklch(72% 0.12 75 / 0.14);
+  border: 1px solid oklch(72% 0.12 75 / 0.45);
+  margin-left: 22px;
+}
+
+.bubble-from {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+
+.phone-caption {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.4;
+  text-align: center;
+}
+
+@keyframes msg-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+
+.scene {
+  height: auto;
+  min-height: 148px;
+  margin-bottom: 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  overflow: hidden;
+}
+
+.scene-kicker {
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.scene-line {
+  font-family: var(--serif);
+  font-size: 18px;
+  line-height: 1.3;
+}
+
+.scene-bubble {
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--text);
+  background: var(--surface-hover);
+  border: 1px solid var(--border-strong);
+  border-radius: 10px;
+  padding: 8px 10px;
+}
+
+.scene-bubble-out {
+  background: oklch(72% 0.12 75 / 0.14);
+  border: 1px solid oklch(72% 0.12 75 / 0.4);
+}
+
+.stars {
+  width: 116px;
+  height: 20px;
+  color: var(--accent);
+}
+
+.audit-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.audit-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 13px;
+  line-height: 1.3;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+
+.audit-list li span:first-child {
+  color: var(--accent);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 11px;
+}
+
+.audit-list li span:last-child { color: var(--muted); }
+
+.glyph {
+  width: 28px;
+  height: 28px;
+  color: var(--accent);
+  display: block;
+}
+
+.glyph * {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 32px;
+}
+
+.glyph-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
 }
 
 .proof-card { padding: 40px; }
@@ -346,7 +551,10 @@ a.index-row:hover { color: var(--accent); }
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 12px;
+  transition: border-color 0.25s ease;
 }
+
+.card:hover { border-color: oklch(72% 0.12 75 / 0.45); }
 
 .icon-box {
   width: 38px;
@@ -395,10 +603,13 @@ a.index-row:hover { color: var(--accent); }
   background: var(--surface);
   padding: 40px 36px;
   height: 100%;
-  transition: background 0.2s;
+  transition: background 0.25s ease, box-shadow 0.25s ease;
 }
 
-.service-cell:hover { background: var(--surface-hover); }
+.service-cell:hover {
+  background: var(--surface-hover);
+  box-shadow: inset 0 0 0 1px oklch(72% 0.12 75 / 0.4);
+}
 
 /* ── Navigation ────────────────────────────────────── */
 .nav-inner { padding: 0 40px; }
@@ -451,8 +662,9 @@ a.index-row:hover { color: var(--accent); }
 
   .four-col { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
-  .hero-facts { margin-top: 56px; }
+  .hero-facts { margin-top: 28px; }
   .hero-fact-label { font-size: 10px; letter-spacing: 0.04em; }
+  .scene { height: auto; min-height: 132px; }
 
   .proof-card { padding: 28px 24px; }
 
@@ -474,7 +686,55 @@ a.index-row:hover { color: var(--accent); }
   }
 }
 
+@media (min-width: 960px) {
+  .hero-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 280px;
+    column-gap: 64px;
+    align-items: center;
+    text-align: left;
+    grid-template-areas:
+      "title phone"
+      "lede phone"
+      "actions phone"
+      "facts phone";
+  }
+
+  .hero-title { grid-area: title; }
+  .hero-lede { grid-area: lede; }
+  .hero-actions { grid-area: actions; }
+  .hero-facts { grid-area: facts; }
+  .hero-phone { grid-area: phone; align-self: center; }
+
+  .hero-line { font-size: clamp(46px, 4.4vw, 72px); }
+
+  .hero-actions { justify-content: flex-start; }
+  .hero-layout .hero-lede { margin-left: 0; margin-right: 0; }
+
+  .hero-layout .hero-facts {
+    margin-left: 0;
+    margin-right: 0;
+    max-width: 520px;
+  }
+
+  .hero-layout .phone { margin-top: 0; }
+  .hero-layout .phone-caption { text-align: left; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .btn:hover { transform: none; }
+  .card,
+  .service-cell,
+  .faq-body { transition: none; }
+  .card:hover,
+  .service-cell:hover { transform: none; }
+  .reveal,
+  .hero-enter,
+  .bubble {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
 }

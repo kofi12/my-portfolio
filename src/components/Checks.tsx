@@ -1,11 +1,12 @@
 import { Reveal } from './Reveal';
 import { SectionHeading } from './ui/SectionHeading';
+import { SetupScene, type SceneKind } from './visuals/SetupScene';
 
-const CHECKS: [string, string][] = [
-  ['Missed-call text', 'A call you can’t take gets a text back.'],
-  ['Enquiry replies', 'Web and Facebook messages get an automatic reply with a booking link.'],
-  ['Review requests', 'After the job, the customer is asked for a Google review.'],
-  ['Then an audit', 'A paid AI audit can follow, and a transformation after that.'],
+const CHECKS: [SceneKind, string, string][] = [
+  ['text', 'Missed-call text', 'A call you can’t take gets a text back.'],
+  ['reply', 'Enquiry replies', 'Web and Facebook messages get an automatic reply with a booking link.'],
+  ['review', 'Review requests', 'After the job, the customer is asked for a Google review.'],
+  ['audit', 'Then an audit', 'A paid AI audit can follow, and a transformation after that.'],
 ];
 
 export default function Checks() {
@@ -22,14 +23,12 @@ export default function Checks() {
         </Reveal>
 
         <div className="checks-grid">
-          {CHECKS.map(([title, desc], i) => (
-            <Reveal key={title} delay={i * 0.05}>
-              <div style={{ display: 'flex', gap: 16, alignItems: 'flex-start' }}>
-                <span className="dot" style={{ marginTop: 11 }} />
-                <div>
-                  <h3 style={{ fontFamily: 'var(--serif)', fontSize: 22, lineHeight: 1.2, marginBottom: 10 }}>{title}</h3>
-                  <p style={{ color: 'var(--muted)', fontSize: 15, lineHeight: 1.7 }}>{desc}</p>
-                </div>
+          {CHECKS.map(([kind, title, desc], i) => (
+            <Reveal key={title} delay={i * 0.06}>
+              <div>
+                <SetupScene kind={kind} />
+                <h3 style={{ fontFamily: 'var(--serif)', fontSize: 22, lineHeight: 1.2, marginBottom: 10 }}>{title}</h3>
+                <p style={{ color: 'var(--muted)', fontSize: 15, lineHeight: 1.7 }}>{desc}</p>
               </div>
             </Reveal>
           ))}

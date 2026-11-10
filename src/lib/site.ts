@@ -3,7 +3,7 @@ export const SITE_URL = 'https://akhaizel.ca';
 export const OWNER_NAME = 'Aaron Haizel';
 
 /** The only place an email address is written. Everything else imports it. */
-export const CONTACT_EMAIL = 'ahaizel@akhaizel.ca';
+export const CONTACT_EMAIL = 'aaronhaizel@gmail.com';
 
 /**
  * TODO(booking): replace with the scheduling link (Cal.com, Calendly, ...).

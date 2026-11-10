@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import type { CSSProperties } from 'react';
 import { BOOKING_URL } from '../lib/site';
 import { ButtonLink } from './ui/ButtonLink';
+import { PhoneThread } from './visuals/PhoneThread';
 
 const FACTS: [string, string][] = [
   ['Text back', 'On a missed call'],
@@ -26,14 +27,7 @@ export default function Hero() {
     transition: `opacity 0.9s ${EASE} ${delay}s, transform 0.9s ${EASE} ${delay}s`,
   });
 
-  const lineStyle = (delay: number): CSSProperties => ({
-    fontFamily: 'var(--serif)',
-    fontSize: 'clamp(48px, 6vw, 88px)',
-    lineHeight: 1.0,
-    letterSpacing: '-0.03em',
-    display: 'block',
-    ...enter(delay, 40),
-  });
+  const lineStyle = (delay: number): CSSProperties => enter(delay, 24);
 
   return (
     <section style={{
@@ -59,37 +53,33 @@ export default function Hero() {
         pointerEvents: 'none', zIndex: 0,
       }} />
 
-      <div style={{ position: 'relative', zIndex: 1, maxWidth: 1000 }}>
-        <h1>
-          <span style={lineStyle(0.2)}>Never miss a lead.</span>
-          <span style={{ ...lineStyle(0.35), fontStyle: 'italic', color: 'var(--accent)' }}>
+      <div className="hero-layout">
+        <h1 className="hero-title">
+          <span className="hero-line hero-enter" style={lineStyle(0.2)}>Never miss a lead.</span>
+          <span className="hero-line hero-line-accent hero-enter" style={lineStyle(0.35)}>
             Hear back anyway.
           </span>
         </h1>
 
-        <p style={{
+        <p className="hero-lede hero-enter" style={{
           fontSize: 'clamp(16px, 2vw, 20px)', color: 'var(--muted)',
-          maxWidth: 560, margin: '32px auto 0', lineHeight: 1.7,
-          ...enter(0.55, 20),
+          maxWidth: 560, margin: '28px auto 0', lineHeight: 1.7,
+          ...enter(0.5, 16),
         }}>
           A starter setup for trades, auto shops, salons, cleaners, and clinics
           in Welland, Niagara, and Hamilton. A missed call gets a text back.
           Web and Facebook enquiries get a reply with a booking link.
         </p>
 
-        <div style={{
-          display: 'flex', justifyContent: 'center', marginTop: 44, ...enter(0.7, 20),
-        }}>
+        <div className="hero-actions hero-enter" style={enter(0.65, 16)}>
           <ButtonLink href={BOOKING_URL}>Book a free call</ButtonLink>
         </div>
 
-        <div
-          className="hero-facts"
-          style={{
-            opacity: visible ? 1 : 0,
-            transition: 'opacity 0.9s 0.9s',
-          }}
-        >
+        <div className="hero-phone hero-enter" style={enter(0.75, 16)}>
+          <PhoneThread />
+        </div>
+
+        <div className="hero-facts hero-enter" style={enter(0.85, 12)}>
           {FACTS.map(([value, label]) => (
             <div key={label} style={{ textAlign: 'center' }}>
               <div className="hero-fact-value">{value}</div>
