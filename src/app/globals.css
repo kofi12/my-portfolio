@@ -353,20 +353,57 @@ img {
   margin-top: 32px;
 }
 
-.service-numeral {
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 44px;
-  line-height: 1;
-  color: var(--accent);
+.icon-mark {
+  position: relative;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: 1px solid oklch(72% 0.12 75 / 0.4);
+  background: radial-gradient(circle at 50% 42%, oklch(72% 0.12 75 / 0.2), oklch(72% 0.12 75 / 0.05) 46%, transparent 72%);
+  box-shadow: 0 0 22px oklch(72% 0.12 75 / 0.12);
+}
+
+.icon-mark svg {
+  position: relative;
+  display: block;
+}
+
+.icon-mark-lg { width: 60px; height: 60px; }
+.icon-mark-lg svg { width: 32px; height: 32px; }
+
+.icon-mark-md { width: 46px; height: 46px; }
+.icon-mark-md svg { width: 24px; height: 24px; }
+
+.icon-mark-sm { width: 40px; height: 40px; }
+.icon-mark-sm svg { width: 22px; height: 22px; }
+
+.service-mark {
+  width: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
 .service-rule {
   display: block;
-  width: 36px;
+  width: 28px;
   height: 1px;
-  margin: 16px 0 22px;
+  margin-top: 14px;
   background: var(--accent);
+}
+
+.service-cell:hover .icon-mark {
+  border-color: oklch(72% 0.12 75 / 0.95);
+}
+
+.process-step > .icon-mark { margin-bottom: 14px; }
+
+.contact-fact {
+  display: flex;
+  align-items: center;
+  gap: 14px;
 }
 
 .process-steps {
@@ -759,6 +796,10 @@ a.index-row:hover { color: var(--accent); }
   }
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  .icon-mark { transition: border-color 0.25s ease; }
+}
+
 @media (min-width: 960px) {
   .automations-phone { margin-top: 0; }
   .automations-phone .phone-caption { text-align: left; }
@@ -769,6 +810,7 @@ a.index-row:hover { color: var(--accent); }
   .btn:hover { transform: none; }
   .card,
   .service-cell,
+  .icon-mark,
   .faq-body { transition: none; }
   .card:hover,
   .service-cell:hover { transform: none; }

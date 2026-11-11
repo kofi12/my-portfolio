@@ -2,6 +2,7 @@ import { BOOKING_URL, CONTACT_EMAIL } from '../lib/site';
 import { Reveal } from './Reveal';
 import { ButtonLink } from './ui/ButtonLink';
 import { SectionHeading } from './ui/SectionHeading';
+import { IconMark } from './visuals/IconMark';
 
 export default function Contact() {
   return (
@@ -15,15 +16,21 @@ export default function Contact() {
             Tell me which of the three you need. The call is free.
           </p>
           <div className="contact-facts">
-            <div>
-              <p className="section-label contact-kicker">Email</p>
-              <a href={`mailto:${CONTACT_EMAIL}`} className="text-link" style={{ fontSize: 15 }}>
-                Questions first? Email {CONTACT_EMAIL}
-              </a>
+            <div className="contact-fact">
+              <IconMark name="mail" size="sm" />
+              <div>
+                <p className="section-label contact-kicker">Email</p>
+                <a href={`mailto:${CONTACT_EMAIL}`} className="text-link" style={{ fontSize: 15 }}>
+                  Questions first? Email {CONTACT_EMAIL}
+                </a>
+              </div>
             </div>
-            <div>
-              <p className="section-label contact-kicker">Serving</p>
-              <p style={{ color: 'var(--muted)', fontSize: 14 }}>Welland, Niagara and Hamilton</p>
+            <div className="contact-fact">
+              <IconMark name="pin" size="sm" />
+              <div>
+                <p className="section-label contact-kicker">Serving</p>
+                <p style={{ color: 'var(--muted)', fontSize: 14 }}>Welland, Niagara and Hamilton</p>
+              </div>
             </div>
           </div>
         </Reveal>
