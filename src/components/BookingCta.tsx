@@ -1,3 +1,4 @@
+import { AUDIT_BOOKING_URL } from '../lib/site';
 import { ButtonLink } from './ui/ButtonLink';
 
 /** Closing call to action for the app-audit articles. */
@@ -10,7 +11,7 @@ export default function BookingCta() {
       <p style={{ color: 'var(--muted)', fontSize: 16, lineHeight: 1.7, maxWidth: 560 }}>
         Request an app audit. I’ll tell you whether it’s a problem, and what fixing it would take.
       </p>
-      <ButtonLink href="/#app-audit-form" style={{ marginTop: 8 }}>Request an app audit</ButtonLink>
+      <ButtonLink href={AUDIT_BOOKING_URL} style={{ marginTop: 8 }}>Request an app audit</ButtonLink>
     </div>
   );
 }

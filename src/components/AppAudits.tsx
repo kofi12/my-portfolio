@@ -1,7 +1,8 @@
 import Link from 'next/link';
+import { AUDIT_BOOKING_URL } from '../lib/site';
 import { Reveal } from './Reveal';
+import { ButtonLink } from './ui/ButtonLink';
 import { SectionHeading } from './ui/SectionHeading';
-import AuditForm from './AuditForm';
 
 const DELIVERS = [
   'Security: who can see what, and which keys are exposed.',
@@ -38,16 +39,10 @@ export default function AppAudits() {
 
         <Reveal>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 20, alignItems: 'center', marginBottom: 56 }}>
-            <a href="#app-audit-form" className="btn btn-primary">Request an app audit</a>
+            <ButtonLink href={AUDIT_BOOKING_URL}>Request an app audit</ButtonLink>
             <Link href="/what-goes-wrong" className="text-link" style={{ textDecoration: 'underline', textUnderlineOffset: 4 }}>
               Read what goes wrong
             </Link>
-          </div>
-        </Reveal>
-
-        <Reveal>
-          <div style={{ marginBottom: 56 }}>
-            <AuditForm />
           </div>
         </Reveal>
 

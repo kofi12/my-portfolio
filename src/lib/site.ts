@@ -6,21 +6,28 @@ export const OWNER_NAME = 'Aaron Haizel';
 export const CONTACT_EMAIL = 'aaronhaizel@gmail.com';
 
 const MAILTO_CALL = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Free call')}`;
+const MAILTO_AUDIT = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('App audit')}`;
 
 /**
  * Public scheduling page (Google Calendar appointment schedule, Cal.com, …).
- * When unset or not an http(s) URL, booking buttons fall back to email.
+ * Shared by the free-call and app-audit buttons. Null when unset or not http(s).
  */
-function bookingUrl() {
+function schedulingUrl() {
   const configured = process.env.NEXT_PUBLIC_BOOKING_URL?.trim();
   if (configured && /^https?:\/\//i.test(configured)) return configured;
-  return MAILTO_CALL;
+  return null;
 }
 
-export const BOOKING_URL = bookingUrl();
+const SCHEDULING_URL = schedulingUrl();
 
-/** Fallback when the on-site audit form cannot send. */
-export const AUDIT_MAILTO = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('App audit')}`;
+/** Free-call buttons. The scheduling page when set, otherwise email. */
+export const BOOKING_URL = SCHEDULING_URL ?? MAILTO_CALL;
+
+/**
+ * App-audit buttons. The same scheduling page when set.
+ * Otherwise email with the subject "App audit".
+ */
+export const AUDIT_BOOKING_URL = SCHEDULING_URL ?? MAILTO_AUDIT;
 
 export const NAV_LINKS = [
   { label: 'Automations', href: '/#automations' },

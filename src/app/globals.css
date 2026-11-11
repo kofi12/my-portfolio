@@ -728,63 +728,6 @@ a.index-row:hover { color: var(--accent); }
   }
 }
 
-.audit-form {
-  max-width: 640px;
-  padding: clamp(24px, 4vw, 36px);
-  scroll-margin-top: 88px;
-}
-
-.field {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin-bottom: 18px;
-}
-
-.field label {
-  font-size: 12px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-
-.field-optional {
-  letter-spacing: 0.04em;
-}
-
-.field input,
-.field textarea {
-  width: 100%;
-  background: var(--bg);
-  border: 1px solid var(--border-strong);
-  border-radius: 8px;
-  padding: 12px 14px;
-  font: inherit;
-  color: var(--text);
-}
-
-.field textarea { resize: vertical; min-height: 120px; }
-
-.field input:focus,
-.field textarea:focus {
-  outline: 2px solid var(--accent);
-  outline-offset: 2px;
-}
-
-.field-error {
-  color: var(--accent);
-  font-size: 13px;
-  line-height: 1.5;
-}
-
-.hp {
-  position: absolute;
-  left: -10000px;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-}
-
 .service-jump {
   margin-top: auto;
   padding-top: 28px;
