@@ -1,11 +1,11 @@
 import { Reveal } from './Reveal';
 import { SectionHeading } from './ui/SectionHeading';
-import { Glyph } from './visuals/Glyph';
+import { IconMark, type IconName } from './visuals/IconMark';
 
-const STEPS = [
-  { icon: 'call' as const, title: 'Book a call', desc: 'Tell me which of the three you need. The call is free.' },
-  { icon: 'setup' as const, title: 'We name the work', desc: 'An automation, a transformation, or an app audit. One of them.' },
-  { icon: 'next' as const, title: 'Then it starts', desc: 'Nothing is booked until we’ve agreed the scope.' },
+const STEPS: { icon: IconName; title: string; desc: string }[] = [
+  { icon: 'calendar', title: 'Book a call', desc: 'Tell me which of the three you need. The call is free.' },
+  { icon: 'target', title: 'We name the work', desc: 'An automation, a transformation, or an app audit. One of them.' },
+  { icon: 'launch', title: 'Then it starts', desc: 'Nothing is booked until we’ve agreed the scope.' },
 ];
 
 export default function Process() {
@@ -18,12 +18,18 @@ export default function Process() {
           </SectionHeading>
         </Reveal>
 
-        <ol className="three-col" style={{ listStyle: 'none' }}>
+        <ol className="three-col process-steps">
           {STEPS.map(({ icon, title, desc }, i) => (
             <Reveal key={title} delay={i * 0.16}>
-              <li>
-                <Glyph name={icon} />
-                <div aria-hidden="true" style={{ fontFamily: 'var(--serif)', fontSize: 48, color: 'var(--accent)', margin: '14px 0 20px', lineHeight: 1 }}>{i + 1}</div>
+              <li className="process-step">
+                <IconMark name={icon} size="md" />
+                <div
+                  aria-hidden="true"
+                  className="process-numeral"
+                  data-connect={i < STEPS.length - 1 ? '' : undefined}
+                >
+                  {i + 1}
+                </div>
                 <h3 style={{ fontFamily: 'var(--serif)', fontSize: 22, lineHeight: 1.2, marginBottom: 12 }}>{title}</h3>
                 <p style={{ color: 'var(--muted)', fontSize: 15, lineHeight: 1.7 }}>{desc}</p>
               </li>

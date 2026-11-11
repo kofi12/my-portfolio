@@ -1,25 +1,25 @@
 import Link from 'next/link';
 import { Reveal } from './Reveal';
-import { Glyph } from './visuals/Glyph';
+import { IconMark, type IconName } from './visuals/IconMark';
 
-const OFFERS = [
+const OFFERS: { href: string; mark: IconName; title: string; who: string; what: string }[] = [
   {
     href: '/#automations',
-    icon: 'message' as const,
+    mark: 'automations',
     title: 'AI automations',
     who: 'Local service businesses',
     what: 'Practical setups. Never miss a lead is the flagship.',
   },
   {
     href: '/#transformation',
-    icon: 'layers' as const,
+    mark: 'transformation',
     title: 'AI transformation',
     who: 'The team you have',
     what: 'Time back. AI takes the repetitive work.',
   },
   {
     href: '/#app-audits',
-    icon: 'search' as const,
+    mark: 'audits',
     title: 'AI-built app audits',
     who: 'Apps built with AI tools',
     what: 'A review of security, data, reliability, and upkeep.',
@@ -34,8 +34,9 @@ export default function Services() {
           {OFFERS.map((offer, i) => (
             <Reveal key={offer.href} delay={i * 0.08}>
               <Link href={offer.href} className="service-cell">
-                <div className="glyph-row">
-                  <Glyph name={offer.icon} />
+                <div className="service-mark">
+                  <IconMark name={offer.mark} />
+                  <span className="service-rule" aria-hidden="true" />
                 </div>
                 <h2 style={{ fontFamily: 'var(--serif)', fontSize: 28, marginBottom: 14, lineHeight: 1.15 }}>{offer.title}</h2>
                 <p className="meta-label" style={{ marginBottom: 12 }}>{offer.who}</p>
