@@ -30,4 +30,6 @@ Copy the example file and fill in what you have. The site still runs if you leav
 cp .env.example .env.local
 ```
 
-`NEXT_PUBLIC_BOOKING_URL` is a public scheduling page, such as a Google Calendar appointment schedule or a Cal.com link. When it is set, “Book a free call” and “Request an app audit” both open that page in a new tab. When it is empty, the first emails with the subject “Free call” and the second emails with the subject “App audit”. Paste the page URL only. Do not embed a third-party iframe. Restart `npm run dev` after changing it.
+“Book a free call” and “Request an app audit” open Aaron’s Google Calendar appointment page in a new tab. No environment variable is required for that.
+
+Set `NEXT_PUBLIC_BOOKING_URL` only to replace that page with another `http` or `https` scheduling link. Paste the page URL only. Do not embed an iframe. If the value is not an http(s) link, the buttons fall back to email: “Free call” and “App audit” as the subjects. Restart `npm run dev` after changing it.

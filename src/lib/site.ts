@@ -8,13 +8,19 @@ export const CONTACT_EMAIL = 'aaronhaizel@gmail.com';
 const MAILTO_CALL = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Free call')}`;
 const MAILTO_AUDIT = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('App audit')}`;
 
+/** Aaron's Google Calendar appointment schedule. */
+const DEFAULT_BOOKING_URL =
+  'https://calendar.google.com/calendar/appointments/schedules/AcZssZ18vkvHb75BizhStc3vaMOGvFjwzbXzqpgC-ESy1Q2cUfn52E7cSA4zrZMGLSiIfhs51UOQpscR';
+
 /**
- * Public scheduling page (Google Calendar appointment schedule, Cal.com, …).
- * Shared by the free-call and app-audit buttons. Null when unset or not http(s).
+ * Shared by the free-call and app-audit buttons.
+ * NEXT_PUBLIC_BOOKING_URL replaces the default when it is an http(s) link.
+ * An invalid override falls back to email.
  */
 function schedulingUrl() {
   const configured = process.env.NEXT_PUBLIC_BOOKING_URL?.trim();
-  if (configured && /^https?:\/\//i.test(configured)) return configured;
+  if (!configured) return DEFAULT_BOOKING_URL;
+  if (/^https?:\/\//i.test(configured)) return configured;
   return null;
 }
 
