@@ -126,10 +126,10 @@ export const FAILURE_MODES: FailureMode[] = [
         'AI tools tend to write the happy path. The field expects a number, so the code assumes it got one. When it gets something else, the best case is a crash. The worse cases are data that’s wrong from then on, or typed input that the app treats as a command. That’s how break-ins work.',
       ],
       fromYourSide: [
-        'Odd records: a customer with a blank name, an order for negative three items, a date in the year 20233. Pages that crash for one specific user. Or a field that was only meant for you, like a user’s role or a product’s price, that turns out to be changeable from the sign-up form.',
+        'Odd records: a customer with a blank name, an order for negative three items, a date in the year 20233. Pages that crash for one specific user. Or a field that was only meant for you, like a user’s role or what a product sells for, that turns out to be changeable from the sign-up form.',
       ],
       cost: [
-        'Bad data is expensive because it spreads. A wrong price on one order feeds into reports, invoices and refunds. A missing check on a hidden field can let a user make themselves an admin or set their own price. And unchecked input reaching your database is the classic way attackers read or destroy it.',
+        'Bad data is expensive because it spreads. A wrong amount on one order feeds into reports, invoices and refunds. A missing check on a hidden field can let a user make themselves an admin or choose what they pay. And unchecked input reaching your database is the classic way attackers read or destroy it.',
       ],
       check: [
         'Open a form in your app, any one that saves something. Try a few wrong answers: letters in a number field, a negative quantity, a date that doesn’t exist, a very long piece of text pasted into a short field. Submit.',

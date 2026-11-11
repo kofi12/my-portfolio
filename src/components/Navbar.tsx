@@ -49,10 +49,11 @@ export default function Navbar() {
           {NAV_LINKS.map(({ label, href }) => (
             <Link key={href} href={href} className="nav-link">{label}</Link>
           ))}
-          <ButtonLink href={BOOKING_URL} size="sm">Book the review</ButtonLink>
+          <ButtonLink href={BOOKING_URL} size="sm">Book a free call</ButtonLink>
         </div>
 
         <button
+          type="button"
           className="hamburger"
           onClick={() => setMenuOpen((open) => !open)}
           aria-label="Toggle menu"
@@ -72,7 +73,7 @@ export default function Navbar() {
           </Link>
         ))}
         <ButtonLink href={BOOKING_URL} block onClick={closeMenu} style={{ marginTop: 8 }}>
-          Book the review
+          Book a free call
         </ButtonLink>
       </div>
     </>

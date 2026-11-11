@@ -3,13 +3,6 @@ import { Reveal } from './Reveal';
 import { ButtonLink } from './ui/ButtonLink';
 import { SectionHeading } from './ui/SectionHeading';
 
-const INCLUDES = [
-  'Recorded walkthrough of your app’s code',
-  'Written report, every problem ranked by how serious it is',
-  'A verdict on a call: fix, restructure, or rebuild',
-  'Fee credited toward the next tier',
-];
-
 function MailIcon() {
   return (
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -34,10 +27,10 @@ export default function Contact() {
       <div className="two-col-grid-start container">
         <Reveal>
           <SectionHeading label="Get started" style={{ marginBottom: 24 }}>
-            Find out before<br /><em>your users do.</em>
+            Book a free call.
           </SectionHeading>
           <p style={{ color: 'var(--muted)', fontSize: 17, lineHeight: 1.8, marginBottom: 48 }}>
-            Book the Production Readiness Review. $250, 2–3 business days, and a clear verdict you can act on.
+            Tell me which of the three you need. The call is free.
           </p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
             <a href={`mailto:${CONTACT_EMAIL}`} className="text-link" style={{ display: 'flex', alignItems: 'center', gap: 12, fontSize: 15 }}>
@@ -46,21 +39,19 @@ export default function Contact() {
             </a>
             <div style={{ color: 'var(--muted)', fontSize: 14, display: 'flex', alignItems: 'center', gap: 12 }}>
               <span className="icon-box"><PinIcon /></span>
-              Based in Canada · Works remotely
+              Welland, Niagara and Hamilton
             </div>
           </div>
         </Reveal>
 
         <Reveal delay={0.15}>
           <div className="card" style={{ padding: 36, display: 'flex', flexDirection: 'column' }}>
-            <h3 style={{ fontFamily: 'var(--serif)', fontSize: 26, lineHeight: 1.2, marginBottom: 8 }}>Production Readiness Review</h3>
-            <div className="meta-label" style={{ marginBottom: 24 }}>$250 · 2–3 business days</div>
-            <ul className="dot-list" style={{ fontSize: 15, gap: 12, marginBottom: 32 }}>
-              {INCLUDES.map((item) => (
-                <li key={item}><span className="dot dot-sm" />{item}</li>
-              ))}
-            </ul>
-            <ButtonLink href={BOOKING_URL} block>Book the $250 review</ButtonLink>
+            <h3 style={{ fontFamily: 'var(--serif)', fontSize: 26, lineHeight: 1.2, marginBottom: 8 }}>Not sure which one?</h3>
+            <div className="meta-label" style={{ marginBottom: 24 }}>We’ll name it on the call</div>
+            <p style={{ color: 'var(--muted)', fontSize: 15, lineHeight: 1.7, marginBottom: 32 }}>
+              Automations, transformation, or an app audit. One service, agreed before any work starts.
+            </p>
+            <ButtonLink href={BOOKING_URL} block>Book a free call</ButtonLink>
           </div>
         </Reveal>
       </div>

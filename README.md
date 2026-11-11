@@ -21,3 +21,15 @@ npm run build
 - `src/lib/site.ts` — site-wide config: name, email, nav links, and the booking link every CTA points at
 
 Styling is CSS variables plus inline styles. There is no Tailwind or CSS-in-JS.
+
+## Environment
+
+Copy the example file and fill in what you have. The site still runs if you leave it empty.
+
+```bash
+cp .env.example .env.local
+```
+
+“Book a free call” and “Request an app audit” open Aaron’s Google Calendar appointment page in a new tab. No environment variable is required for that.
+
+Set `NEXT_PUBLIC_BOOKING_URL` only to replace that page with another `http` or `https` scheduling link. Paste the page URL only. Do not embed an iframe. If the value is not an http(s) link, the buttons fall back to email: “Free call” and “App audit” as the subjects. Restart `npm run dev` after changing it.

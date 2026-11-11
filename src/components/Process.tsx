@@ -1,10 +1,11 @@
 import { Reveal } from './Reveal';
 import { SectionHeading } from './ui/SectionHeading';
+import { Glyph } from './visuals/Glyph';
 
 const STEPS = [
-  ['Book the review', 'Pay $250, give me access to the code, and get a written report within 2–3 business days.'],
-  ['Get the verdict on a call', 'We go through the findings together. You’ll know what’s wrong, what matters, and what doesn’t.'],
-  ['Decide with fixed prices in hand', 'If there’s work to do, you get a fixed quote. Take it, get a second opinion, or hand the report to someone else. No hourly billing.'],
+  { icon: 'call' as const, title: 'Book a call', desc: 'Tell me which of the three you need. The call is free.' },
+  { icon: 'setup' as const, title: 'We name the work', desc: 'An automation, a transformation, or an app audit. One of them.' },
+  { icon: 'next' as const, title: 'Then it starts', desc: 'Nothing is booked until we’ve agreed the scope.' },
 ];
 
 export default function Process() {
@@ -13,15 +14,16 @@ export default function Process() {
       <div className="container">
         <Reveal>
           <SectionHeading label="How it works" style={{ marginBottom: 64 }}>
-            Three steps.<br /><em>No open-ended billing.</em>
+            Three steps.<br /><em>Start with a call.</em>
           </SectionHeading>
         </Reveal>
 
         <ol className="three-col" style={{ listStyle: 'none' }}>
-          {STEPS.map(([title, desc], i) => (
-            <Reveal key={title} delay={i * 0.1}>
+          {STEPS.map(({ icon, title, desc }, i) => (
+            <Reveal key={title} delay={i * 0.16}>
               <li>
-                <div aria-hidden="true" style={{ fontFamily: 'var(--serif)', fontSize: 48, color: 'var(--accent)', marginBottom: 24, lineHeight: 1 }}>{i + 1}</div>
+                <Glyph name={icon} />
+                <div aria-hidden="true" style={{ fontFamily: 'var(--serif)', fontSize: 48, color: 'var(--accent)', margin: '14px 0 20px', lineHeight: 1 }}>{i + 1}</div>
                 <h3 style={{ fontFamily: 'var(--serif)', fontSize: 22, lineHeight: 1.2, marginBottom: 12 }}>{title}</h3>
                 <p style={{ color: 'var(--muted)', fontSize: 15, lineHeight: 1.7 }}>{desc}</p>
               </li>

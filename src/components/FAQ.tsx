@@ -1,42 +1,21 @@
 'use client';
 import { useState } from 'react';
+import { CONTACT_EMAIL } from '../lib/site';
 import { Reveal } from './Reveal';
 import { SectionHeading } from './ui/SectionHeading';
 
-// Answers marked TODO(policy) are drafts pending Aaron's confirmation.
 const ITEMS = [
   {
-    q: 'What access do you need?',
-    a: 'Permission to read your code, nothing more. I don’t need the ability to change it, and I don’t need access to your live database.',
+    q: 'Which service is which?',
+    a: 'Automations are practical setups for a local service business. Never miss a lead is the flagship of that service. Transformation puts AI on the team’s repetitive work so people get time back. An app audit is for an app that was built with AI tools.',
   },
   {
-    // TODO(policy): confirm an NDA is ready to send.
-    q: 'Will you sign an NDA?',
-    a: 'Yes. Send yours, or I’ll send a short mutual one.',
+    q: 'Do you pick up the phone for me?',
+    a: 'No. That question belongs to automations. A missed call gets a text back. You still talk to the customer. It is not a promise that every call is answered.',
   },
   {
-    q: 'What if I don’t like the verdict?',
-    a: 'The report is yours. Take it to another developer, get a second opinion, or do nothing. You paid for the review, not for me.',
-  },
-  {
-    // TODO(policy): confirm the live-data check approach.
-    q: 'Do you need access to my live data?',
-    a: 'No. I read the code and the settings. If something needs checking against live data, I’ll ask you to run a specific check and tell me what you see.',
-  },
-  {
-    // TODO(policy): confirm any stacks not taken, such as no-code builders.
-    q: 'What if my app isn’t built with one of the tools you list?',
-    a: 'The tools change. The problems don’t. If it’s a web or mobile app with a database and users, I can review it. If I can’t, I’ll say so before you pay.',
-  },
-  {
-    // TODO(policy): confirm payment terms for sprints and rescues.
-    q: 'How do I pay, and when?',
-    a: 'The review is paid when you book. Sprints and rescues are fixed quotes, paid half up front and half on delivery, or per phase for a rescue.',
-  },
-  {
-    // TODO(policy): confirm the deletion window and what happens to the recording.
-    q: 'What happens to my code after the review?',
-    a: 'I delete my copy within 30 days of delivering the report, unless you’ve booked follow-up work. The recorded walkthrough is yours to keep.',
+    q: 'How do I start?',
+    a: `Book a free call, or email ${CONTACT_EMAIL}. If you want an app looked at, use Request an app audit.`,
   },
 ];
 
@@ -44,7 +23,7 @@ export default function FAQ() {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="section-pad" style={{ background: 'var(--bg2)' }}>
+    <section id="faq" className="section-pad" style={{ background: 'var(--bg)' }}>
       <div style={{ maxWidth: 760, margin: '0 auto' }}>
         <Reveal>
           <SectionHeading label="FAQ" style={{ marginBottom: 56 }}>
